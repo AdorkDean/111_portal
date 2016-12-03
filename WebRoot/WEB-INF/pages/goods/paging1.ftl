@@ -1,0 +1,133 @@
+    <div class="page-jump fr">
+        <span id="psizeid1"></span><span>到第</span><input type="text" value="1" id="pageval1"/><span class="page_y">页</span>
+        <a href="javascript:;" class="page_make" onclick="pageQuery1();">确定</a>
+    </div>
+    <div class="page clearfix">
+    	<input type="hidden" value="" id="pageSizeId1"/>
+    	<input type="hidden" value="" id="pageId1"/>
+        <a href="javascript:;" class="page-next" onclick="pageNext1();" id="pnextid1" >下一页 &gt;&gt;</a>
+        <span id="span21" style="display:none">...</span>
+        <div id="adiv1"></div>
+        <span id="span11" style="display:none">...</span>
+        <a href="javascript:;" class="page-prev" onclick="pagePrev1();">&lt;&lt; 上一页</a>
+    </div>
+
+<script type="text/javascript">
+	function paging1(page,pageSize){
+		$("#psizeid1").text("共"+pageSize+"页，");	
+		$("#pageSizeId1").val(pageSize);
+		$("#pageId1").val(page);
+		setA1();
+	}
+	function pageQuery1(){
+		var pagev = $("#pageval1").val();
+		var size = $("#pageSizeId1").val();
+		if(isInts(pagev)){
+			if(Number(pagev)>0&&Number(pagev)<=Number(size)){
+				$("#pageId1").val(pagev);
+				setA1();
+				updata1(pagev);
+			}else{
+				alert("输入页数有误!");
+			}
+		}else{
+			alert("请输入数字!");
+		}
+	}
+	function isInts1(str){
+    if (str == ""){
+      	return false;
+    }
+    var r = /^[0-9]+$/;
+    return r.test(str);
+}
+	function pageQueryVal1(v){
+		$("#pageId1").val(v);
+		setA1();
+		updata1(v);
+	}
+	function pagePrev1(){
+		var index= $("#pageId1").val();
+		var type = $("#typeId1").val();
+		if(index==1){
+			$("#pagePrev1").unbind("click");
+		}else{
+			$("#pageId1").val(Number(index)-Number(1));
+			setA1();
+			updata1(Number(index)-Number(1));
+		}
+	}
+	function pageNext1(){
+		var size = $("#pageSizeId1").val();
+		var index= $("#pageId1").val();
+		if(index==size){
+			$("#pnextid1").unbind("click");
+		}else{
+			$("#pageId1").val(Number(index)+Number(1));
+			setA1();
+			updata1(Number(index)+Number(1));
+		}
+	}
+	function setA1(){
+		var size = $("#pageSizeId1").val();
+		var index= $("#pageId1").val();
+		var htmla = "";
+		if(size<5){
+			$("#span11").hide();
+			$("#span21").hide();
+			for (var i = 1; i <= size; i++) {
+				htmla = "<a href='javascript:;' id='ab"+i+"' onclick='pageQueryVal1("+i+")'>"+i+"</a>"+htmla
+			}
+		}else if (index==size) {
+			$("#span11").show();
+			$("#span21").hide();
+			for (var i = Number(index)-Number(4); i <=size; i++) {
+				htmla = "<a href='javascript:;' id='ab"+i+"' onclick='pageQueryVal1("+i+")'>"+i+"</a>"+htmla
+			}
+		}else if(index<=3){
+			$("#span11").hide();
+			$("#span21").show();
+			for (var i = 1; i <= 5; i++) {
+				htmla = "<a href='javascript:;' id='ab"+i+"' onclick='pageQueryVal1("+i+")'>"+i+"</a>"+htmla
+			}
+		}else if (index>=3&&(index<=Number(size)-Number(3))) {
+			$("#span11").show();
+			$("#span21").show();
+			for (var i = Number(index)-Number(2); i <= Number(index)+Number(2); i++) {
+				htmla = "<a href='javascript:;' id='ab"+i+"' onclick='pageQueryVal1("+i+")'>"+i+"</a>"+htmla
+			}
+		}else if(index>=(Number(size)-Number(2))){
+			$("#span11").show();
+			$("#span21").hide();
+			for (var i = Number(index)-Number(3); i <=size; i++) {
+				htmla = "<a href='javascript:;' id='ab"+i+"' onclick='pageQueryVal1("+i+")'>"+i+"</a>"+htmla
+			}
+		}
+		$("#adiv1").html("");
+		$("#adiv1").append(htmla);
+		$("#ab"+index+"").attr("class","current");
+	}
+	function updata1(pages){
+		jQuery.ajax({
+		       type: "post",
+		       async: false,
+		       url: " ${base}/goodsConsult/ajaxGoodsConsultByPage.action",	  
+		       data:{"goodsId":$("#gid").val(),"currentPage":pages},
+		       success: function(data){
+		       		$("#consultULId").find("li").remove(); 
+		       		var allData = "";
+		      		for(var i=0; i<data.list.length; i++){
+			      		if(data.list[i].answer==null){
+			      			allData=allData+'<li><div class="qustion-text"><span>咨询内容：</span><p>'+data.list[i].consultContent+'</p></div></li>';
+			      		}else{
+					       	allData=allData+'<li><div class="qustion-text"><span>咨询内容：</span><p>'+data.list[i].consultContent+'</p></div>'+
+					      	'<div class="answer-text"><span>药师回复：</span><p>'+data.list[i].answer+'</p></div></li>';
+			      		}
+                	}   
+					$("#consultULId").append(allData);
+		       },error:function(){
+		       		alert("网络异常");
+		       }
+		   }); 
+		}
+</script>

@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <!--允许全屏-->
+    <meta content="yes" name="apple-mobile-web-app-capable">
+    <meta content="yes" name="apple-touch-fullscreen">
+    <meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+    <!--缩放比例-->
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="format-detection" content="email=no" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <title>111医药馆健康领秀邀请您为健康加油，与领秀一齐共享健康时代！</title>
+</head>
+
+<body>
+	<img src="" id="goods_01">
+</body>
+</html>
+<script type="text/javascript" src="http://www.111yao.com/web/js/jquery-1.9.1.min.js"></script>
+<script>
+
+  var url = "?a=1&b=2&c=3";
+  function getParameters(){
+	var pars = window.location.search;
+    if(pars.charAt(0) == '?')
+            pars = pars.substring(1,pars.length);
+			
+    var arr = pars.split("&");
+    var objs = [];
+    var eles;
+    for(var i=0;i<arr.length;i++){
+            eles = arr[i].split("=");
+            objs[eles[0]] = eles[1];
+    }
+    return objs;
+  }
+  var code = getParameters().code;
+  var id = getParameters().id;
+  $.post("http://localhost:8082/healthLeader/sharedleader!getHaiBao.action?id="+id,{random:Math.random()}, function(data){
+     alert(data);
+     if(data=="1"){
+       var goodsurl = "http://ui1.111yao.com/static/image/haibao/"+code+"_"+id+".jpg";
+       document.getElementById("goods_01").src = goodsurl;  
+     }else if(data=="0"){
+  		var goodsurl = "http://ui1.111yao.com/static/image/haibao/"+code+"_"+id+".jpg";
+  		document.getElementById("goods_01").src = goodsurl;  
+     }else{
+	    var goodsurl = "http://ui1.111yao.com"+data;
+		document.getElementById("goods_01").src = goodsurl;       
+     }
+  });
+
+</script>
+<style type="text/css">
+@charset "utf-8";
+/* CSS Document */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,textarea,input,span,figure,aside,time,figcaption{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+audio:not([controls]){display:none}
+html,body{height:100%; position:relative}
+html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+body{width:100%;font-family:"SimHei",Helvetica,Arial,sans-serif;font-size:14px;color:#000;background:#fff;}
+input,textarea{font-family:"SimHei",Helvetica,Arial,sans-serif;color:#000;background: none;}
+input:-moz-placeholder,textarea:-moz-placeholder{color:#c7c7cd}
+input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#c7c7cd}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#c7c7cd}
+a{color:#0d0d0d;text-decoration:none;/*-webkit-tap-highlight-color:rgba(0,0,0,0.2);*/-webkit-tap-highlight-color:transparent}
+a:hover{text-decoration:none}
+a:focus{outline:none;blr:expression(this.onFocus=this.blur());}
+a:hover,a:active{outline:0}
+textarea,input{resize:none;outline:0;font-size:100%;-webkit-tap-highlight-color:rgba(255,0,0,0)}
+textarea{resize:none;-webkit-appearance:none}
+ul,ol{list-style:none}
+em{font-style:normal}
+h1,h2,h3,h4,h5,h6,b{font-weight:normal;}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:".";clear:both;height:0;overflow:hidden}
+img{width:100%;}
+</style>

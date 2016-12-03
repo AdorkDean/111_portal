@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="111医药馆网上药店是国家药监局认证指定网上药房|打造为老百姓服务药品价格低品种全|网上购药买药就选壹壹壹医药馆药品特卖网站" />
+    <meta name="keywords" content="壹壹壹医药馆|壹药馆|11医药馆|1药馆|医卡通|111医药馆|医药网|药品特卖网站" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Cache-Control" content="no-siteapp"/> 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="msapplication-TileImage" content="/static/image/win8-tile-icon.png" />
+    <meta name="msapplication-TileColor" content="#0e90d2" />
+    <title>111医药馆-要健康 要美丽 要时尚-医卡通买药价格低便宜实惠-国家药监局指定壹壹壹医药馆网上连锁药店</title>
+    <link rel="icon" type="/web/image/png" href="/web/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/web/img/favicon-196x196.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/image/apple-icon-touch.png" />
+    <link rel="stylesheet" type="text/css" href="/web/css/index-new.css" />
+</head>
+
+<body>
+	<input type="hidden" id="indexPage" value="1"/>
+	<input type="hidden" id="header-nav" value="1"/>
+	<!--#include virtual="/static/inc/header.html" -->
+	
+	<!-- 显示头部商品分类 -->
+	<script type="text/javascript">
+		$("#productCategorys").css("display","block");
+		$(".dividing-line").css("display","block");
+	</script>
+	
+	<!-- 轮播图 -->
+	<!--#include virtual="/static/imgout/index_lbtp.html" -->
+	<script type="text/javascript" src="/web/js/index-new.js"></script>
+    
+    <!-- 轮播广告图 -->
+    <!--#include virtual="/static/imgout/index_lbcdt.html" -->
+    
+    <!--限时抢购-->
+    <div class="panic-buying w1210 clearfix clear" style="position:relative">
+        <!--#include virtual="/static/imgout/index_countdown_left.html" -->
+        <!--#include virtual="/static/imgout/index_countdown_middle.html" -->
+        <!--#include virtual="/static/imgout/index_countdown_right.html" -->
+        <!-- 限购结束提示 -->
+        <div id="timeover-div"></div>
+    </div>
+    
+    <!--通栏广告-->
+    <!--#include virtual="/static/imgout/index_tlgg.html" -->
+    
+    <!--最热活动-->
+    <!--#include virtual="/static/imgout/index_zrhd.html" -->
+    
+    <!--精选品牌开始-->
+    <div class="modules w1210 brand mt20">
+    	<div class="module-title">
+        	<b></b>
+            <!-- a href="javascript:;" class="refresh"><i></i>换一批</a -->
+            <input type="hidden" value="2" id="chageC"/>
+            <h2>精选品牌</h2>
+        </div>
+        <div class="modules-info boutique-brand">
+		    <!--#include virtual="/static/imgout/index_jxpp.html" -->
+        </div>
+    </div>
+    
+    <!--应季常见病-->
+    <div class="modules w1210 usual mt20" style="background-color:#e6e6e6;">
+    	<div class="module-title">
+        	<b></b>
+            <h2>应季常见病</h2>
+        </div>
+        <div class="modules-info">
+        	<div class="brand-box brand-box1">
+            	<ul class="usualHolder">
+			    <!--#include virtual="/static/imgout/index_yjcjb_ganmao.html" -->
+			    <!--#include virtual="/static/imgout/index_yjcjb_jianfei.html" -->
+			    <!--#include virtual="/static/imgout/index_yjcjb_right.html" -->
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <!--通栏广告2-->
+    <!--#include virtual="/static/imgout/index_tlgg_2.html" -->
+     
+     
+    <!--分类列表开始-->
+    <div class="cloumn-box w1210 mt20 clearfix clear">
+     
+     	<!-- 分类一 -->
+		<div class="clolumn-info cloumn-info1 the-odd" style="margin-left:0px;">
+        	<div class="cloumn-title">
+            	<h2><b></b></h2>
+			    <!--#include virtual="/static/imgout/index_pro_ctg_01.html" -->
+            </div>
+            <div class="column-list-main">
+            	<ul class="column-list" id="column-list-1">
+			    <!--#include virtual="/static/imgout/index_pro_ctg_child_01.html" -->
+                </ul>
+            </div>
+        </div>
+        
+        
+        <!-- 分类二 -->
+        <div class="clolumn-info cloumn-info2 the-odd">
+        	<div class="cloumn-title">
+            	<h2><b></b></h2>
+			    <!--#include virtual="/static/imgout/index_pro_ctg_02.html" -->
+				
+            </div>
+            <div class="column-list-main">
+            	<ul class="column-list" id="column-list-2">
+            	<!--#include virtual="/static/imgout/index_pro_ctg_child_02.html" -->
+                </ul>
+            </div>
+        </div>
+        
+        <!-- 分类三 -->
+        <div class="clolumn-info cloumn-info3 clearfix clear">
+        	<div class="cloumn-title">
+            	<h2><b></b></h2>
+                <!--#include virtual="/static/imgout/index_pro_ctg_03.html" -->
+            </div>
+            <div class="column-list-main">
+            	<ul class="column-list" id="column-list-3">
+                	<!--#include virtual="/static/imgout/index_pro_ctg_child_03.html" -->
+                  </ul>
+            </div>
+        </div>
+        
+        <!-- 分类四 -->
+        <div class="clolumn-info cloumn-info4 the-odd">
+        	<div class="cloumn-title">
+            	<h2><b></b></h2>
+                <!--#include virtual="/static/imgout/index_pro_ctg_04.html" -->
+            </div>
+            <div class="column-list-main">
+            	<ul class="column-list" id="column-list-4">
+                	<!--#include virtual="/static/imgout/index_pro_ctg_child_04.html" -->
+                  </ul>
+            </div>
+        </div>
+        
+        <!-- 分类五 -->
+        <div class="clolumn-info cloumn-info5 clearfix clear">
+        	<div class="cloumn-title">
+            	<h2><b></b></h2>
+                <!--#include virtual="/static/imgout/index_pro_ctg_05.html" -->
+            </div>
+            <div class="column-list-main">
+            	 <ul class="column-list" id="column-list-5">
+ 				 <!--#include virtual="/static/imgout/index_pro_ctg_child_05.html" -->
+                 </ul>
+            </div>
+        </div>
+        
+        <!-- 分类六 -->
+        <div class="clolumn-info cloumn-info6 the-odd">
+        	<div class="cloumn-title">
+            	<h2><b></b></h2>
+                <!--#include virtual="/static/imgout/index_pro_ctg_06.html" -->
+            </div>
+            <div class="column-list-main">
+            	<ul class="column-list" id="column-list-6">
+                	<!--#include virtual="/static/imgout/index_pro_ctg_child_06.html" -->
+                  </ul>
+            </div>
+        </div>
+        
+        <!-- 分类七 -->
+        <div class="clolumn-info cloumn-info7 clearfix clear">
+        	<div class="cloumn-title">
+            	<h2><b></b></h2>
+				<!--#include virtual="/static/imgout/index_pro_ctg_07.html" -->
+            </div>
+            <div class="column-list-main">
+            	<ul class="column-list" id="column-list-7">
+                	<!--#include virtual="/static/imgout/index_pro_ctg_child_07.html" -->
+                  </ul>
+            </div>
+        </div>
+        
+        <!-- 分类八 -->
+        <div class="clolumn-info cloumn-info8 the-odd">
+        	<div class="cloumn-title">
+            	<h2><b></b></h2>
+                <!--#include virtual="/static/imgout/index_pro_ctg_08.html" -->
+            </div>
+            <div class="column-list-main">
+            <ul class="column-list" id="column-list-8">
+                <!--#include virtual="/static/imgout/index_pro_ctg_child_08.html" -->
+            </ul>
+            </div>
+        </div>
+    </div>
+    
+    
+    <!--最新信息开始-->
+    <div class="new-info w1210 mt10 clearfix clear" id="loadObj">
+    	<div class="new-box clearfix comment">
+        	<div class="new-box-title">
+            	<b></b>
+                <p>最新<br>评论</p>
+            </div>
+            <div class="new-info-box">
+            	<ul class="new-comment" id="newest-ui">
+                </ul>
+            </div>
+        </div>
+        <div class="new-box clearfix consult">
+        	<div class="new-box-title">
+            	<b></b>
+                <p>最新<br>咨询</p>
+            </div>
+            <div class="new-info-box">
+            	<ul class="new-consult" id="consult-list">
+                </ul>
+            </div>
+        </div>
+        <div class="new-box clearfix media" style="margin-right:0">
+        	<div class="new-box-title">
+            	<b></b>
+                <p>媒体<br>报道</p>
+            </div>
+			<!--#include virtual="/static/imgout/index_mtbd.html" -->
+        </div>
+    </div>
+    
+    <!--#include virtual="/static/inc/footer.html" -->
+	<script type="text/javascript" src="/web/js/bigpicroll.js"></script>
+    <script type="text/javascript" src="/web/js/jquery.lazyload.js"></script>
+    <script type="text/javascript" src="/web/js/index-newest.js"></script>
+    <script type="text/javascript" src="/web/js/coupons_index.js"></script>
+    
+    
+    <!-- 优惠券开始-->
+    <div class="coupon-shade">
+        <div class="discount-coupon">
+            <span class="coupon-close" onclick="showOrHideCouponList(2)"></span>
+            <ul id="loadingDatas">
+            </ul>
+        </div>
+    </div>
+    <div class="red-packet" onclick="showOrHideCouponList(1)"><img src="http://ui1.111yao.com/static/image/temp/20160114/4f1b333de8b9e27e4c5172687bd28a3d.gif" /></div>
+    <div id="maskForCoupon"></div>
+    <img src="http://ui1.111yao.com/static/image/temp/20160114/cb6c11d8b61726174bdf2eb9dc023adf.gif" id="loadingGif"/>
+    <!-- 优惠券结束-->
+    
+</body>	
+</html>
+

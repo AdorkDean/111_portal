@@ -1,0 +1,524 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_leader" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TLeader" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="work_year" property="workYear" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="audit_type" property="auditType" jdbcType="INTEGER" />
+    <result column="audit_remark" property="auditRemark" jdbcType="VARCHAR" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="card_first_url" property="cardFirstUrl" jdbcType="VARCHAR" />
+    <result column="card_two_url" property="cardTwoUrl" jdbcType="VARCHAR" />
+    <result column="head_url" property="headUrl" jdbcType="VARCHAR" />
+    <result column="card_code" property="cardCode" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="area_id" property="areaId" jdbcType="BIGINT" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="code" property="code" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="dimensional_code_url" property="dimensionalCodeUrl" jdbcType="VARCHAR" />
+    <result column="create_dt" property="createDt" jdbcType="TIMESTAMP" />
+    <result column="people_ranking" property="peopleRanking" jdbcType="INTEGER" />
+    <result column="price_ranking" property="priceRanking" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLeaderExample" >
+    select id, real_name, work_year, remark, audit_type, audit_remark, member_id, card_first_url,
+      card_two_url, head_url, card_code, nick_name, sex, area_id, area, address, phone, code,
+      status, dimensional_code_url, create_dt, people_ranking, price_ranking
+    from t_leader
+    <isParameterPresent >
+      <include refid="t_leader.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLeader" >
+    select id, real_name, work_year, remark, audit_type, audit_remark, member_id, card_first_url,
+      card_two_url, head_url, card_code, nick_name, sex, area_id, area, address, phone, code,
+      status, dimensional_code_url, create_dt, people_ranking, price_ranking
+    from t_leader
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TLeader" >
+    delete from t_leader
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TLeaderExample" >
+    delete from t_leader
+    <include refid="t_leader.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TLeader" >
+    insert into t_leader (id, real_name, work_year, remark, audit_type, audit_remark, member_id,
+      card_first_url, card_two_url, head_url, card_code, nick_name, sex, area_id, area, address,
+      phone, code, status, dimensional_code_url, create_dt, people_ranking, price_ranking)
+    values (#id:BIGINT#, #realName:VARCHAR#, #workYear:VARCHAR#, #remark:VARCHAR#,
+      #auditType:INTEGER#, #auditRemark:VARCHAR#, #memberId:BIGINT#, #cardFirstUrl:VARCHAR#,
+      #cardTwoUrl:VARCHAR#, #headUrl:VARCHAR#, #cardCode:VARCHAR#, #nickName:VARCHAR#,
+      #sex:INTEGER#, #areaId:BIGINT#, #area:VARCHAR#, #address:VARCHAR#, #phone:VARCHAR#,
+      #code:VARCHAR#, #status:INTEGER#, #dimensionalCodeUrl:VARCHAR#, #createDt:TIMESTAMP#,
+      #peopleRanking:INTEGER#, #priceRanking:INTEGER#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TLeader" >
+    insert into t_leader
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        work_year
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        remark
+      </isNotNull>
+      <isNotNull prepend="," property="auditType" >
+        audit_type
+      </isNotNull>
+      <isNotNull prepend="," property="auditRemark" >
+        audit_remark
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="cardFirstUrl" >
+        card_first_url
+      </isNotNull>
+      <isNotNull prepend="," property="cardTwoUrl" >
+        card_two_url
+      </isNotNull>
+      <isNotNull prepend="," property="headUrl" >
+        head_url
+      </isNotNull>
+      <isNotNull prepend="," property="cardCode" >
+        card_code
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        nick_name
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        sex
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        area_id
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        area
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        address
+      </isNotNull>
+      <isNotNull prepend="," property="phone" >
+        phone
+      </isNotNull>
+      <isNotNull prepend="," property="code" >
+        code
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status
+      </isNotNull>
+      <isNotNull prepend="," property="dimensionalCodeUrl" >
+        dimensional_code_url
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt
+      </isNotNull>
+      <isNotNull prepend="," property="peopleRanking" >
+        people_ranking
+      </isNotNull>
+      <isNotNull prepend="," property="priceRanking" >
+        price_ranking
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        #workYear:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        #remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="auditType" >
+        #auditType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="auditRemark" >
+        #auditRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="cardFirstUrl" >
+        #cardFirstUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardTwoUrl" >
+        #cardTwoUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="headUrl" >
+        #headUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardCode" >
+        #cardCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        #nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        #sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        #areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        #area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        #address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="phone" >
+        #phone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="code" >
+        #code:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="dimensionalCodeUrl" >
+        #dimensionalCodeUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="peopleRanking" >
+        #peopleRanking:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="priceRanking" >
+        #priceRanking:INTEGER#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TLeaderExample" resultClass="java.lang.Integer" >
+    select count(*) from t_leader
+    <include refid="t_leader.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_leader
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.realName" >
+        real_name = #record.realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.workYear" >
+        work_year = #record.workYear:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.remark" >
+        remark = #record.remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.auditType" >
+        audit_type = #record.auditType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.auditRemark" >
+        audit_remark = #record.auditRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardFirstUrl" >
+        card_first_url = #record.cardFirstUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardTwoUrl" >
+        card_two_url = #record.cardTwoUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.headUrl" >
+        head_url = #record.headUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardCode" >
+        card_code = #record.cardCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.nickName" >
+        nick_name = #record.nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sex" >
+        sex = #record.sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.areaId" >
+        area_id = #record.areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.area" >
+        area = #record.area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.address" >
+        address = #record.address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.phone" >
+        phone = #record.phone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.code" >
+        code = #record.code:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        status = #record.status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.dimensionalCodeUrl" >
+        dimensional_code_url = #record.dimensionalCodeUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDt" >
+        create_dt = #record.createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.peopleRanking" >
+        people_ranking = #record.peopleRanking:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.priceRanking" >
+        price_ranking = #record.priceRanking:INTEGER#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_leader.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_leader
+    set id = #record.id:BIGINT#,
+      real_name = #record.realName:VARCHAR#,
+      work_year = #record.workYear:VARCHAR#,
+      remark = #record.remark:VARCHAR#,
+      audit_type = #record.auditType:INTEGER#,
+      audit_remark = #record.auditRemark:VARCHAR#,
+      member_id = #record.memberId:BIGINT#,
+      card_first_url = #record.cardFirstUrl:VARCHAR#,
+      card_two_url = #record.cardTwoUrl:VARCHAR#,
+      head_url = #record.headUrl:VARCHAR#,
+      card_code = #record.cardCode:VARCHAR#,
+      nick_name = #record.nickName:VARCHAR#,
+      sex = #record.sex:INTEGER#,
+      area_id = #record.areaId:BIGINT#,
+      area = #record.area:VARCHAR#,
+      address = #record.address:VARCHAR#,
+      phone = #record.phone:VARCHAR#,
+      code = #record.code:VARCHAR#,
+      status = #record.status:INTEGER#,
+      dimensional_code_url = #record.dimensionalCodeUrl:VARCHAR#,
+      create_dt = #record.createDt:TIMESTAMP#,
+      people_ranking = #record.peopleRanking:INTEGER#,
+      price_ranking = #record.priceRanking:INTEGER#
+    <isParameterPresent >
+      <include refid="t_leader.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TLeader" >
+    update t_leader
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="realName" >
+        real_name = #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        work_year = #workYear:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        remark = #remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="auditType" >
+        audit_type = #auditType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="auditRemark" >
+        audit_remark = #auditRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="cardFirstUrl" >
+        card_first_url = #cardFirstUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardTwoUrl" >
+        card_two_url = #cardTwoUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="headUrl" >
+        head_url = #headUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardCode" >
+        card_code = #cardCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        nick_name = #nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        sex = #sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        area_id = #areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        area = #area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        address = #address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="phone" >
+        phone = #phone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="code" >
+        code = #code:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status = #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="dimensionalCodeUrl" >
+        dimensional_code_url = #dimensionalCodeUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt = #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="peopleRanking" >
+        people_ranking = #peopleRanking:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="priceRanking" >
+        price_ranking = #priceRanking:INTEGER#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TLeader" >
+    update t_leader
+    set real_name = #realName:VARCHAR#,
+      work_year = #workYear:VARCHAR#,
+      remark = #remark:VARCHAR#,
+      audit_type = #auditType:INTEGER#,
+      audit_remark = #auditRemark:VARCHAR#,
+      member_id = #memberId:BIGINT#,
+      card_first_url = #cardFirstUrl:VARCHAR#,
+      card_two_url = #cardTwoUrl:VARCHAR#,
+      head_url = #headUrl:VARCHAR#,
+      card_code = #cardCode:VARCHAR#,
+      nick_name = #nickName:VARCHAR#,
+      sex = #sex:INTEGER#,
+      area_id = #areaId:BIGINT#,
+      area = #area:VARCHAR#,
+      address = #address:VARCHAR#,
+      phone = #phone:VARCHAR#,
+      code = #code:VARCHAR#,
+      status = #status:INTEGER#,
+      dimensional_code_url = #dimensionalCodeUrl:VARCHAR#,
+      create_dt = #createDt:TIMESTAMP#,
+      people_ranking = #peopleRanking:INTEGER#,
+      price_ranking = #priceRanking:INTEGER#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLeaderExample" >
+                    select id, real_name, work_year, remark, audit_type, audit_remark, member_id, card_first_url,
+                      card_two_url, head_url, card_code, nick_name, sex, area_id, area, address, phone, code,
+                      status, dimensional_code_url, create_dt, people_ranking, price_ranking
+                    from t_leader
+                    <isParameterPresent >
+                      <include refid="t_leader.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+   
+  <select id="selectLeaderMember" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >	
+	SELECT
+			l.phone,
+			a.remaining_amount,
+			a.wait_amount,
+			a.freeze_amount,
+			a.total_amount,
+			m.head_portrait,
+	(SELECT COUNT(0) FROM t_member_leader ml WHERE ml.leader_id = (SELECT id FROM t_leader l WHERE l.member_id=#id#)) AS cnt
+	FROM
+	t_member m
+	LEFT JOIN t_leader l ON l.member_id = m.id
+	LEFT JOIN t_member_account a ON m.id = a.member_id
+    WHERE m.id = #id# 
+  </select>  
+  
+ <select id="selectLeaderObject" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+    select id, real_name, work_year, remark, audit_type, audit_remark, member_id, card_first_url,
+      card_two_url, head_url, card_code, nick_name, sex, area_id, area, address, phone, code,
+      status, dimensional_code_url, create_dt
+    from t_leader
+    where member_id = #id:BIGINT#
+  </select> 
+  <select id="selectLeaderByCode" resultMap="ibatorgenerated_BaseResultMap" >
+    select *
+    from t_leader
+    where code = #code:VARCHAR#
+  </select> 
+  
+  
+  <select id="selectLeaderIdByMemberId"  parameterClass="java.util.HashMap" resultClass="java.lang.Long" >
+    select id
+    from t_leader
+    where member_id = #memberId:BIGINT#
+  </select> 
+  
+  <select id="select_leader_member_and_count" parameterClass="java.lang.Long" resultClass="java.util.HashMap">
+  	select t.*,(select count(*)  from t_member_leader ml where ml.leader_id = t.id) count from t_leader t  where t.member_id = #value# limit 1
+  </select> 
+  
+  
+  <select id="leader_xf_wz_yf_count" resultClass="java.util.HashMap" parameterClass="java.util.HashMap">
+	SELECT
+	   count(t1.id) xufen,
+	  (select count(*) from t_leader_article t3 where t2.id = t3.leader_id) as wenzhang,
+	  (select count(*) from t_leader_pharmacy t4 where t2.id = t4.leader_id) as yaofang
+	FROM
+		t_leader t2
+	LEFT JOIN t_member_leader t1 ON t2.id = t1.leader_id
+	where t2.member_id = #memberId#;
+  </select> 
+  
+  
+</sqlMap>

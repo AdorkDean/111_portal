@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_lx_announcement" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TLxAnnouncement" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="centent" property="centent" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="announcement_type" property="announcementType" jdbcType="INTEGER" />
+    <result column="create_dt" property="createDt" jdbcType="TIMESTAMP" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+    <result column="send_dt" property="sendDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLxAnnouncementExample" >
+    select id, centent, weight, announcement_type, create_dt, status, is_delete, send_dt
+    from t_lx_announcement
+    <isParameterPresent >
+      <include refid="t_lx_announcement.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLxAnnouncement" >
+    select id, centent, weight, announcement_type, create_dt, status, is_delete, send_dt
+    from t_lx_announcement
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TLxAnnouncement" >
+    delete from t_lx_announcement
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TLxAnnouncementExample" >
+    delete from t_lx_announcement
+    <include refid="t_lx_announcement.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TLxAnnouncement" >
+    insert into t_lx_announcement (id, centent, weight, announcement_type, create_dt, status,
+      is_delete, send_dt)
+    values (#id:BIGINT#, #centent:VARCHAR#, #weight:INTEGER#, #announcementType:INTEGER#,
+      #createDt:TIMESTAMP#, #status:INTEGER#, #isDelete:INTEGER#, #sendDt:TIMESTAMP#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TLxAnnouncement" >
+    insert into t_lx_announcement
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="centent" >
+        centent
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        weight
+      </isNotNull>
+      <isNotNull prepend="," property="announcementType" >
+        announcement_type
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status
+      </isNotNull>
+      <isNotNull prepend="," property="isDelete" >
+        is_delete
+      </isNotNull>
+      <isNotNull prepend="," property="sendDt" >
+        send_dt
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="centent" >
+        #centent:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        #weight:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="announcementType" >
+        #announcementType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isDelete" >
+        #isDelete:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="sendDt" >
+        #sendDt:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TLxAnnouncementExample" resultClass="java.lang.Integer" >
+    select count(*) from t_lx_announcement
+    <include refid="t_lx_announcement.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_lx_announcement
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.centent" >
+        centent = #record.centent:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.weight" >
+        weight = #record.weight:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.announcementType" >
+        announcement_type = #record.announcementType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDt" >
+        create_dt = #record.createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        status = #record.status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isDelete" >
+        is_delete = #record.isDelete:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sendDt" >
+        send_dt = #record.sendDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_lx_announcement.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_lx_announcement
+    set id = #record.id:BIGINT#,
+      centent = #record.centent:VARCHAR#,
+      weight = #record.weight:INTEGER#,
+      announcement_type = #record.announcementType:INTEGER#,
+      create_dt = #record.createDt:TIMESTAMP#,
+      status = #record.status:INTEGER#,
+      is_delete = #record.isDelete:INTEGER#,
+      send_dt = #record.sendDt:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="t_lx_announcement.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TLxAnnouncement" >
+    update t_lx_announcement
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="centent" >
+        centent = #centent:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        weight = #weight:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="announcementType" >
+        announcement_type = #announcementType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt = #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status = #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isDelete" >
+        is_delete = #isDelete:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="sendDt" >
+        send_dt = #sendDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TLxAnnouncement" >
+    update t_lx_announcement
+    set centent = #centent:VARCHAR#,
+      weight = #weight:INTEGER#,
+      announcement_type = #announcementType:INTEGER#,
+      create_dt = #createDt:TIMESTAMP#,
+      status = #status:INTEGER#,
+      is_delete = #isDelete:INTEGER#,
+      send_dt = #sendDt:TIMESTAMP#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLxAnnouncementExample" >
+                    select id, centent, weight, announcement_type, create_dt, status, is_delete, send_dt
+                    from t_lx_announcement
+                    <isParameterPresent >
+                      <include refid="t_lx_announcement.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

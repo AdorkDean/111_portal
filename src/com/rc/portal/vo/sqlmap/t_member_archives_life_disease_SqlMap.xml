@@ -1,0 +1,557 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member_archives_life_disease" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMemberArchivesLifeDisease" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="symptom" property="symptom" jdbcType="VARCHAR" />
+    <result column="cost_pay" property="costPay" jdbcType="VARCHAR" />
+    <result column="medicine_allergy" property="medicineAllergy" jdbcType="VARCHAR" />
+    <result column="expose_history" property="exposeHistory" jdbcType="VARCHAR" />
+    <result column="past_history" property="pastHistory" jdbcType="VARCHAR" />
+    <result column="family_history" property="familyHistory" jdbcType="VARCHAR" />
+    <result column="is_disability" property="isDisability" jdbcType="VARCHAR" />
+    <result column="exercise_frequency" property="exerciseFrequency" jdbcType="INTEGER" />
+    <result column="each_exercise" property="eachExercise" jdbcType="VARCHAR" />
+    <result column="exercise_time" property="exerciseTime" jdbcType="VARCHAR" />
+    <result column="exercise_mode" property="exerciseMode" jdbcType="VARCHAR" />
+    <result column="eating_habits" property="eatingHabits" jdbcType="INTEGER" />
+    <result column="is_smoking" property="isSmoking" jdbcType="INTEGER" />
+    <result column="start_smoking_dt" property="startSmokingDt" jdbcType="VARCHAR" />
+    <result column="quit_smoking" property="quitSmoking" jdbcType="VARCHAR" />
+    <result column="smoking_amount" property="smokingAmount" jdbcType="VARCHAR" />
+    <result column="drinking_frequency" property="drinkingFrequency" jdbcType="VARCHAR" />
+    <result column="start_drink_dt" property="startDrinkDt" jdbcType="VARCHAR" />
+    <result column="quit_drinking" property="quitDrinking" jdbcType="VARCHAR" />
+    <result column="is_drunk" property="isDrunk" jdbcType="INTEGER" />
+    <result column="alcohol_consumption" property="alcoholConsumption" jdbcType="VARCHAR" />
+    <result column="drink_varieties" property="drinkVarieties" jdbcType="VARCHAR" />
+    <result column="mental_state" property="mentalState" jdbcType="VARCHAR" />
+    <result column="compliance_behavior" property="complianceBehavior" jdbcType="VARCHAR" />
+    <result column="living_environment" property="livingEnvironment" jdbcType="VARCHAR" />
+    <result column="create_dt" property="createDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDiseaseExample" >
+    select id, member_id, symptom, cost_pay, medicine_allergy, expose_history, past_history,
+      family_history, is_disability, exercise_frequency, each_exercise, exercise_time,
+      exercise_mode, eating_habits, is_smoking, start_smoking_dt, quit_smoking, smoking_amount,
+      drinking_frequency, start_drink_dt, quit_drinking, is_drunk, alcohol_consumption,
+      drink_varieties, mental_state, compliance_behavior, living_environment, create_dt
+    from t_member_archives_life_disease
+    <isParameterPresent >
+      <include refid="t_member_archives_life_disease.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDisease" >
+    select id, member_id, symptom, cost_pay, medicine_allergy, expose_history, past_history,
+      family_history, is_disability, exercise_frequency, each_exercise, exercise_time,
+      exercise_mode, eating_habits, is_smoking, start_smoking_dt, quit_smoking, smoking_amount,
+      drinking_frequency, start_drink_dt, quit_drinking, is_drunk, alcohol_consumption,
+      drink_varieties, mental_state, compliance_behavior, living_environment, create_dt
+    from t_member_archives_life_disease
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDisease" >
+    delete from t_member_archives_life_disease
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDiseaseExample" >
+    delete from t_member_archives_life_disease
+    <include refid="t_member_archives_life_disease.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDisease" >
+    insert into t_member_archives_life_disease (id, member_id, symptom, cost_pay, medicine_allergy,
+      expose_history, past_history, family_history, is_disability, exercise_frequency,
+      each_exercise, exercise_time, exercise_mode, eating_habits, is_smoking, start_smoking_dt,
+      quit_smoking, smoking_amount, drinking_frequency, start_drink_dt, quit_drinking, is_drunk,
+      alcohol_consumption, drink_varieties, mental_state, compliance_behavior, living_environment,
+      create_dt)
+    values (#id:BIGINT#, #memberId:BIGINT#, #symptom:VARCHAR#, #costPay:VARCHAR#,
+      #medicineAllergy:VARCHAR#, #exposeHistory:VARCHAR#, #pastHistory:VARCHAR#,
+      #familyHistory:VARCHAR#, #isDisability:VARCHAR#, #exerciseFrequency:INTEGER#,
+      #eachExercise:VARCHAR#, #exerciseTime:VARCHAR#, #exerciseMode:VARCHAR#,
+      #eatingHabits:INTEGER#, #isSmoking:INTEGER#, #startSmokingDt:VARCHAR#, #quitSmoking:VARCHAR#,
+      #smokingAmount:VARCHAR#, #drinkingFrequency:VARCHAR#, #startDrinkDt:VARCHAR#,
+      #quitDrinking:VARCHAR#, #isDrunk:INTEGER#, #alcoholConsumption:VARCHAR#,
+      #drinkVarieties:VARCHAR#, #mentalState:VARCHAR#, #complianceBehavior:VARCHAR#,
+      #livingEnvironment:VARCHAR#, #createDt:TIMESTAMP#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDisease" >
+    insert into t_member_archives_life_disease
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="symptom" >
+        symptom
+      </isNotNull>
+      <isNotNull prepend="," property="costPay" >
+        cost_pay
+      </isNotNull>
+      <isNotNull prepend="," property="medicineAllergy" >
+        medicine_allergy
+      </isNotNull>
+      <isNotNull prepend="," property="exposeHistory" >
+        expose_history
+      </isNotNull>
+      <isNotNull prepend="," property="pastHistory" >
+        past_history
+      </isNotNull>
+      <isNotNull prepend="," property="familyHistory" >
+        family_history
+      </isNotNull>
+      <isNotNull prepend="," property="isDisability" >
+        is_disability
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseFrequency" >
+        exercise_frequency
+      </isNotNull>
+      <isNotNull prepend="," property="eachExercise" >
+        each_exercise
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseTime" >
+        exercise_time
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseMode" >
+        exercise_mode
+      </isNotNull>
+      <isNotNull prepend="," property="eatingHabits" >
+        eating_habits
+      </isNotNull>
+      <isNotNull prepend="," property="isSmoking" >
+        is_smoking
+      </isNotNull>
+      <isNotNull prepend="," property="startSmokingDt" >
+        start_smoking_dt
+      </isNotNull>
+      <isNotNull prepend="," property="quitSmoking" >
+        quit_smoking
+      </isNotNull>
+      <isNotNull prepend="," property="smokingAmount" >
+        smoking_amount
+      </isNotNull>
+      <isNotNull prepend="," property="drinkingFrequency" >
+        drinking_frequency
+      </isNotNull>
+      <isNotNull prepend="," property="startDrinkDt" >
+        start_drink_dt
+      </isNotNull>
+      <isNotNull prepend="," property="quitDrinking" >
+        quit_drinking
+      </isNotNull>
+      <isNotNull prepend="," property="isDrunk" >
+        is_drunk
+      </isNotNull>
+      <isNotNull prepend="," property="alcoholConsumption" >
+        alcohol_consumption
+      </isNotNull>
+      <isNotNull prepend="," property="drinkVarieties" >
+        drink_varieties
+      </isNotNull>
+      <isNotNull prepend="," property="mentalState" >
+        mental_state
+      </isNotNull>
+      <isNotNull prepend="," property="complianceBehavior" >
+        compliance_behavior
+      </isNotNull>
+      <isNotNull prepend="," property="livingEnvironment" >
+        living_environment
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="symptom" >
+        #symptom:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="costPay" >
+        #costPay:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="medicineAllergy" >
+        #medicineAllergy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="exposeHistory" >
+        #exposeHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pastHistory" >
+        #pastHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="familyHistory" >
+        #familyHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isDisability" >
+        #isDisability:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseFrequency" >
+        #exerciseFrequency:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="eachExercise" >
+        #eachExercise:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseTime" >
+        #exerciseTime:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseMode" >
+        #exerciseMode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="eatingHabits" >
+        #eatingHabits:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isSmoking" >
+        #isSmoking:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="startSmokingDt" >
+        #startSmokingDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="quitSmoking" >
+        #quitSmoking:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="smokingAmount" >
+        #smokingAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="drinkingFrequency" >
+        #drinkingFrequency:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="startDrinkDt" >
+        #startDrinkDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="quitDrinking" >
+        #quitDrinking:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isDrunk" >
+        #isDrunk:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="alcoholConsumption" >
+        #alcoholConsumption:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="drinkVarieties" >
+        #drinkVarieties:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mentalState" >
+        #mentalState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="complianceBehavior" >
+        #complianceBehavior:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="livingEnvironment" >
+        #livingEnvironment:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        #createDt:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDiseaseExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member_archives_life_disease
+    <include refid="t_member_archives_life_disease.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member_archives_life_disease
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.symptom" >
+        symptom = #record.symptom:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.costPay" >
+        cost_pay = #record.costPay:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.medicineAllergy" >
+        medicine_allergy = #record.medicineAllergy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.exposeHistory" >
+        expose_history = #record.exposeHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.pastHistory" >
+        past_history = #record.pastHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.familyHistory" >
+        family_history = #record.familyHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isDisability" >
+        is_disability = #record.isDisability:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.exerciseFrequency" >
+        exercise_frequency = #record.exerciseFrequency:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.eachExercise" >
+        each_exercise = #record.eachExercise:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.exerciseTime" >
+        exercise_time = #record.exerciseTime:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.exerciseMode" >
+        exercise_mode = #record.exerciseMode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.eatingHabits" >
+        eating_habits = #record.eatingHabits:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isSmoking" >
+        is_smoking = #record.isSmoking:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.startSmokingDt" >
+        start_smoking_dt = #record.startSmokingDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.quitSmoking" >
+        quit_smoking = #record.quitSmoking:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.smokingAmount" >
+        smoking_amount = #record.smokingAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.drinkingFrequency" >
+        drinking_frequency = #record.drinkingFrequency:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.startDrinkDt" >
+        start_drink_dt = #record.startDrinkDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.quitDrinking" >
+        quit_drinking = #record.quitDrinking:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isDrunk" >
+        is_drunk = #record.isDrunk:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.alcoholConsumption" >
+        alcohol_consumption = #record.alcoholConsumption:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.drinkVarieties" >
+        drink_varieties = #record.drinkVarieties:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mentalState" >
+        mental_state = #record.mentalState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.complianceBehavior" >
+        compliance_behavior = #record.complianceBehavior:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.livingEnvironment" >
+        living_environment = #record.livingEnvironment:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDt" >
+        create_dt = #record.createDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member_archives_life_disease.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member_archives_life_disease
+    set id = #record.id:BIGINT#,
+      member_id = #record.memberId:BIGINT#,
+      symptom = #record.symptom:VARCHAR#,
+      cost_pay = #record.costPay:VARCHAR#,
+      medicine_allergy = #record.medicineAllergy:VARCHAR#,
+      expose_history = #record.exposeHistory:VARCHAR#,
+      past_history = #record.pastHistory:VARCHAR#,
+      family_history = #record.familyHistory:VARCHAR#,
+      is_disability = #record.isDisability:VARCHAR#,
+      exercise_frequency = #record.exerciseFrequency:INTEGER#,
+      each_exercise = #record.eachExercise:VARCHAR#,
+      exercise_time = #record.exerciseTime:VARCHAR#,
+      exercise_mode = #record.exerciseMode:VARCHAR#,
+      eating_habits = #record.eatingHabits:INTEGER#,
+      is_smoking = #record.isSmoking:INTEGER#,
+      start_smoking_dt = #record.startSmokingDt:VARCHAR#,
+      quit_smoking = #record.quitSmoking:VARCHAR#,
+      smoking_amount = #record.smokingAmount:VARCHAR#,
+      drinking_frequency = #record.drinkingFrequency:VARCHAR#,
+      start_drink_dt = #record.startDrinkDt:VARCHAR#,
+      quit_drinking = #record.quitDrinking:VARCHAR#,
+      is_drunk = #record.isDrunk:INTEGER#,
+      alcohol_consumption = #record.alcoholConsumption:VARCHAR#,
+      drink_varieties = #record.drinkVarieties:VARCHAR#,
+      mental_state = #record.mentalState:VARCHAR#,
+      compliance_behavior = #record.complianceBehavior:VARCHAR#,
+      living_environment = #record.livingEnvironment:VARCHAR#,
+      create_dt = #record.createDt:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="t_member_archives_life_disease.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDisease" >
+    update t_member_archives_life_disease
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="symptom" >
+        symptom = #symptom:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="costPay" >
+        cost_pay = #costPay:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="medicineAllergy" >
+        medicine_allergy = #medicineAllergy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="exposeHistory" >
+        expose_history = #exposeHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pastHistory" >
+        past_history = #pastHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="familyHistory" >
+        family_history = #familyHistory:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isDisability" >
+        is_disability = #isDisability:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseFrequency" >
+        exercise_frequency = #exerciseFrequency:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="eachExercise" >
+        each_exercise = #eachExercise:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseTime" >
+        exercise_time = #exerciseTime:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="exerciseMode" >
+        exercise_mode = #exerciseMode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="eatingHabits" >
+        eating_habits = #eatingHabits:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isSmoking" >
+        is_smoking = #isSmoking:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="startSmokingDt" >
+        start_smoking_dt = #startSmokingDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="quitSmoking" >
+        quit_smoking = #quitSmoking:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="smokingAmount" >
+        smoking_amount = #smokingAmount:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="drinkingFrequency" >
+        drinking_frequency = #drinkingFrequency:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="startDrinkDt" >
+        start_drink_dt = #startDrinkDt:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="quitDrinking" >
+        quit_drinking = #quitDrinking:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isDrunk" >
+        is_drunk = #isDrunk:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="alcoholConsumption" >
+        alcohol_consumption = #alcoholConsumption:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="drinkVarieties" >
+        drink_varieties = #drinkVarieties:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mentalState" >
+        mental_state = #mentalState:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="complianceBehavior" >
+        compliance_behavior = #complianceBehavior:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="livingEnvironment" >
+        living_environment = #livingEnvironment:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt = #createDt:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDisease" >
+    update t_member_archives_life_disease
+    set member_id = #memberId:BIGINT#,
+      symptom = #symptom:VARCHAR#,
+      cost_pay = #costPay:VARCHAR#,
+      medicine_allergy = #medicineAllergy:VARCHAR#,
+      expose_history = #exposeHistory:VARCHAR#,
+      past_history = #pastHistory:VARCHAR#,
+      family_history = #familyHistory:VARCHAR#,
+      is_disability = #isDisability:VARCHAR#,
+      exercise_frequency = #exerciseFrequency:INTEGER#,
+      each_exercise = #eachExercise:VARCHAR#,
+      exercise_time = #exerciseTime:VARCHAR#,
+      exercise_mode = #exerciseMode:VARCHAR#,
+      eating_habits = #eatingHabits:INTEGER#,
+      is_smoking = #isSmoking:INTEGER#,
+      start_smoking_dt = #startSmokingDt:VARCHAR#,
+      quit_smoking = #quitSmoking:VARCHAR#,
+      smoking_amount = #smokingAmount:VARCHAR#,
+      drinking_frequency = #drinkingFrequency:VARCHAR#,
+      start_drink_dt = #startDrinkDt:VARCHAR#,
+      quit_drinking = #quitDrinking:VARCHAR#,
+      is_drunk = #isDrunk:INTEGER#,
+      alcohol_consumption = #alcoholConsumption:VARCHAR#,
+      drink_varieties = #drinkVarieties:VARCHAR#,
+      mental_state = #mentalState:VARCHAR#,
+      compliance_behavior = #complianceBehavior:VARCHAR#,
+      living_environment = #livingEnvironment:VARCHAR#,
+      create_dt = #createDt:TIMESTAMP#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberArchivesLifeDiseaseExample" >
+                    select id, member_id, symptom, cost_pay, medicine_allergy, expose_history, past_history,
+                      family_history, is_disability, exercise_frequency, each_exercise, exercise_time,
+                      exercise_mode, eating_habits, is_smoking, start_smoking_dt, quit_smoking, smoking_amount,
+                      drinking_frequency, start_drink_dt, quit_drinking, is_drunk, alcohol_consumption,
+                      drink_varieties, mental_state, compliance_behavior, living_environment, create_dt
+                    from t_member_archives_life_disease
+                    <isParameterPresent >
+                      <include refid="t_member_archives_life_disease.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

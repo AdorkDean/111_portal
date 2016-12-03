@@ -1,0 +1,432 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_goods_consult" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TGoodsConsult" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="consult_content" property="consultContent" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="is_show" property="isShow" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="answer_date" property="answerDate" jdbcType="TIMESTAMP" />
+    <result column="answer_user_name" property="answerUserName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsConsultExample" >
+    select id, goods_id, member_id, consult_content, answer, is_show, parent_id, create_date,
+      answer_date, answer_user_name
+    from t_goods_consult
+    <isParameterPresent >
+      <include refid="t_goods_consult.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsConsult" >
+    select id, goods_id, member_id, consult_content, answer, is_show, parent_id, create_date,
+      answer_date, answer_user_name
+    from t_goods_consult
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TGoodsConsult" >
+    delete from t_goods_consult
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TGoodsConsultExample" >
+    delete from t_goods_consult
+    <include refid="t_goods_consult.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TGoodsConsult" >
+    insert into t_goods_consult (id, goods_id, member_id, consult_content, answer, is_show,
+      parent_id, create_date, answer_date, answer_user_name)
+    values (#id:BIGINT#, #goodsId:BIGINT#, #memberId:BIGINT#, #consultContent:VARCHAR#,
+      #answer:VARCHAR#, #isShow:INTEGER#, #parentId:BIGINT#, #createDate:TIMESTAMP#,
+      #answerDate:TIMESTAMP#, #answerUserName:VARCHAR#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TGoodsConsult" >
+    insert into t_goods_consult
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="goodsId" >
+        goods_id
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="consultContent" >
+        consult_content
+      </isNotNull>
+      <isNotNull prepend="," property="answer" >
+        answer
+      </isNotNull>
+      <isNotNull prepend="," property="isShow" >
+        is_show
+      </isNotNull>
+      <isNotNull prepend="," property="parentId" >
+        parent_id
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        create_date
+      </isNotNull>
+      <isNotNull prepend="," property="answerDate" >
+        answer_date
+      </isNotNull>
+      <isNotNull prepend="," property="answerUserName" >
+        answer_user_name
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="goodsId" >
+        #goodsId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="consultContent" >
+        #consultContent:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="answer" >
+        #answer:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isShow" >
+        #isShow:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="parentId" >
+        #parentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        #createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="answerDate" >
+        #answerDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="answerUserName" >
+        #answerUserName:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TGoodsConsultExample" resultClass="java.lang.Integer" >
+    select count(*) from t_goods_consult
+    <include refid="t_goods_consult.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_goods_consult
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.goodsId" >
+        goods_id = #record.goodsId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.consultContent" >
+        consult_content = #record.consultContent:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.answer" >
+        answer = #record.answer:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isShow" >
+        is_show = #record.isShow:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.parentId" >
+        parent_id = #record.parentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDate" >
+        create_date = #record.createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.answerDate" >
+        answer_date = #record.answerDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.answerUserName" >
+        answer_user_name = #record.answerUserName:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_goods_consult.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_goods_consult
+    set id = #record.id:BIGINT#,
+      goods_id = #record.goodsId:BIGINT#,
+      member_id = #record.memberId:BIGINT#,
+      consult_content = #record.consultContent:VARCHAR#,
+      answer = #record.answer:VARCHAR#,
+      is_show = #record.isShow:INTEGER#,
+      parent_id = #record.parentId:BIGINT#,
+      create_date = #record.createDate:TIMESTAMP#,
+      answer_date = #record.answerDate:TIMESTAMP#,
+      answer_user_name = #record.answerUserName:VARCHAR#
+    <isParameterPresent >
+      <include refid="t_goods_consult.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TGoodsConsult" >
+    update t_goods_consult
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="goodsId" >
+        goods_id = #goodsId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="consultContent" >
+        consult_content = #consultContent:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="answer" >
+        answer = #answer:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isShow" >
+        is_show = #isShow:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="parentId" >
+        parent_id = #parentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        create_date = #createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="answerDate" >
+        answer_date = #answerDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="answerUserName" >
+        answer_user_name = #answerUserName:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TGoodsConsult" >
+    update t_goods_consult
+    set goods_id = #goodsId:BIGINT#,
+      member_id = #memberId:BIGINT#,
+      consult_content = #consultContent:VARCHAR#,
+      answer = #answer:VARCHAR#,
+      is_show = #isShow:INTEGER#,
+      parent_id = #parentId:BIGINT#,
+      create_date = #createDate:TIMESTAMP#,
+      answer_date = #answerDate:TIMESTAMP#,
+      answer_user_name = #answerUserName:VARCHAR#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsConsultExample" >
+                    select id, goods_id, member_id, consult_content, answer, is_show, parent_id, create_date,
+                      answer_date, answer_user_name
+                    from t_goods_consult
+                    <isParameterPresent >
+                      <include refid="t_goods_consult.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+
+    
+  
+  
+  
+  <resultMap id="ibatorgenerated_LeftJoinResultMap" class="com.rc.portal.vo.TGoodsConsult" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="consult_content" property="consultContent" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="is_show" property="isShow" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="answer_date" property="answerDate" jdbcType="TIMESTAMP" />
+    <result column="answer_user_name" property="answerUserName" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="goods_name" property="goodsName" jdbcType="VARCHAR" />
+  </resultMap>
+  	<select id="selectListByMap" resultMap="ibatorgenerated_LeftJoinResultMap"
+		parameterClass="java.util.Map">
+		SELECT
+		t.id,
+		t.goods_id,
+		t.member_id,
+		t.consult_content,
+		t.answer,
+		t.is_show,
+		t.parent_id,
+		t.create_date,
+		t.answer_date,
+		t.answer_user_name,
+		m.user_name,
+		g.goods_name
+		FROM
+		t_goods_consult t
+		LEFT JOIN t_member m
+		ON t.member_id = m.id
+		LEFT JOIN t_goods g
+		ON t.goods_id = g.id
+		where t.is_show=1
+		<isNotEmpty property="memberId" prepend="and">
+			t.member_id = $memberId$
+		</isNotEmpty>
+		<isNotEmpty property="goodsId" prepend="and">
+			t.goods_id = $goodsId$
+		</isNotEmpty>
+		ORDER BY t.create_date DESC
+		LIMIT $pageInfo.start$,$pageInfo.pageSize$
+	</select>
+
+	<select id="selectCountByMap" resultClass="int" parameterClass="java.util.Map">
+		SELECT COUNT(1) FROM t_goods_consult t
+		LEFT JOIN t_member m
+		ON t.member_id = m.id
+		LEFT JOIN t_goods g
+		ON t.goods_id = g.id
+		where t.is_show=1
+		<isNotEmpty property="memberId" prepend="and">
+			t.member_id = $memberId$
+		</isNotEmpty>
+		<isNotEmpty property="goodsId" prepend="and">
+			t.goods_id = $goodsId$
+		</isNotEmpty>
+	</select>
+  
+	<select id="selectNewConsultListByMap" parameterClass="java.util.HashMap" resultClass="java.util.HashMap">
+	SELECT tc.consult_content AS content,
+			 tc.answer, 
+			 (SELECT tm.head_portrait FROM t_member tm WHERE tm.id = tc.member_id) AS userurl,
+       '' AS adminurl
+			 FROM t_goods_consult AS tc WHERE tc.answer != '' AND tc.is_show = 1 
+       GROUP BY tc.member_id 
+       ORDER BY tc.member_id DESC
+       LIMIT 3
+	</select>
+	
+	
+	
+  <resultMap id="ibatorgenerated_AjaxResultMap" class="com.rc.portal.vo.TGoodsConsult" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="consult_content" property="consultContent" jdbcType="VARCHAR" />
+    <result column="answer" property="answer" jdbcType="VARCHAR" />
+    <result column="is_show" property="isShow" jdbcType="INTEGER" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="answer_date" property="answerDate" jdbcType="TIMESTAMP" />
+    <result column="answer_user_name" property="answerUserName" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+  </resultMap>
+	
+	<select id="initAjaxGoodsConsult" parameterClass="java.util.HashMap"
+		resultMap="ibatorgenerated_AjaxResultMap">
+		select t.id, t.goods_id, t.member_id, t.consult_content, t.answer, t.is_show, t.parent_id,
+		t.create_date,
+		t.answer_date, t.answer_user_name,m.user_name
+		from t_goods_consult t
+		LEFT JOIN t_member m 
+		ON t.member_id =m.id
+		where t.is_show=1
+		<isNotEmpty property="goodsId" prepend="and">
+			t.goods_id = $goodsId$
+		</isNotEmpty>
+		order by t.create_date desc
+		limit $start$ ,$pageSize$
+	</select>
+	
+	
+	<select id="initAjaxGoodsConsultCount" resultClass="java.lang.Integer" parameterClass="java.util.HashMap">
+		select count(1) from t_goods_consult t  
+		LEFT JOIN t_member m 
+		ON t.member_id =m.id
+		where t.is_show=1
+		<isNotEmpty property="goodsId" prepend="and">
+			t.goods_id = $goodsId$
+		</isNotEmpty>
+	</select>
+  
+  	<select id="selectMemberConsultCount" resultClass="java.lang.Integer" parameterClass="java.util.HashMap">
+		select count(*) from t_goods_consult where member_id = #memberId#
+	</select>
+	
+	<select id="selectListPageCount" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+		SELECT
+			COUNT(*)
+		FROM
+			t_goods_consult t
+		LEFT JOIN t_member m ON t.member_id = m.id
+		WHERE
+			t.is_show = 1
+		<isNotEmpty property="goodsId" prepend="and">
+			t.goods_id = $goodsId$
+		</isNotEmpty>
+	</select>
+	
+	<select id="selectListPage" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+		SELECT
+			t.id,
+			t.goods_id,
+			t.member_id,
+			t.consult_content,
+			t.answer,
+			t.is_show,
+			t.parent_id,
+			DATE_FORMAT(t.create_date,'%Y-%m-%d %h:%i') AS create_date,
+			DATE_FORMAT(t.answer_date,'%Y-%m-%d %h:%i') AS answer_date,
+			t.answer_user_name,
+			m.user_name
+		FROM
+			t_goods_consult t
+		LEFT JOIN t_member m ON t.member_id = m.id
+		WHERE
+			t.is_show = 1
+		<isNotEmpty property="goodsId" prepend="and">
+			t.goods_id = $goodsId$
+		</isNotEmpty>
+		order by t.create_date desc
+		limit $pageInfo.start$ ,$pageInfo.end$
+	</select>
+	
+	
+  
+</sqlMap>

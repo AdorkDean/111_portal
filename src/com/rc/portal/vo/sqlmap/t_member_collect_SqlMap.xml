@@ -1,0 +1,251 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member_collect" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMemberCollect" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="relevance_id" property="relevanceId" jdbcType="BIGINT" />
+    <result column="collect_type" property="collectType" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberCollectExample" >
+    select id, relevance_id, collect_type, create_date, member_id
+    from t_member_collect
+    <isParameterPresent >
+      <include refid="t_member_collect.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberCollect" >
+    select id, relevance_id, collect_type, create_date, member_id
+    from t_member_collect
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberCollect" >
+    delete from t_member_collect
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberCollectExample" >
+    delete from t_member_collect
+    <include refid="t_member_collect.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMemberCollect" >
+    insert into t_member_collect (id, relevance_id, collect_type, create_date, member_id)
+    values (#id:BIGINT#, #relevanceId:BIGINT#, #collectType:INTEGER#, #createDate:TIMESTAMP#,
+      #memberId:BIGINT#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMemberCollect" >
+    insert into t_member_collect
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="relevanceId" >
+        relevance_id
+      </isNotNull>
+      <isNotNull prepend="," property="collectType" >
+        collect_type
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        create_date
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="relevanceId" >
+        #relevanceId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="collectType" >
+        #collectType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        #createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberCollectExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member_collect
+    <include refid="t_member_collect.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member_collect
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.relevanceId" >
+        relevance_id = #record.relevanceId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.collectType" >
+        collect_type = #record.collectType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDate" >
+        create_date = #record.createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member_collect.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member_collect
+    set id = #record.id:BIGINT#,
+      relevance_id = #record.relevanceId:BIGINT#,
+      collect_type = #record.collectType:INTEGER#,
+      create_date = #record.createDate:TIMESTAMP#,
+      member_id = #record.memberId:BIGINT#
+    <isParameterPresent >
+      <include refid="t_member_collect.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMemberCollect" >
+    update t_member_collect
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="relevanceId" >
+        relevance_id = #relevanceId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="collectType" >
+        collect_type = #collectType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        create_date = #createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberCollect" >
+    update t_member_collect
+    set relevance_id = #relevanceId:BIGINT#,
+      collect_type = #collectType:INTEGER#,
+      create_date = #createDate:TIMESTAMP#,
+      member_id = #memberId:BIGINT#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberCollectExample" >
+                    select id, relevance_id, collect_type, create_date, member_id
+                    from t_member_collect
+                    <isParameterPresent >
+                      <include refid="t_member_collect.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  
+  <select id="selectTmcollectListMap" parameterClass="java.util.HashMap" resultClass="java.util.HashMap"> 
+  	SELECT tmc.id, tmc.relevance_id, tmc.collect_type, tmc.member_id
+  	FROM t_member_collect AS tmc 
+  	WHERE tmc.relevance_id = $relevance_id$ 
+  	AND tmc.collect_type = $collect_type$ 
+  	AND tmc.member_id = $member_id$ 
+  	LIMIT 1
+  </select>
+  
+  
+  <select id="selectCountByGoods" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+  	select count(*) from t_member_collect  where member_id = #memberId# and collect_type = 0             
+  </select>
+  
+  <select id="selectListByGoods" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+     select g.goods_name,g.abbreviation_picture,g.sku_id,mc.*,g.price,
+<!--      g.pc_price,g.wap_price,g.app_price, -->
+     gp.price as pc_price,
+     g.cost_price,g.type,
+     g.id AS goodsid
+     from 
+		t_member_collect mc left join t_goods g on mc.relevance_id = g.id
+		LEFT JOIN t_goods_price gp  ON gp.`goods_id` = g.`id` and gp.price_type='pc' AND gp.platform_type='111yao' 
+  	
+		  
+		where member_id = #memberId# and collect_type = 0 
+	 order by create_date desc 
+	 limit $pageInfo.start$ ,$pageInfo.pageSize$	           
+  </select>
+  
+  <select id="selectCollectIndex" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+     select g.goods_name,g.abbreviation_picture,g.sku_id,mc.*,g.price,
+     gp.price as pc_price,
+     g.cost_price,g.type,
+     g.id AS goodsid
+     from 
+		t_member_collect mc left join t_goods g on mc.relevance_id = g.id
+		LEFT JOIN t_goods_price gp  ON gp.`goods_id` = g.`id` and gp.price_type='pc' AND gp.platform_type='111yao' 
+		where member_id = #memberId# and collect_type = 0 
+	 order by create_date desc 
+	 limit 7	           
+  </select>
+  
+  <select id="selectCountByBrand" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+    select count(*) from t_member_collect  where member_id = #memberId# and collect_type = 1            
+  </select>
+  
+  <select id="selectListByBrand" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+    select mc.*,b.* from 
+
+		t_member_collect mc left join t_brand b on mc.relevance_id = b.id  
+		
+	where member_id = #memberId# and collect_type = 1 
+	order by create_date desc
+	limit $pageInfo.start$ ,$pageInfo.pageSize$	           
+  </select>
+  
+  
+  <select id="selectCountToMember" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+  	select count(*) from t_member_collect  where member_id = #memberId#  
+  </select>
+  
+</sqlMap>

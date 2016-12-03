@@ -1,0 +1,92 @@
+	#wxeditortip{margin:20px 0}
+.wxeditor .left{position:relative;float:left;width:517px;zoom: 1; height:742px;}
+.wxeditor .left .tabbox{float:left;width:78px; height:738px;}
+.wxeditor .left .tplcontent{float:right;width:376px}
+.wxeditor .right{float:right;margin-left:0px;width:auto; height:742px;margin-right:30px;}
+
+#second{padding:20px 20px;width:440px;height:260px;border:1px solid #ccc;background:transparent;overflow-y:scroll}
+#bdeditor{float:left; width:auto;margin:0 auto}
+.wxeditor a:hover{color:#0A0A0A}
+.tabs {
+    background-color: #ffffff;
+    height: 738px;
+    position: absolute;
+    top: -270px;
+    width: 120px;
+    left: -10px;
+    padding-top:10px;
+}
+
+.tabs li a{display:block;color:gray;text-align:center;font-size:12px;margin-top:5px;width:80px;height:30px;
+line-height:30px;
+margin-left:20px;
+border-radius:3px;
+}
+
+.tabs li.editorlogo a{display:block;padding:15px 8px;color:gray;text-align:center;font-size:16px;border-bottom:1px solid #00c9f3;}
+
+.tabs li:hover a,.tabs li a.current{background-color:#00c9f3;color:#fff}
+
+
+.tab_con{padding:20px 0;border:1px solid #ccc;}
+.tab_con .content{
+	height:500px !important;
+	overflow-y:scroll;}
+.tab_con .content li{margin:20px auto;cursor:pointer;margin-bottom:15px;width:310px}
+.tab_con .content li:hover 
+.itembox{padding:10px;border:1px solid #27ac02}
+.tab_con .content li .itembox{width:310px;margin:0 auto}
+.goto{position:absolute;right:-48px;top:50%;font-size:45px;font-weight:700}
+.copy-editor-html,.clear-editor,#kefu{position:absolute;right:80px;top:580px;background-color:#ccc;color:gray;width:65px;height:65px;line-height:65px;font-size:12px;text-align:center;cursor:pointer;border-radius:50%}
+.update{padding:8px;position:absolute;right:12px;top:0;color:#000;width:15%;font-size:12px;font-weight:normal;border:1px solid #ccc}#kefu{top:460px}#kefu a{color:#fff}
+.clear-editor{top:440px}
+.colorbox{position:absolute;right:-38px;top:30%;font-size:35px;font-weight:700;width:28px;height:28px;background-color:red;z-index:9999}#colorpickerbox{padding:10px 0;border:1px solid #ccc;border-bottom:0;}#colorpickerbox .colorpicker{background-image:url(/web/images/colorpicker/custom_background.png);position:absolute;bottom:0;left:0}#colorpickerbox .colorpicker_hue div{background-image:url(/web/images/colorpicker/custom_indic.gif)}#colorpickerbox .colorpicker_hex{background-image:url(/web/images/colorpicker/custom_hex.png)}#colorpickerbox .colorpicker_rgb_r{background-image:url(/web/images/colorpicker/custom_rgb_r.png)}#colorpickerbox .colorpicker_rgb_g{background-image:url(/web/images/colorpicker/custom_rgb_g.png)}#colorpickerbox .colorpicker_rgb_b{background-image:url(/web/images/colorpicker/custom_rgb_b.png)}#colorpickerbox .colorpicker_hsb_s{background-image:url(/web/images/colorpicker/custom_hsb_s.png)}#colorpickerbox .colorpicker_hsb_h{background-image:url(/web/images/colorpicker/custom_hsb_h.png)}#colorpickerbox .colorpicker_hsb_b{background-image:url(/web/images/colorpicker/custom_rgb_b.png)}#colorpickerbox .colorpicker_submit{background-image:url(/web/images/colorpicker/custom_submit.png)}#colorpickerbox .colorpicker input{color:#778398}#customWidget{position:relative;height:36px}
+
+#previewbox {
+    z-index: 10000;
+    position: fixed;
+    left: 125px;
+    top: 60px;
+    width: 200px;
+    height: 320px;
+    background: url('/web/images/colorpicker/jizzyoujizz_com.png');
+    background-size: contain;
+    padding: 120px 25px 116px 36px;
+    overflow: hidden;
+    display: none;
+}
+
+.fenxiang{position:absolute;left:502px;top:2px;width:100px}#share_box{width:100px}#share_box .bds{display:inline-block}
+
+
+.imgCode {position:fixed;left:42%;top:30%;width:200px;z-index:909;display:none;}
+.closeImg {float:left;width:200px;background:#fff;}
+.close_i {float:right;width:25px;height:25px;cursor:pointer;margin-top:-60px;}
+.title_c {
+    float: left;
+    width: 180px;
+    height: 25px;
+    line-height: 25px;
+    font-style: normal;
+    padding-left: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    -o-text-overflow: ellipsis;
+    overflow: hidden;
+    text-align: center;
+    margin-top: 5px;
+}
+#codePriview {
+    float: left;
+    width: 200px;
+    height: 200px;
+    /* left: 42%; */
+    /* top: 30%; */
+    border: none;
+    margin-top: -5px;
+}
+.mask-ui {display:none;position:fixed;_position:absolute;width:100%;height:100%;top:0;left:0px;background-color:#000;opacity:.5;filter:alpha(opacity=50);z-index:99;}
+.title_b {float:left;width:200px;height:30px;line-height:30px;text-align:center;border-bottom:#ccc 1px dashed;font-weight:bold;}
+
+
+

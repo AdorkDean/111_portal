@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_leader_pharmacy" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TLeaderPharmacy" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="leader_id" property="leaderId" jdbcType="BIGINT" />
+    <result column="goods_id" property="goodsId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLeaderPharmacyExample" >
+    select id, member_id, leader_id, goods_id
+    from t_leader_pharmacy
+    <isParameterPresent >
+      <include refid="t_leader_pharmacy.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLeaderPharmacy" >
+    select id, member_id, leader_id, goods_id
+    from t_leader_pharmacy
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TLeaderPharmacy" >
+    delete from t_leader_pharmacy
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TLeaderPharmacyExample" >
+    delete from t_leader_pharmacy
+    <include refid="t_leader_pharmacy.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TLeaderPharmacy" >
+    insert into t_leader_pharmacy (id, member_id, leader_id, goods_id)
+    values (#id:BIGINT#, #memberId:BIGINT#, #leaderId:BIGINT#, #goodsId:BIGINT#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TLeaderPharmacy" >
+    insert into t_leader_pharmacy
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="leaderId" >
+        leader_id
+      </isNotNull>
+      <isNotNull prepend="," property="goodsId" >
+        goods_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="leaderId" >
+        #leaderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="goodsId" >
+        #goodsId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TLeaderPharmacyExample" resultClass="java.lang.Integer" >
+    select count(*) from t_leader_pharmacy
+    <include refid="t_leader_pharmacy.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_leader_pharmacy
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.leaderId" >
+        leader_id = #record.leaderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.goodsId" >
+        goods_id = #record.goodsId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_leader_pharmacy.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_leader_pharmacy
+    set id = #record.id:BIGINT#,
+      member_id = #record.memberId:BIGINT#,
+      leader_id = #record.leaderId:BIGINT#,
+      goods_id = #record.goodsId:BIGINT#
+    <isParameterPresent >
+      <include refid="t_leader_pharmacy.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TLeaderPharmacy" >
+    update t_leader_pharmacy
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="leaderId" >
+        leader_id = #leaderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="goodsId" >
+        goods_id = #goodsId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TLeaderPharmacy" >
+    update t_leader_pharmacy
+    set member_id = #memberId:BIGINT#,
+      leader_id = #leaderId:BIGINT#,
+      goods_id = #goodsId:BIGINT#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLeaderPharmacyExample" >
+                    select id, member_id, leader_id, goods_id
+                    from t_leader_pharmacy
+                    <isParameterPresent >
+                      <include refid="t_leader_pharmacy.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  
+  
+  
+  <select id="select_leader_goods" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+     SELECT
+      t.id,
+	  t1.id AS leader_id,
+	  t2.id as goods_id, 
+	  t2.goods_name,
+	  t2.abbreviation_picture,
+	  t3.price,
+	  TRUNCATE(IFNULL(t4.rebate_amount,t3.price*(#brokerage#)/100),2) AS rebate_amount
+	FROM
+		t_leader_pharmacy t
+	LEFT JOIN t_leader t1 ON t.leader_id = t1.id
+	LEFT JOIN t_goods t2 ON t2.id = t.goods_id
+	LEFT JOIN t_goods_price  t3 ON t2.id = t3.goods_id and  t3.platform_type='111yao' and t3.price_type='pc'
+	LEFT JOIN t_goods_brokerage t4  ON t.goods_id = t4.goods_id
+	AND t4.audit_status = 2
+	where t1.member_id =#memberId#
+	ORDER BY t.id desc 
+	limit $page_start$ ,$page_end$
+  </select>
+  
+  
+  
+  <select id="select_leader_pharmacy_list" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+    SELECT
+      t.id,
+	  t.goods_id,
+	  t1.goods_name,
+	  t2.price,
+	  t1.abbreviation_picture,
+	  TRUNCATE(IFNULL(t3.rebate_amount,t2.price*(#brokerage#)/100),2) AS rebate_amount
+	FROM
+		t_leader_pharmacy t
+	LEFT JOIN t_goods t1 ON t.goods_id = t1.id
+	LEFT JOIN t_goods_price t2 ON t.goods_id = t2.goods_id AND t2.platform_type = '111yao' AND t2.price_type = 'pc'
+	AND t2.status=1
+	LEFT JOIN t_goods_brokerage t3 ON t.goods_id = t3.goods_id 
+	AND t3.audit_status = 2
+	where t.member_id =#memberId#
+	ORDER BY rebate_amount DESC
+	LIMIT $pageInfo.start$,$pageInfo.end$
+  </select>
+  
+  
+  <select id="select_leader_pharmacy_count" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+     SELECT
+      count(t.id) 
+	FROM
+	    t_leader_pharmacy t
+	where t.member_id =#memberId#
+  </select>
+  
+  <!-- 判断该领秀是否添加过此商品 -->
+   <select id="select_leader_pharmacy_goods_count" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+     SELECT
+      count(t.id) 
+	FROM
+	    t_leader_pharmacy t
+	where t.leader_id =#leaderId# and t.goods_id =#goodsId#
+  </select>
+  
+   <!-- 限制领秀商品数量 -->
+   <select id="select_leader_pharmacy_limit_goods_count" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+	SELECT
+      count(t.id) 
+	FROM
+	    t_leader_pharmacy t
+	where t.leader_id =#leaderId# and t.member_id =#memberId#
+  </select>
+  
+</sqlMap>

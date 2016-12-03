@@ -1,0 +1,42 @@
+@charset "utf-8";
+/* CSS Document */
+html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,textarea,input,span,figure,aside,time,article{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+audio:not([controls]){display:none}
+html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+body{width:100%;font-family:"SimHei",Helvetica,Arial,sans-serif;font-size:14px;color:#000;background:rgba(0,0,0,.5);}
+html,body{height:100%; position:relative; overflow:hidden;}
+input,textarea{font-family:"SimHei",Helvetica,Arial,sans-serif;color:#fff}
+input:-moz-placeholder,textarea:-moz-placeholder{color:#fff}
+input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#fff}
+input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#fff}
+a{color:#fff;text-decoration:none;/*-webkit-tap-highlight-color:rgba(0,0,0,0.2);*/-webkit-tap-highlight-color:transparent}
+a:hover{text-decoration:none}
+a:focus{outline:thin dotted}
+a:hover,a:active{outline:0}
+textarea,input{resize:none;outline:0;font-size:100%;-webkit-tap-highlight-color:rgba(255,0,0,0)}
+textarea{resize:none;-webkit-appearance:none}
+ul,ol{list-style:none}
+em{font-style:normal}
+.clearfix:after{visibility:hidden;display:block;font-size:0;content:".";clear:both;height:0;overflow:hidden}
+.fl{float:left}
+.fr{float:right}
+
+/*swiper-css*/
+.swiper-container{max-width:720px;height:100%; margin:0 auto;}
+.swiper-slide{overflow:hidden;}
+
+/*page*/
+.swiper-page1{ background:url(../images/share1.jpg) no-repeat; background-size:cover;}
+.swiper-page2{ background:url(../images/share2.jpg) no-repeat; background-size:cover;}
+.register-btn{width:100px; height:100px; line-height:100px; text-align:center; display:block; border-radius:50%; -webkit-border-radius:50%; position: absolute; left:50%; margin-left:-50px; bottom:20px; color:#fff; box-shadow: 0 5px 10px 0 #000; font-size:18px; text-shadow:0 1px 0 0 #fff;
+background: -webkit-linear-gradient(top, #df3931 , #c5100d); /* Safari 5.1 - 6.0 */
+background: -o-linear-gradient(bottom, #df3931, #c5100d); /* Opera 11.1 - 12.0 */
+background: -moz-linear-gradient(bottom, #df3931, #c5100d); /* Firefox 3.6 - 15 */
+background: linear-gradient(to bottom, #df3931 , #c5100d); /* 标准的语法（必须放在最后） */
+}
+.flip-corner{width:30px; height:14px; background:url(../images/flip_corner.png) no-repeat; background-size:30px 14px; position:absolute; left:50%; margin-left:-15px; bottom:0; -webkit-animation-name: charector-1;/* 动画名称 */-webkit-animation-iteration-count: infinite;/* 动画无限播放 */-webkit-animation-timing-function: step-start;/* 马上跳到动画每一结束桢的状态 */-webkit-animation-duration: 1500ms;/* 动画运行的时间 */ z-index:10;}
+@-webkit-keyframes charector-1{
+0%{bottom:5px}10%{bottom:6px}15%{bottom:7px}20%{bottom:8px}25%{bottom:9px}30%{bottom:10px}35%{bottom:11px}40%{bottom:12px}45%{bottom:13px}50%{bottom:14px}55%{bottom:15px}60%{bottom:16px}65%{bottom:17px}70%{bottom:18px}75%{bottom:19px}80%{bottom:20px}85%{bottom:21px}90%{bottom:22px}95%{bottom:23px}100%{bottom:24px}
+}

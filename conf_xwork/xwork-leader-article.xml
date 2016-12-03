@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="leaderarticle" extends="default" namespace="/leaderarticle">
+		<action name="leaderarticle" class="com.rc.portal.webapp.action.LeaderArticleAction">			
+			<result name="add" type="freemarker">/WEB-INF/pages/member/leaderarticle/add.ftl</result>
+			<result name="edit" type="freemarker">/WEB-INF/pages/member/leaderarticle/edit.ftl</result>
+			<result name="leaderCenter" type="freemarker">/WEB-INF/pages/member/leaderarticle/leaderCenter.ftl</result>
+			<result name="myLeaderFans" type="freemarker">/WEB-INF/pages/member/leaderarticle/myLeaderFans.ftl</result>
+			<result name="leaderIdentity" type="freemarker">/WEB-INF/pages/member/leaderarticle/leaderIdentity.ftl</result>
+			<result name="pcRecommendArticle" type="freemarker">/WEB-INF/pages/member/leaderarticle/recommendArticle.ftl</result>
+			<result name="leaderArticleList" type="freemarker">/WEB-INF/pages/member/leaderarticle/myArticle.ftl</result>
+			<result name="draftLeaderArticleList" type="freemarker">/WEB-INF/pages/member/leaderarticle/draftLeaderArticle.ftl</result>
+			<result name="leaderPharmacyList" type="freemarker">/WEB-INF/pages/member/leaderarticle/myPharmacy.ftl</result>
+			<result name="leaderPharmacyGoodsList" type="freemarker">/WEB-INF/pages/member/leaderarticle/addGoodsList.ftl</result>
+			<result name="leader_function_introduce" type="freemarker">/WEB-INF/pages/member/leaderarticle/leader_function_introduce.ftl</result>
+			<interceptor-ref name="loginStack"/>  
+			<interceptor-ref name="leaderStack"/>
+		</action>
+		
+		<action name="uploadImage" class="com.rc.portal.webapp.action.UploadImgAction"> 
+			<result name="uploadPage" type="freemarker">/WEB-INF/pages/position/imageUpload.ftl</result>
+		</action>
+		
+	</package>
+</xwork>

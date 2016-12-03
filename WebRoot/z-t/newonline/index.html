@@ -1,0 +1,366 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta name="renderer" content="webkit">
+    <title>新版上线</title>
+    <style type="text/css">
+        html,body,div,span,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,address,cite,code,del,dfn,em,img,ins,kbd,q,samp,small,strong,sub,sup,var,b,i,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,textarea,input,span,figure,aside,time,article{margin:0;padding:0;border:0;font-size:100%;vertical-align:baseline}
+        article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block}
+        audio,canvas,video{display:inline-block;*display:inline;*zoom:1}
+        audio:not([controls]){display:none}
+        html{font-size:100%;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%}
+        body{width:100%;font-family:"Microsoft YaHei",Helvetica,Arial,sans-serif;font-size:14px;color:#000;}
+        html,body{height:100%; position:relative;}
+        input,textarea{font-family:"SimHei",Helvetica,Arial,sans-serif;color:#fff}
+        input:-moz-placeholder,textarea:-moz-placeholder{color:#fff}
+        input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#fff}
+        input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#fff}
+        a{color:#fff;text-decoration:none;/*-webkit-tap-highlight-color:rgba(0,0,0,0.2);*/-webkit-tap-highlight-color:transparent}
+        a:hover{text-decoration:none}
+        a:focus{outline:none;blr:expression(this.onFocus=this.blur());}
+        a:hover,a:active{outline:0}
+        textarea,input{resize:none;outline:0;font-size:100%;-webkit-tap-highlight-color:rgba(255,0,0,0)}
+        textarea{resize:none;-webkit-appearance:none}
+        ul,ol{list-style:none}
+        em{font-style:normal}
+        .clearfix:after{visibility:hidden;display:block;font-size:0;content:".";clear:both;height:0;overflow:hidden}
+        .fl{float:left}
+        .fr{float:right}
+        .clear{clear:both; zoom:1}
+        .w990{width:990px; margin:0 auto; position:relative; zoom:1;}
+        .w1040{width:1040px; margin:0 auto; position:relative; zoom:1;}
+        /**/
+        .box-all{max-width: 1920px; margin: 0 auto; overflow: hidden;}
+        .box1{height:501px; background:url("http://ui.111yao.com/upload/image/201510/df9500205705c198f6b61d61a083632f.jpg") no-repeat top center;}
+        .box2{height:33px; background:url("http://ui.111yao.com/upload/image/201510/aec5dd2c34274d82fce0d4e6cd368a6c.jpg") no-repeat top center;}
+        .box3{height:120px; background:url("http://ui.111yao.com/upload/image/201510/936b64b98918c56f051701375dcf2220.jpg") no-repeat top center; position: relative;}
+        .box4{height:55px; background:url("http://ui.111yao.com/upload/image/201510/a8a1d7712800d75badee0068a045fc2b.jpg") no-repeat top center;}
+        .box5{height:338px; background:url("http://ui.111yao.com/upload/image/201510/0f436a157b8490ce4c395f727b0ebec8.jpg") no-repeat top center;}
+        .box6{height:48px; background:url("http://ui.111yao.com/upload/image/201510/2a9a3b59155ffe3ae4ab5efc713580f5.jpg") no-repeat top center;}
+        .box7{height:338px; background:url("http://ui.111yao.com/upload/image/201510/08b0908de07707dc0c20fcde5c47017b.jpg") no-repeat top center;}
+        .box8{height:48px; background:url("http://ui.111yao.com/upload/image/201510/7907646f83ebb8f00977750ff80a9d61.jpg") no-repeat top center;}
+        .box9{height:337px; background:url("http://ui.111yao.com/upload/image/201510/7edad75cf72ab763f5edc0fe0029bfd8.jpg") no-repeat top center; position: relative;}
+        .box9littlebox span{ width: 164px; height: 46px; display: block; background: url("http://ui.111yao.com/upload/image/201510/7fce6cbad853402737650407c3c9badc.png") no-repeat center center; position: absolute; right:226px; bottom:130px; z-index: 99; }
+        .box9littlebox span.over{ background: url("http://ui.111yao.com/upload/image/201510/86f903a6cb376afc4b3c30ae29967f8e.png") no-repeat center center;}
+        .layer{ width: 700px; height: 280px; position: absolute; right: 136px; top:10px; background-color: rgba(0,0,0,0.7); border-radius:4px; -webkit-border-radius:4px; padding: 20px 36px 0 45px; z-index: 999; display: none;}
+        .layer b{ width: 0; height: 0; border: 10px solid transparent; border-left-color:  rgba(0,0,0,0.7); position: absolute; right: -20px; top:8px;}
+        .layer p{ color:white; line-height: 2em; text-indent: 28px;}
+        .box10{height:51px; background:url("http://ui.111yao.com/upload/image/201510/fe3f0a46b87d1a3a94486759dbee8e47.jpg") no-repeat top center;}
+        .box11{height:338px; background:url("http://ui.111yao.com/upload/image/201510/2cf28d266e688a992616f2fdce1d6bdf.jpg") no-repeat top center;}
+        .box12{height:50px; background:url("http://ui.111yao.com/upload/image/201510/b47e73926a05719e6477f65d66442919.jpg") no-repeat top center;}
+        .box13{height:337px; background:url("http://ui.111yao.com/upload/image/201510/25a7679ff14c4fccb2ec06a8a88db901.jpg") no-repeat top center;}
+        .box14{height:167px; background:url("http://ui.111yao.com/upload/image/201510/9348ad405c4f4ba5217da5b819d70484.jpg") no-repeat top center;}
+
+
+        /*box3*/
+        .list1{zoom:1}
+        .list1 li{float:left; width:260px; height:120px; display:block; position:relative;}
+        .list1 li a{width:260px; height:120px; display:block;}
+        a.into-cart-btn{width:140px !important; height:22px !important; display:block; position:absolute !important; z-index:9; right:23px; bottom:22px; }
+        a.into-cart-btn span{display:none;}
+        .list2{zoom:1}
+        .list2 li{float:left; width:990px; height:338px; display:block; position:relative;}
+        .list2 li a{width:990px; height:338px; display:block;}
+        a.into-cart-btn1{width:108px !important; height:38px !important; display:block; position:absolute !important; z-index:9; right:13px; top:10px; border-radius:4px; -webkit-border-radius:4px;}
+        a.into-cart-btn1 span{display:none;}
+        a.into-cart-btn2{width:224px !important; height:28px !important; display:block; position:absolute !important; z-index:9; right:64px; bottom:36px;}
+        a.into-cart-btn2 span{display:none;}
+
+    </style>
+</head>
+<body>
+<!--#include virtual="/static/inc/header.html" -->
+<div class="box-all">
+    <a id="top" name="top"></a>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3">
+        <div class="w1040 clearfix clear">
+            <ul class="list1 clearfix clear">
+                <li>
+                    <a href="javascript:void(0);" target="_blank"></a>
+                    <a href="javascript:void(0);" class="into-cart-btn"><span>立即领取</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" target="_blank"></a>
+                    <a style="width: 90px !important; right:39px;" href="javascript:void(0);" class="into-cart-btn"><span>立即领取</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" target="_blank"></a>
+                    <a style="width: 94px !important; right:30px;" href="javascript:void(0);" style="left:132px;" class="into-cart-btn"><span>立即领取</span></a>
+                </li>
+                <li>
+                    <a href="javascript:void(0);" target="_blank"></a>
+                    <a style="width: 94px !important; right:14px;" href="javascript:void(0);" style="left:132px;" class="into-cart-btn"><span>立即领取</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="box4"></div>
+    <div class="box5">
+        <div class="w990 clearfix clear">
+            <article style="background-color: rgba(255,255,255,0.9);" class="layer">
+                <b style=" border-left-color: rgba(255,255,255,0.9);"></b>
+                <p style=" color:black; font-size: 14px; font-weight: bold; text-indent: 0;">活动规则</p>
+                <p style=" color:black;">1、1元商品分布在各馆中，进入各馆即可找到。</p>
+                <p style=" color:black;">2、每个IP/ID限购一次。</p>
+                <p style=" color:black;">3、同一账号IP/ID、同一收货地址、同一手机号限购一件，否则系统将自行删除订单，不另行通知。</p>
+                <p style=" color:black;">4、活动为秒杀活动，属于概率性事件，不能保证每个用户都能抢购成功，最终以秒杀支付成功作为判断标准，如秒杀活动结束未抢购成功，请关注其他产品。</p>
+            </article>
+            <ul class="list2 clearfix clear">
+                <li>
+                    <a  target="_blank"></a>
+                    <a  class="into-cart-btn1"><span>立即领取</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="box6"></div>
+    <div class="box7">
+        <div class="w990 clearfix clear">
+            <article style="background-color: rgba(255,255,255,0.9);" class="layer">
+                <b style=" border-left-color: rgba(255,255,255,0.9);"></b>
+                <p style=" color:black; font-size: 14px; font-weight: bold; text-indent: 0;">活动规则</p>
+                <p style=" color:black;">1、付款成功后，积分自动到账。</p>
+                <p style=" color:black;">2、如发生退货，系统将自动清除所获积分。</p>
+                <p style=" color:black;">3、活动时间：2015年10月21日。</p>
+            </article>
+            <ul class="list2 clearfix clear" id="doublepoint-erea">
+                <li>
+                    <a target="_blank" style="cursor:pointer;"></a>
+                    <a target="_blank" style="cursor:pointer;" class="into-cart-btn1"><span>立即领取</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="box8"></div>
+    <div class="box9">
+        <div class="w990 clearfix clear box9littlebox">
+            <article class="layer">
+                <b></b>
+                <p style="font-size: 14px; font-weight: bold; text-indent: 0;">活动规则</p>
+                <p>1、每个IP/ID限领取一次。</p>
+                <p>2、同一账号IP/ID限领取一张。</p>
+                <p>3、领取时间：2015年10月21日-2015年10月30日。</p>
+            </article>
+            <span id="getbox" style="cursor:pointer;"></span>
+            <span id="_getbox" style="display:none;"></span>
+            <ul class="list2 clearfix clear">
+                <li>
+                    <a  target="_blank"></a>
+                    <a style="top:7px; right:12px;" class="into-cart-btn1"><span>立即领取</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="box10"></div>
+    <div class="box11">
+        <div class="w990 clearfix clear">
+            <article class="layer">
+                <b></b>
+                <p style="font-size: 14px; font-weight: bold; text-indent: 0;">活动规则</p>
+                <p>1、凡2015年10月15日前注册用户，即可返1000积分。</p>
+                <p>2、同一账号IP/ID返一次。</p>
+            </article>
+            <ul class="list2 clearfix clear">
+                <li class="clickshowbox">
+                    <a target="_blank" style="cursor:pointer;"></a>
+                    <a style="top:7px; right:12px;" style="cursor:pointer;" class="into-cart-btn1"><span>立即领取</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="box12"></div>
+    <div class="box13">
+        <div class="w990 clearfix clear">
+            <ul class="list2 clearfix clear" id="exchange-point">
+                <li>
+                    <a target="_blank" style="cursor:pointer;"></a>
+                    <a style="cursor:pointer;" class="into-cart-btn2"><span>立即领取</span></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="box14"></div>
+</div>
+<!--#include virtual="/static/inc/footer.html" -->
+</body>
+
+<script type="text/javascript">
+	$(function()
+	{
+		/**Getting coupon by limited*/
+		var param = 0;
+		$(".box3>div>ul").find("li").each(function(index)
+		{
+			$(this).click(function()
+			{
+				if(index == 0)
+				{
+					param = 46;
+				}
+				if(index == 1)
+				{
+					param = 47;
+				}
+				if(index == 2)
+				{
+					param = 49;
+				}
+				if(index == 3)
+				{
+					param = 50;
+				}
+				if(!checklogin())
+				{
+					window.location.href="/login/login!index.action?redirectUrl="+window.location.href;
+				}
+				else
+				{
+					$.ajax(
+					{
+						url: "/coupon/coupon!bindingCoupon.action?couponId="+param,
+						type: "GET",
+						cache: false,
+						async: false,
+						success: function(data) 
+						{
+							if(data == 1)
+							{
+								$alert("success","恭喜您，已成功领取该优惠券！","111馆医药提示您",null);
+							}
+							if(data == 2)
+							{
+								$alert("warn","抱歉，您已领取过此优惠券！","111馆医药提示您",null);
+							}
+							if(data == 3)
+							{
+								$alert("warn","抱歉，此优惠券已发完！","111馆医药提示您",null);
+							}
+							if(data == 4)
+							{
+								$alert("error","服务器错误，请确认您已经联网！","111馆医药提示您",null);
+							}
+							if(data == 5)
+						    {
+								$alert("error","无效优惠券！","111馆医药提示您",null);
+						    }
+						}
+					});	
+				}
+			});
+		});
+		/** Getting double points from user*/
+		$("#doublepoint-erea").click(function()
+		{
+			if(!checklogin())
+			{
+				window.location.href="/login/login!index.action?redirectUrl="+window.location.href;
+			}
+			else
+			{
+				window.location.href = "/member/point.action";
+			}
+		});
+		$(".clickshowbox").click(function()
+		{
+			if(!checklogin())
+			{
+				window.location.href="/login/login!index.action?redirectUrl="+window.location.href;
+			}
+			else
+			{
+				window.location.href = "/member/point.action";
+			}
+		});
+		
+		/** Exchange points by coupon */
+		$("#exchange-point").click(function()
+		{
+			if(!checklogin())
+			{
+				window.location.href="/login/login!index.action?redirectUrl="+window.location.href;
+			}
+			else
+			{
+				window.location.href = "/member/point.action";
+			}
+		});
+	});
+	
+	/** Gettiing baoyou coupon */
+    $("#getbox").on("click",function()
+    {
+    	if(!checklogin())
+		{
+			window.location.href="/login/login!index.action?redirectUrl="+window.location.href;
+		}
+		else
+		{
+			$confirm("warn","确定要领取此优惠券吗？","111馆医药提示您",function(result)
+			        {
+				        if(result)
+				        {
+							$.ajax(
+							{
+								url: "/coupon/coupon!bindingCouponLimit.action?couponId=51",
+								type: "GET",
+								cache: false,
+								async: false,
+								success: function(data) 
+								{
+									if(data == 1)
+									{
+										$alert("success","恭喜您，已成功领取该优惠券！","111馆医药提示您",null);
+										$(".box9littlebox span").addClass("over");
+										$("#_getbox").show();
+										$("#getbox").hide();
+									}
+									if(data == 2)
+									{
+										$alert("warn","抱歉，您已领取过此优惠券！","111馆医药提示您",null);
+										$(".box9littlebox span").addClass("over");
+										$("#_getbox").show();
+										$("#getbox").hide();
+									}
+									if(data == 3)
+									{
+										$alert("warn","抱歉，此优惠券已发完！","111馆医药提示您",null);
+										$(".box9littlebox span").addClass("over");
+										$("#_getbox").show();
+										$("#getbox").hide();
+									}
+									if(data == 4)
+									{
+										$alert("error","服务器错误，请确认您已经联网！","111馆医药提示您",null);
+										$(".box9littlebox span").addClass("over");
+										$("#_getbox").show();
+										$("#getbox").hide();
+									}
+									if(data == 5)
+									{
+										$alert("error","无效优惠券！","111馆医药提示您",null);
+										$(".box9littlebox span").addClass("over");
+										$("#_getbox").show();
+										$("#getbox").hide();
+									}
+								}
+							});	
+				        }
+			        });
+		}
+    });
+    
+    $(".into-cart-btn1").on("mouseover",function(){
+        $(this).parents().siblings("article").show();
+    });
+    $(".into-cart-btn1").on("mouseleave",function(){
+        $(this).parents().siblings("article").hide();
+    });
+</script>
+</html>

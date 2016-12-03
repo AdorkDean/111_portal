@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_category" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TCategory" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="category_name" property="categoryName" jdbcType="VARCHAR" />
+    <result column="category_describe" property="categoryDescribe" jdbcType="VARCHAR" />
+    <result column="category_level" property="categoryLevel" jdbcType="INTEGER" />
+    <result column="all_parent_id" property="allParentId" jdbcType="VARCHAR" />
+    <result column="parent_id" property="parentId" jdbcType="BIGINT" />
+    <result column="is_wap" property="isWap" jdbcType="INTEGER" />
+    <result column="is_app" property="isApp" jdbcType="INTEGER" />
+    <result column="is_pc" property="isPc" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="seo_title" property="seoTitle" jdbcType="VARCHAR" />
+    <result column="seo_keyword" property="seoKeyword" jdbcType="VARCHAR" />
+    <result column="seo_describe" property="seoDescribe" jdbcType="VARCHAR" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TCategoryExample" >
+    select id, category_name, category_describe, category_level, all_parent_id, parent_id, is_wap,
+      is_app, is_pc, create_time, remarks, seo_title, seo_keyword, seo_describe, weight
+    from t_category
+    <isParameterPresent >
+      <include refid="t_category.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TCategory" >
+    select id, category_name, category_describe, category_level, all_parent_id, parent_id, is_wap,
+      is_app, is_pc, create_time, remarks, seo_title, seo_keyword, seo_describe, weight
+    from t_category
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TCategory" >
+    delete from t_category
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TCategoryExample" >
+    delete from t_category
+    <include refid="t_category.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TCategory" >
+    insert into t_category (id, category_name, category_describe, category_level, all_parent_id,
+      parent_id, is_wap, is_app, is_pc, create_time, remarks, seo_title, seo_keyword, seo_describe,
+      weight)
+    values (#id:BIGINT#, #categoryName:VARCHAR#, #categoryDescribe:VARCHAR#,
+      #categoryLevel:INTEGER#, #allParentId:VARCHAR#, #parentId:BIGINT#, #isWap:INTEGER#,
+      #isApp:INTEGER#, #isPc:INTEGER#, #createTime:TIMESTAMP#, #remarks:VARCHAR#,
+      #seoTitle:VARCHAR#, #seoKeyword:VARCHAR#, #seoDescribe:VARCHAR#, #weight:INTEGER#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TCategory" >
+    insert into t_category
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="categoryName" >
+        category_name
+      </isNotNull>
+      <isNotNull prepend="," property="categoryDescribe" >
+        category_describe
+      </isNotNull>
+      <isNotNull prepend="," property="categoryLevel" >
+        category_level
+      </isNotNull>
+      <isNotNull prepend="," property="allParentId" >
+        all_parent_id
+      </isNotNull>
+      <isNotNull prepend="," property="parentId" >
+        parent_id
+      </isNotNull>
+      <isNotNull prepend="," property="isWap" >
+        is_wap
+      </isNotNull>
+      <isNotNull prepend="," property="isApp" >
+        is_app
+      </isNotNull>
+      <isNotNull prepend="," property="isPc" >
+        is_pc
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        create_time
+      </isNotNull>
+      <isNotNull prepend="," property="remarks" >
+        remarks
+      </isNotNull>
+      <isNotNull prepend="," property="seoTitle" >
+        seo_title
+      </isNotNull>
+      <isNotNull prepend="," property="seoKeyword" >
+        seo_keyword
+      </isNotNull>
+      <isNotNull prepend="," property="seoDescribe" >
+        seo_describe
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        weight
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="categoryName" >
+        #categoryName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="categoryDescribe" >
+        #categoryDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="categoryLevel" >
+        #categoryLevel:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="allParentId" >
+        #allParentId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="parentId" >
+        #parentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="isWap" >
+        #isWap:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isApp" >
+        #isApp:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isPc" >
+        #isPc:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        #createTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="remarks" >
+        #remarks:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoTitle" >
+        #seoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoKeyword" >
+        #seoKeyword:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoDescribe" >
+        #seoDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        #weight:INTEGER#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TCategoryExample" resultClass="java.lang.Integer" >
+    select count(*) from t_category
+    <include refid="t_category.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_category
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.categoryName" >
+        category_name = #record.categoryName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.categoryDescribe" >
+        category_describe = #record.categoryDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.categoryLevel" >
+        category_level = #record.categoryLevel:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.allParentId" >
+        all_parent_id = #record.allParentId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.parentId" >
+        parent_id = #record.parentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isWap" >
+        is_wap = #record.isWap:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isApp" >
+        is_app = #record.isApp:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isPc" >
+        is_pc = #record.isPc:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createTime" >
+        create_time = #record.createTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.remarks" >
+        remarks = #record.remarks:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.seoTitle" >
+        seo_title = #record.seoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.seoKeyword" >
+        seo_keyword = #record.seoKeyword:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.seoDescribe" >
+        seo_describe = #record.seoDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.weight" >
+        weight = #record.weight:INTEGER#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_category.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_category
+    set id = #record.id:BIGINT#,
+      category_name = #record.categoryName:VARCHAR#,
+      category_describe = #record.categoryDescribe:VARCHAR#,
+      category_level = #record.categoryLevel:INTEGER#,
+      all_parent_id = #record.allParentId:VARCHAR#,
+      parent_id = #record.parentId:BIGINT#,
+      is_wap = #record.isWap:INTEGER#,
+      is_app = #record.isApp:INTEGER#,
+      is_pc = #record.isPc:INTEGER#,
+      create_time = #record.createTime:TIMESTAMP#,
+      remarks = #record.remarks:VARCHAR#,
+      seo_title = #record.seoTitle:VARCHAR#,
+      seo_keyword = #record.seoKeyword:VARCHAR#,
+      seo_describe = #record.seoDescribe:VARCHAR#,
+      weight = #record.weight:INTEGER#
+    <isParameterPresent >
+      <include refid="t_category.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TCategory" >
+    update t_category
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="categoryName" >
+        category_name = #categoryName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="categoryDescribe" >
+        category_describe = #categoryDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="categoryLevel" >
+        category_level = #categoryLevel:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="allParentId" >
+        all_parent_id = #allParentId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="parentId" >
+        parent_id = #parentId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="isWap" >
+        is_wap = #isWap:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isApp" >
+        is_app = #isApp:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isPc" >
+        is_pc = #isPc:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        create_time = #createTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="remarks" >
+        remarks = #remarks:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoTitle" >
+        seo_title = #seoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoKeyword" >
+        seo_keyword = #seoKeyword:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoDescribe" >
+        seo_describe = #seoDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        weight = #weight:INTEGER#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TCategory" >
+    update t_category
+    set category_name = #categoryName:VARCHAR#,
+      category_describe = #categoryDescribe:VARCHAR#,
+      category_level = #categoryLevel:INTEGER#,
+      all_parent_id = #allParentId:VARCHAR#,
+      parent_id = #parentId:BIGINT#,
+      is_wap = #isWap:INTEGER#,
+      is_app = #isApp:INTEGER#,
+      is_pc = #isPc:INTEGER#,
+      create_time = #createTime:TIMESTAMP#,
+      remarks = #remarks:VARCHAR#,
+      seo_title = #seoTitle:VARCHAR#,
+      seo_keyword = #seoKeyword:VARCHAR#,
+      seo_describe = #seoDescribe:VARCHAR#,
+      weight = #weight:INTEGER#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TCategoryExample" >
+                    select id, category_name, category_describe, category_level, all_parent_id, parent_id, is_wap,
+                      is_app, is_pc, create_time, remarks, seo_title, seo_keyword, seo_describe, weight
+                    from t_category
+                    <isParameterPresent >
+                      <include refid="t_category.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  
+  
+ <select id="selectCategoryByMap" resultMap="ibatorgenerated_BaseResultMap"
+		parameterClass="java.util.Map">
+	select id, category_name, category_describe, category_level, all_parent_id, parent_id, is_wap,
+                      is_app, is_pc, create_time, remarks, seo_title, seo_keyword, seo_describe, weight
+	from t_category
+	where 1=1
+	<isNotNull property="id">
+		and id =#id#
+	</isNotNull>  
+  </select>
+</sqlMap>

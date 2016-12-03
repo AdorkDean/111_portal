@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="111_portal"
+  id="myeclipse.1268293951031"
+  context-root="/111_portal"
+  j2ee-spec="5.0"
+  archive="111_portal.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

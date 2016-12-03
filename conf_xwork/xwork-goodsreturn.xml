@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="goodsReturn" extends="default" namespace="/goodsReturn">
+		<action name="myGoodsReturnPage" class="com.rc.portal.webapp.action.GoodsReturnAction" method="myReturns">
+			<result name="my_goodsreturn_page" type="redirect">myGoodsReturnPage!myReturns.action</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+	
+		<action name="applyGoodsReturnPage" class="com.rc.portal.webapp.action.GoodsReturnAction" method="applyGoodsReturnPage">
+		
+			<result name="apply_goodsreturn_page" type="freemarker">/WEB-INF/pages/goodsReturn/apply_goods_return_page.ftl</result>
+		
+		
+					
+<!-- 			<result name="apply_goodsreturn_page" type="freemarker">/WEB-INF/pages/goodsReturn/apply_goods_return.ftl</result> -->
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="saveGoodsReturn" class="com.rc.portal.webapp.action.GoodsReturnAction" method="saveGoodsReturn">
+			<!-- <result name="my_goodsreturn_page" type="freemarker">/WEB-INF/pages/goodsReturn/my_goods_returns_list.ftl</result> -->
+			<result name="my_goodsreturn_page" type="redirect">myGoodsReturnPage!myReturns.action</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="addLogisticsInfo" class="com.rc.portal.webapp.action.GoodsReturnAction" method="addLogisticsInfo">
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+		<action name="detailReturn" class="com.rc.portal.webapp.action.GoodsReturnAction" method="detailReturn">
+<!-- 			<result name="detail_return" type="freemarker">/WEB-INF/pages/goodsReturn/goods_return_detail.ftl</result> -->
+<!-- 			<result name="detail_return_nogoods" type="freemarker">/WEB-INF/pages/goodsReturn/goods_return_detail_nogoods.ftl</result> -->
+			<result name="detail_return" type="freemarker">/WEB-INF/pages/goodsReturn/return_good_money.ftl</result>
+			<result name="detail_return_nogoods" type="freemarker">/WEB-INF/pages/goodsReturn/return_money_only.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+		<action name="verifyGoodsReturn" class="com.rc.portal.webapp.action.GoodsReturnAction" method="verifyGoodsReturn">
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+	</package>
+</xwork>

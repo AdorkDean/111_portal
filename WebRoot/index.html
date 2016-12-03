@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="111医药馆网上药店是国家药监局认证指定网上药房|打造为老百姓服务药品价格低品种全|网上购药买药就选壹壹壹医药馆药品特卖网站" />
+    <meta name="keywords" content="壹壹壹医药馆|壹药馆|11医药馆|1药馆|医卡通|111医药馆|医药网|药品特卖网站" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>111医药馆专做药品特卖的网站-医卡通买药价格低便宜实惠-国家药监局指定壹壹壹医药馆网上连锁药店</title>
+    <meta name="renderer" content="webkit" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" /> 
+    <link rel="icon" type="image/png" href="images/common/favicon.png" />
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="images/common/favicon.png" />
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <link rel="apple-touch-icon-precomposed" href="images/common/favicon.png" />    
+    <meta name="msapplication-TileImage" content="images/common/favicon.png" />
+    <meta name="msapplication-TileColor" content="#0e90d2" />
+    <link rel="stylesheet" type="text/css" href="/web/version2.2.0/css/index.extend.css" />
+    <link rel="stylesheet" type="text/css" href="/web/version2.2.0/css/coupons_index.css" />
+</head>
+
+<body style="background:#f3f5f7;">
+    <input type="hidden" value="1" id="index_page_identity"/>
+	<!--头部-->
+	<!--#include virtual="/static/inc/version2.2.0/header.html" -->
+	<div class="index_search_area"><!--#include virtual="/static/inc/version2.2.0/search_box.html" --></div>
+	<script type="text/javascript" src="/web/version2.2.0/js/superslide.2.1.js"></script>
+
+    <!--导航-->
+	<!--#include virtual="/static/inc/version2.2.0/product_category.html" -->
+
+    <!-- 轮播图 -->
+    <!--#include virtual="/static/imgout/version2.2.0/index_lunbotu.html" -->
+    
+    <!--内容开始-->
+    <div class="main" style="width:1090px;">
+    	<div class="index-main w1090">
+        	<div class="sider-nav">
+            	<ul>
+                	<li class="index_jrrm" onclick="anchorPage('index_jrrm')">
+                    	<i></i>
+                    	<span class="default-s">今日热卖</span>
+                        <span class="current-s">今日热卖</span>
+                    </li>
+                    <!--#include virtual="/static/imgout/version2.2.0/index_anchor.html" -->
+                </ul>
+            </div> 
+            
+            <!--今日热买-->
+            <div class="model" id="index_jrrm">
+                <h2><i></i>今日热卖<span>Hot today</span></h2>
+                <div class="w1090">
+					<!--#include virtual="/static/imgout/version2.2.0/index_todaybuy_up.html" -->
+					<!--#include virtual="/static/imgout/version2.2.0/index_todaybuy_midd.html" -->
+					<!--#include virtual="/static/imgout/version2.2.0/index_todaybuy_down.html" -->
+                </div>
+            </div>
+            
+            <!--楼层-->
+            <!--#include virtual="/static/imgout/version2.2.0/index_stair.html" -->
+	</div>
+	</div>
+    <!--尾部-->
+	<!--#include virtual="/static/inc/version2.2.0/footer.html" -->
+	<script type="text/javascript" src="/web/version2.2.0/js/jquery.lazyload.js"></script>
+	<script type="text/javascript" src="/web/version2.2.0/js/common.js"></script>
+	<script type="text/javascript" src="/web/js/coupons_index.js"></script>
+	
+    <!--优惠券-->
+    <div class="coupon-shade">
+        <div class="discount-coupon">
+            <span class="coupon-close" onclick="showOrHideCouponList(2)"></span>
+            <ul id="loadingDatas">
+            </ul>
+        </div>
+    </div>
+    <div id="maskForCoupon"></div>
+    <img src="http://ui1.111yao.com/static/image/temp/20160114/cb6c11d8b61726174bdf2eb9dc023adf.gif" id="loadingGif"/>
+	
+</body>
+</html>

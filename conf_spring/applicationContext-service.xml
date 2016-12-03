@@ -1,0 +1,492 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd
+            http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-2.0.xsd
+            http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-2.0.xsd">
+            
+    <aop:config proxy-target-class="true">
+        <aop:advisor pointcut="execution(* *..service..*.*(..))" advice-ref="txAdvice"/>
+    </aop:config>
+    
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+         <tx:attributes>
+             <tx:method name="get*" read-only="true"  rollback-for="Exception" />
+             <tx:method name="*" rollback-for="Exception"/>
+        </tx:attributes>
+    </tx:advice>
+    
+    
+    <!-- add by yinbin 2011.03.30 -->
+	<!-- add SERVICE by yourself like this -->
+	<!--
+    <bean id="userinfoManager" class="com.wzl.portal.service.impl.UserinfoManagerImpl">
+        <property name="userinfoDao" ref="userinfoDao"/>      
+    </bean>
+    -->
+    
+	<bean id="opensqlmanage" class="com.rc.portal.service.impl.OpenSqlManageImpl">
+	        <property name="opensqldao" ref="opensqldao" />
+	</bean>
+ 
+    <bean id="cdeliverywaymanager" class="com.rc.portal.service.impl.CDeliveryWayManagerImpl">
+        <property name="cdeliverywaydao" ref="cdeliverywaydao" />
+    </bean>
+
+    <bean id="cimagemanager" class="com.rc.portal.service.impl.CImageManagerImpl">
+        <property name="cimagedao" ref="cimagedao" />
+    </bean>
+
+    <bean id="clocationmanager" class="com.rc.portal.service.impl.CLocationManagerImpl">
+        <property name="clocationdao" ref="clocationdao" />
+    </bean>
+
+    <bean id="cpaymentwaymanager" class="com.rc.portal.service.impl.CPaymentWayManagerImpl">
+        <property name="cpaymentwaydao" ref="cpaymentwaydao" />
+        <property name="tsysparameterdao" ref="tsysparameterdao" />
+    </bean>
+
+    <bean id="cpositionlistmanager" class="com.rc.portal.service.impl.CPositionListManagerImpl">
+        <property name="cpositionlistdao" ref="cpositionlistdao" />
+    </bean>
+
+    <bean id="cpositionmanager" class="com.rc.portal.service.impl.CPositionManagerImpl">
+        <property name="cpositiondao" ref="cpositiondao" />
+    </bean>
+
+    <bean id="tbrandmanager" class="com.rc.portal.service.impl.TBrandManagerImpl">
+        <property name="tbranddao" ref="tbranddao" />
+    </bean>
+
+    <bean id="tcartitemmanager" class="com.rc.portal.service.impl.TCartItemManagerImpl">
+        <property name="tcartitemdao" ref="tcartitemdao" />
+    </bean>
+
+    <bean id="tcartmanager" class="com.rc.portal.service.impl.TCartManagerImpl">
+        <property name="tcartdao" ref="tcartdao" />
+    </bean>
+
+    <bean id="tcategorygoodsmanager" class="com.rc.portal.service.impl.TCategoryGoodsManagerImpl">
+        <property name="tcategorygoodsdao" ref="tcategorygoodsdao" />
+    </bean>
+
+    <bean id="tcategorymanager" class="com.rc.portal.service.impl.TCategoryManagerImpl">
+        <property name="tcategorydao" ref="tcategorydao" />
+    </bean>
+
+    <bean id="tcouponcardmanager" class="com.rc.portal.service.impl.TCouponCardManagerImpl">
+        <property name="tcouponcarddao" ref="tcouponcarddao" />
+    </bean>
+
+    <bean id="tcouponmanager" class="com.rc.portal.service.impl.TCouponManagerImpl">
+        <property name="tcoupondao" ref="tcoupondao" />
+        <property name="tcouponcarddao" ref="tcouponcarddao" />
+		<property name="tmemberdao" ref="tmemberdao" />
+		<property name="tmemberintegraldao" ref="tmemberintegraldao" />
+		<property name="topicMessageSender" ref="topicMessageSender" />  
+    </bean>
+
+    <bean id="tcustomercallmanager" class="com.rc.portal.service.impl.TCustomerCallManagerImpl">
+        <property name="tcustomercalldao" ref="tcustomercalldao" />
+    </bean>
+
+    <bean id="tdosemanager" class="com.rc.portal.service.impl.TDoseManagerImpl">
+        <property name="tdosedao" ref="tdosedao" />
+    </bean>
+
+    <bean id="tgoodscommentmanager" class="com.rc.portal.service.impl.TGoodsCommentManagerImpl">
+        <property name="tgoodscommentdao" ref="tgoodscommentdao" />
+    </bean>
+
+    <bean id="tgoodsextendmanager" class="com.rc.portal.service.impl.TGoodsExtendManagerImpl">
+        <property name="tgoodsextenddao" ref="tgoodsextenddao" />
+    </bean>
+
+    <bean id="tgoodsimagesmanager" class="com.rc.portal.service.impl.TGoodsImagesManagerImpl">
+        <property name="tgoodsimagesdao" ref="tgoodsimagesdao" />
+    </bean>
+
+    <bean id="tgoodsmanager" class="com.rc.portal.service.impl.TGoodsManagerImpl">
+        <property name="tgoodsdao" ref="tgoodsdao" />
+		<property name="tgoodsimagesdao" ref="tgoodsimagesdao" />
+		<property name="tgoodsextenddao" ref="tgoodsextenddao" />
+		<property name="opensqldao" ref="opensqldao" />
+    </bean>
+
+    <bean id="tgoodspropertymanager" class="com.rc.portal.service.impl.TGoodsPropertyManagerImpl">
+        <property name="tgoodspropertydao" ref="tgoodspropertydao" />
+    </bean>
+
+    <bean id="tgroupgoodsmanager" class="com.rc.portal.service.impl.TGroupGoodsManagerImpl">
+        <property name="tgroupgoodsdao" ref="tgroupgoodsdao" />
+    </bean>
+
+    <bean id="tleadermanager" class="com.rc.portal.service.impl.TLeaderManagerImpl">
+        <property name="tleaderdao" ref="tleaderdao" />
+        <property name="tmemberdao" ref="tmemberdao" />
+        <property name="tmemberaccountdao" ref="tmemberaccountdao" />
+        <property name="tmemberbasemessageextdao" ref="tmemberbasemessageextdao" />
+        <property name="tleaderpharmacydao" ref="tleaderpharmacydao" />
+        <property name="tgoodsbrokeragedao" ref="tgoodsbrokeragedao" />
+        <property name="tmemberleaderdao" ref="tmemberleaderdao" />
+        <property name="tleadergoodsrecommenddao" ref="tleadergoodsrecommenddao" />
+    </bean>
+
+    <bean id="tlongcardmanager" class="com.rc.portal.service.impl.TLongCardManagerImpl">
+        <property name="tlongcarddao" ref="tlongcarddao" />
+    </bean>
+
+    <bean id="tlongmanager" class="com.rc.portal.service.impl.TLongManagerImpl">
+        <property name="tlongdao" ref="tlongdao" />
+    </bean>
+
+    <bean id="tmanufacturermanager" class="com.rc.portal.service.impl.TManufacturerManagerImpl">
+        <property name="tmanufacturerdao" ref="tmanufacturerdao" />
+    </bean>
+
+    <bean id="tmemberbalancemanager" class="com.rc.portal.service.impl.TMemberBalanceManagerImpl">
+        <property name="tmemberbalancedao" ref="tmemberbalancedao" />
+    </bean>
+
+    <bean id="tmembercollectmanager" class="com.rc.portal.service.impl.TMemberCollectManagerImpl">
+        <property name="tmembercollectdao" ref="tmembercollectdao" />
+    </bean>
+
+    <bean id="tmembergrademanager" class="com.rc.portal.service.impl.TMemberGradeManagerImpl">
+        <property name="tmembergradedao" ref="tmembergradedao" />
+    </bean>
+
+    <bean id="tmemberleadermanager" class="com.rc.portal.service.impl.TMemberLeaderManagerImpl">
+        <property name="tmemberleaderdao" ref="tmemberleaderdao" />
+    </bean>
+	
+    <bean id="tmembermanager" class="com.rc.portal.service.impl.TMemberManagerImpl">
+        <property name="tmemberdao" ref="tmemberdao" />
+        <property name="tmemberaccountdao" ref="tmemberaccountdao" />
+        <property name="tmemberthreebindingdao" ref="tmemberthreebindingdao" />
+         <property name="tmemberleaderdao" ref="tmemberleaderdao" />
+        <property name="tmemberbasemessageextdao" ref="tmemberbasemessageextdao" />
+    </bean>
+
+    <bean id="tmembermessagemanager" class="com.rc.portal.service.impl.TMemberMessageManagerImpl">
+        <property name="tmembermessagedao" ref="tmembermessagedao" />
+    </bean>
+
+    <bean id="tmemberreceivermanager" class="com.rc.portal.service.impl.TMemberReceiverManagerImpl">
+        <property name="tmemberreceiverdao" ref="tmemberreceiverdao" />
+        <property name="opensqldao" ref="opensqldao" />
+    </bean>
+
+    <bean id="tmemberthreebindingmanager" class="com.rc.portal.service.impl.TMemberThreeBindingManagerImpl">
+        <property name="tmemberthreebindingdao" ref="tmemberthreebindingdao" />
+    </bean>
+
+    <bean id="torderflowmanager" class="com.rc.portal.service.impl.TOrderFlowManagerImpl">
+        <property name="torderflowdao" ref="torderflowdao" />
+    </bean>
+
+    <bean id="torderitemmanager" class="com.rc.portal.service.impl.TOrderItemManagerImpl">
+        <property name="torderitemdao" ref="torderitemdao" />
+    </bean>
+
+    <bean id="tordermanager" class="com.rc.portal.service.impl.TOrderManagerImpl">
+        <property name="torderdao" ref="torderdao" />
+        <property name="opensqldao" ref="opensqldao" />
+        <property name="tpromotiondao" ref="tpromotiondao" />
+        <property name="tmemberreceiverlatlondao" ref="tmemberreceiverlatlondao" />
+        <property name="cpaymentwaydao" ref="cpaymentwaydao" />
+        <property name="torderitemdao" ref="torderitemdao" />
+        <property name="tcartdao" ref="tcartdao" />
+        <property name="tcartitemdao" ref="tcartitemdao" />
+        <property name="tmemberbalancedao" ref="tmemberbalancedao" />
+        <property name="torderflowdao" ref="torderflowdao" />
+        <property name="cartdao" ref="cartdao" />
+        <property name="tshortorderdao" ref="tshortorderdao" />
+        <property name="treturndao" ref="treturndao" />
+        <property name="treturnitemdao" ref="treturnitemdao" />
+        <property name="tgoodsdao" ref="tgoodsdao" />
+        <property name="tcouponcarddao" ref="tcouponcarddao" />
+        <property name="tsysparameterdao" ref="tsysparameterdao" />
+        <property name="tmemberintegraldao" ref="tmemberintegraldao" />
+        <property name="tgoodsbrokeragedao" ref="tgoodsbrokeragedao" />
+        <property name="tmemberleaderdao" ref="tmemberleaderdao" />
+        <property name="torderleaderdao" ref="torderleaderdao" />
+        <property name="topicMessageSender" ref="topicMessageSender" />
+        <property name="cdeliverywaydao" ref="cdeliverywaydao" />
+        <property name="tgoodspricedao" ref="tgoodspricedao" />
+        <property name="tcoupondao" ref="tcoupondao" />
+        
+    </bean>
+
+    <bean id="tpharmacistmanager" class="com.rc.portal.service.impl.TPharmacistManagerImpl">
+        <property name="tpharmacistdao" ref="tpharmacistdao" />
+    </bean>
+
+    <bean id="tpromgiftmanager" class="com.rc.portal.service.impl.TPromGiftManagerImpl">
+        <property name="tpromgiftdao" ref="tpromgiftdao" />
+    </bean>
+
+    <bean id="tpromitemmanager" class="com.rc.portal.service.impl.TPromItemManagerImpl">
+        <property name="tpromitemdao" ref="tpromitemdao" />
+    </bean>
+
+    <bean id="tpromotionmanager" class="com.rc.portal.service.impl.TPromotionManagerImpl">
+        <property name="tpromotiondao" ref="tpromotiondao" />
+    </bean>
+
+    <bean id="treturnimagemanager" class="com.rc.portal.service.impl.TReturnImageManagerImpl">
+        <property name="treturnimagedao" ref="treturnimagedao" />
+    </bean>
+
+    <bean id="treturnitemmanager" class="com.rc.portal.service.impl.TReturnItemManagerImpl">
+        <property name="treturnitemdao" ref="treturnitemdao" />
+    </bean>
+
+    <bean id="treturnmanager" class="com.rc.portal.service.impl.TReturnManagerImpl">
+        <property name="treturndao" ref="treturndao" />
+    </bean>
+
+    <bean id="tshortbuymanager" class="com.rc.portal.service.impl.TShortBuyManagerImpl">
+        <property name="tshortbuydao" ref="tshortbuydao" />
+        <property name="tshortgoodsdao" ref="tshortgoodsdao" />
+        <property name="tshortorderdao" ref="tshortorderdao" />
+        <property name="opensqldao" ref="opensqldao" />
+        
+    </bean>
+
+    <bean id="tshortgoodsmanager" class="com.rc.portal.service.impl.TShortGoodsManagerImpl">
+        <property name="tshortgoodsdao" ref="tshortgoodsdao" />
+    </bean>
+
+    <bean id="tshortordermanager" class="com.rc.portal.service.impl.TShortOrderManagerImpl">
+        <property name="tshortorderdao" ref="tshortorderdao" />
+    </bean>
+
+ <bean id="tgoodsconsultmanager" class="com.rc.portal.service.impl.TGoodsConsultManagerImpl">
+        <property name="tgoodsconsultdao" ref="tgoodsconsultdao" />
+    </bean>
+    
+     <bean id="tphysicianmanager" class="com.rc.portal.service.impl.TPhysicianManagerImpl">
+        <property name="tphysiciandao" ref="tphysiciandao" />
+    </bean>
+    
+        <bean id="cpositiontypemanager" class="com.rc.portal.service.impl.CPositionTypeManagerImpl">
+        <property name="cpositiontypedao" ref="cpositiontypedao" />
+    </bean>
+
+    <bean id="tmemberintegralmanager" class="com.rc.portal.service.impl.TMemberIntegralManagerImpl">
+        <property name="tmemberintegraldao" ref="tmemberintegraldao" />
+    </bean>
+
+    <bean id="tsysparametermanager" class="com.rc.portal.service.impl.TSysParameterManagerImpl">
+        <property name="tsysparameterdao" ref="tsysparameterdao" />
+    </bean>
+    
+     <bean id="tcouponrelevancemanager" class="com.rc.portal.service.impl.TCouponRelevanceManagerImpl">
+        <property name="tcouponrelevancedao" ref="tcouponrelevancedao" />
+    </bean>
+    
+    <bean id="tgoodspremiumsmanager" class="com.rc.portal.service.impl.TGoodsPremiumsManagerImpl">
+        <property name="tgoodspremiumsdao" ref="tgoodspremiumsdao" />
+    </bean>
+
+    
+    <bean id="cartmanager" class="com.rc.portal.service.impl.CartManagerImpl">
+    
+        <property name="tcartdao" ref="tcartdao" />
+        <property name="tcartitemdao" ref="tcartitemdao" />
+        <property name="opensqldao" ref="opensqldao" />
+        <property name="tgoodsdao" ref="tgoodsdao" />
+        
+        <property name="tpromitemdao" ref="tpromitemdao" />
+        <property name="tpromotiondao" ref="tpromotiondao" />
+        <property name="tpromgiftdao" ref="tpromgiftdao" />
+        <property name="cartdao" ref="cartdao" />
+        <property name="torderdao" ref="torderdao" />
+        <property name="torderitemdao" ref="torderitemdao" />
+<!--         <property name="tgoodsmanager" ref="tgoodsmanager" /> -->
+        
+        <property name="tgoodspricedao" ref="tgoodspricedao" />
+        <property name="yktgoodsdao" ref="yktgoodsdao" />
+	
+    </bean>
+    
+
+    
+       <bean id="tmemberaccountmanager" class="com.rc.portal.service.impl.TMemberAccountManagerImpl">
+        <property name="tmemberaccountdao" ref="tmemberaccountdao" />
+    </bean>
+
+    <bean id="tmemberamountoutmanager" class="com.rc.portal.service.impl.TMemberAmountOutManagerImpl">
+        <property name="tmemberamountoutdao" ref="tmemberamountoutdao" />
+        <property name="tmemberaccountdao" ref="tmemberaccountdao" />
+         <property name="opensqldao" ref="opensqldao" />
+    </bean>
+    
+       <bean id="tstaticmanager" class="com.rc.portal.service.impl.TStaticManagerImpl">
+        <property name="tstaticdao" ref="tstaticdao" />
+    </bean>
+
+     <bean id="paymentpluginmaager" class="com.rc.portal.service.impl.PaymentPluginMaagerImpl">
+    </bean>
+     <bean id="tgoodsbrokeragemanager" class="com.rc.portal.service.impl.TGoodsBrokerageManagerImpl">
+        <property name="tgoodsbrokeragedao" ref="tgoodsbrokeragedao" />
+    </bean>
+
+    <bean id="tleaderimagemanager" class="com.rc.portal.service.impl.TLeaderImageManagerImpl">
+        <property name="tleaderimagedao" ref="tleaderimagedao" />
+    </bean>
+    
+     <bean id="tordershipmentmanager" class="com.rc.portal.service.impl.TOrderShipmentManagerImpl">
+        <property name="tordershipmentdao" ref="tordershipmentdao" />
+    </bean>
+    
+     <bean id="tgroupgoodskeywordmanager" class="com.rc.portal.service.impl.TGroupGoodsKeywordManagerImpl">
+        <property name="tgroupgoodskeyworddao" ref="tgroupgoodskeyworddao" />
+    </bean>
+    
+      <bean id="torderleadermanager" class="com.rc.portal.service.impl.TOrderLeaderManagerImpl">
+        <property name="torderleaderdao" ref="torderleaderdao" />
+    </bean>
+    
+    <bean id="tleaderagentmanager" class="com.rc.portal.service.impl.TLeaderAgentManagerImpl">
+        <property name="tleaderagentdao" ref="tleaderagentdao" />
+    </bean>
+    
+     <bean id="tleaderstaymoneymanager" class="com.rc.portal.service.impl.TLeaderStayMoneyManagerImpl">
+        <property name="tleaderstaymoneydao" ref="tleaderstaymoneydao" />
+    	<property name="opensqldao" ref="opensqldao" />
+        <property name="topicMessageSender" ref="topicMessageSender" />
+    </bean>
+    
+     <bean id="tleaderqrcodemanager" class="com.rc.portal.service.impl.TLeaderQrCodeManagerImpl">
+        <property name="tleaderqrcodedao" ref="tleaderqrcodedao" />
+    </bean>
+    
+    
+    <bean id="tlxannouncementmanager" class="com.rc.portal.service.impl.TLxAnnouncementManagerImpl">
+        <property name="tlxannouncementdao" ref="tlxannouncementdao" />
+    </bean>
+
+    <bean id="tlxarticlemanager" class="com.rc.portal.service.impl.TLxArticleManagerImpl">
+        <property name="tlxarticledao" ref="tlxarticledao" />
+    </bean>
+
+    <bean id="tlxcontentmanager" class="com.rc.portal.service.impl.TLxContentManagerImpl">
+        <property name="tlxcontentdao" ref="tlxcontentdao" />
+    </bean>
+
+    <bean id="tlxgoodsarticlebrokeragemanager" class="com.rc.portal.service.impl.TLxGoodsArticleBrokerageManagerImpl">
+        <property name="tlxgoodsarticlebrokeragedao" ref="tlxgoodsarticlebrokeragedao" />
+    </bean>
+
+    <bean id="tlxgoodsarticlemanager" class="com.rc.portal.service.impl.TLxGoodsArticleManagerImpl">
+        <property name="tlxgoodsarticledao" ref="tlxgoodsarticledao" />
+    </bean>
+
+    <bean id="tlxlookcollectionmanager" class="com.rc.portal.service.impl.TLxLookCollectionManagerImpl">
+        <property name="tlxlookcollectiondao" ref="tlxlookcollectiondao" />
+    </bean>
+
+    <bean id="tlxreceiveredmanager" class="com.rc.portal.service.impl.TLxReceiveRedManagerImpl">
+        <property name="tlxreceivereddao" ref="tlxreceivereddao" />
+    </bean>
+
+    <bean id="tlxredsharemanager" class="com.rc.portal.service.impl.TLxRedShareManagerImpl">
+        <property name="tlxredsharedao" ref="tlxredsharedao" />
+    </bean>
+
+    <bean id="tlxsendredmanager" class="com.rc.portal.service.impl.TLxSendRedManagerImpl">
+        <property name="tlxsendreddao" ref="tlxsendreddao" />
+    </bean>
+
+    <bean id="tlxsharecollectionmanager" class="com.rc.portal.service.impl.TLxShareCollectionManagerImpl">
+        <property name="tlxsharecollectiondao" ref="tlxsharecollectiondao" />
+    </bean>
+    <bean id="tmemberreceiverlatlonmanager" class="com.rc.portal.service.impl.TMemberReceiverLatLonManagerImpl">
+        <property name="tmemberreceiverlatlondao" ref="tmemberreceiverlatlondao" />
+        <property name="opensqldao" ref="opensqldao" />
+    </bean>
+    <bean id="clocationcitymanager" class="com.rc.portal.service.impl.CLocationCityManagerImpl">
+        <property name="clocationcitydao" ref="clocationcitydao" />
+    </bean>
+    
+        <bean id="rxtordergoodmanager" class="com.rc.portal.service.impl.RxTOrderGoodManagerImpl">
+        <property name="rxtordergooddao" ref="rxtordergooddao" />
+    </bean>
+
+    <bean id="rxtordermanager" class="com.rc.portal.service.impl.RxTOrderManagerImpl">
+        <property name="rxtorderdao" ref="rxtorderdao" />
+    </bean>
+
+    <bean id="rxtreserveordermanager" class="com.rc.portal.service.impl.RxTReserveOrderManagerImpl">
+        <property name="rxtreserveorderdao" ref="rxtreserveorderdao" />
+        <property name="opensqldao" ref="opensqldao" />
+        <property name="tmemberreceiverlatlondao" ref="tmemberreceiverlatlondao" />
+        <property name="tfreightdao" ref="tfreightdao" />
+        <property name="tgoodfreightdao" ref="tgoodfreightdao" />
+    </bean>
+    
+    
+    <bean id="tfreightmanager" class="com.rc.portal.service.impl.TFreightManagerImpl">
+        <property name="tfreightdao" ref="tfreightdao" />
+    </bean>
+
+    <bean id="tgoodfreightmanager" class="com.rc.portal.service.impl.TGoodFreightManagerImpl">
+        <property name="tgoodfreightdao" ref="tgoodfreightdao" />
+    </bean>
+    
+    <bean id="tgoodspricemanager" class="com.rc.portal.service.impl.TGoodsPriceManagerImpl">
+        <property name="tgoodspricedao" ref="tgoodspricedao" />
+    </bean>
+
+    <bean id="tmemberarchivesexaminationmanager" class="com.rc.portal.service.impl.TMemberArchivesExaminationManagerImpl">
+        <property name="tmemberarchivesexaminationdao" ref="tmemberarchivesexaminationdao" />
+    </bean>
+
+    <bean id="tmemberarchiveslifediseasemanager" class="com.rc.portal.service.impl.TMemberArchivesLifeDiseaseManagerImpl">
+        <property name="tmemberarchiveslifediseasedao" ref="tmemberarchiveslifediseasedao" />
+    </bean>
+
+    <bean id="tmemberarchivesmedicalrecordmanager" class="com.rc.portal.service.impl.TMemberArchivesMedicalRecordManagerImpl">
+        <property name="tmemberarchivesmedicalrecorddao" ref="tmemberarchivesmedicalrecorddao" />
+    </bean>
+
+    <bean id="tmemberbasemessageextmanager" class="com.rc.portal.service.impl.TMemberBaseMessageExtManagerImpl">
+        <property name="tmemberbasemessageextdao" ref="tmemberbasemessageextdao" />
+    </bean>
+
+    <bean id="tmembercertificatesmanager" class="com.rc.portal.service.impl.TMemberCertificatesManagerImpl">
+        <property name="tmembercertificatesdao" ref="tmembercertificatesdao" />
+    </bean>
+
+    <bean id="tmemberhobbymanager" class="com.rc.portal.service.impl.TMemberHobbyManagerImpl">
+        <property name="tmemberhobbydao" ref="tmemberhobbydao" />
+    </bean>
+
+    <bean id="tmemberyktmanager" class="com.rc.portal.service.impl.TMemberYktManagerImpl">
+        <property name="tmemberyktdao" ref="tmemberyktdao" />
+    </bean>
+    
+       <bean id="yktgoodsmanager" class="com.rc.portal.service.impl.YktGoodsManagerImpl">
+        <property name="yktgoodsdao" ref="yktgoodsdao" />
+    </bean>
+    <bean id="tleaderaccountnumbermanager" class="com.rc.portal.service.impl.TLeaderAccountNumberManagerImpl">
+        <property name="tleaderaccountnumberdao" ref="tleaderaccountnumberdao" />
+    </bean>
+
+    <bean id="tleaderarticlegoodsmanager" class="com.rc.portal.service.impl.TLeaderArticleGoodsManagerImpl">
+        <property name="tleaderarticlegoodsdao" ref="tleaderarticlegoodsdao" />
+    </bean>
+
+    <bean id="tleaderarticlemanager" class="com.rc.portal.service.impl.TLeaderArticleManagerImpl">
+        <property name="tleaderarticledao" ref="tleaderarticledao" />
+    </bean>
+
+    <bean id="tleaderpharmacymanager" class="com.rc.portal.service.impl.TLeaderPharmacyManagerImpl">
+        <property name="tleaderpharmacydao" ref="tleaderpharmacydao" />
+    </bean>
+    <bean id="tleadergoodsrecommendmanager" class="com.rc.portal.service.impl.TLeaderGoodsRecommendManagerImpl">
+        <property name="tleadergoodsrecommenddao" ref="tleadergoodsrecommenddao" />
+    </bean>
+</beans>

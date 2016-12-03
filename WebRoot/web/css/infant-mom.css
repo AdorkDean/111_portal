@@ -1,0 +1,74 @@
+@charset "utf-8";
+.im-search-btn{background: #c0295b;}
+.im-cart-btn{color:#c0295b;}
+.im-nav-current{color:#c0295b;}
+.im-shopping-btn{color:#c0295b;}
+.im-menu .nav ul li a:hover, .im-menu .nav ul li a.current {color:#c0295b;}
+.show-empty04{border:1px #c0295b solid;border-bottom:1px #fff solid;height:42px;}
+.empty04{border:1px #c0295b solid;}
+.im-menu .all-sort{background: #c0295b;}
+.im-all-sort-list{}
+.top-adv-img-wh li a{width:206px; height:206px;}
+.top-adv-img-wh li a img{height:206px; width:206px;}
+
+/*sp-recommend*/
+.im-big-img a.a-h{display: block; height:237px; width:498px;}
+.im-big-img a.a-t{ margin-bottom:1px ;}
+.im-big-img a.a-h img{height:237px; width:498px; }
+.bg-color{background: #f2e5ee; overflow: hidden;width:100%; margin:0 auto;padding-bottom: 20px;margin-top:-415px;}
+.im-recommend{position: relative; margin-top:40px;overflow: visible;}
+.im-recommend h2{height:30px;width:106px;line-height:30px; text-align: center; font-size:18px; border-bottom:1px solid #da3ba4;  font-weight: bold; background: #da3ba4; color:#FFF;}
+.im-recommend-info{position: absolute; top:-30px; left:106px; width:1104px; height:60px; border-bottom:1px solid #da3ba4; }
+.im-recommend-info li{float:left; width:183px; height:60px; margin-right:1px; overflow: hidden; position: relative;cursor: pointer;transition:all 0.3s linear;-webkit-transition:all 0.3s linear;}
+.im-recommend-info li i{display: block; width:50px; height:48px;margin-top:30px; background: url("/web/img/im-icon.png") no-repeat; position: absolute; bottom:0px; left:25px;z-index: 10;}
+.im-recommend-info li.li01 i{background-position: 0 0;}
+.im-recommend-info li.li02 i{background-position: 0 -51px;}
+.im-recommend-info li.li03 i{background-position: 0 -100px;}
+.im-recommend-info li.li04 i{background-position: 0 -152px;}
+.im-recommend-info li.li05 i{background-position: 0 -201px;}
+.im-recommend-info li.li06 i{background-position: 0 -252px;}
+.im-recommend-info li span{display: inline-block;  width:103px; height:30px;  line-height:30px; color:#FFF;padding-left:80px; position: absolute; top:30px; left:0; z-index: 9;}
+.im-recommend-info li.active span{ color:#da3ba4;}
+.hover-bg{ width:183px; height:60px; position: absolute; top:60px; left:0; background: #FFF;transition:all 0.5s ease;-webkit-transition:all 0.5s ease; z-index: 6;}
+.default-bg{background: #f2b6dc;width:183px; height:30px; position: absolute; top:30px; left:0;z-index: 5;}
+.im-recommend-info li.active .hover-bg{top:0;background: #FFF; z-index: 7; display:block;}
+    /*im-classify*/
+.im-classify{width:1196px; overflow: hidden; padding-left:14px;background: #e5f3f7; margin: 20px auto 0;}
+.im-classify-main{width:285px; margin-right:14px; overflow: hidden; float:left;}
+.im-classify-main h2{height:34px; line-height:34px;  color:#27a2c6; font-size:18px; font-weight: bold;}
+.im-classify-list{width:276px; overflow: hidden; background:  #FFF; padding:6px 3px 6px 6px;}
+.im-classify-list ul li{width:90px; height:30px; line-height:30px; text-align: center; float:left; background: #d5f0f8; margin:0 2px 2px 0;}
+.im-classify-list ul li a{display:block; }
+.im-classify-img{width:276px; background: #FFF;overflow: hidden; padding:15px 6px; position: relative;}
+.im-classify-img ul li{display: none;}
+.im-classify-img .change-img li.current{display: block;}
+.im-classify-img .change-img li a{display: block;}
+.im-classify-img .change-img li a dl{width:276px; overflow: hidden;}
+.im-classify-img .change-img li a dl dt{height:100px; width:100px; floaT:left;}
+.im-classify-img .change-img li a dl dd{float:left; width:150px; overflow: hidden;}
+.im-classify-img .change-img li a dl dd p{line-height:20px;}
+.im-classify-img .change-img li a dl dd b{font-size:18px; font-weight: bold; margin-top:10px; display: block;}
+.im-classify-img .change-num{height:5px;width:132px; position: absolute; bottom:14px; right:14px;}
+.im-classify-img .change-num li{display: block; float:left; height:5px; width:42px; background: #a8a8a8;margin-right:2px; cursor: pointer;}
+.im-classify-img .change-num li.current{background: #3fcef8;}
+.im-knowledge{background: #e5f3f7; margin-top:0; padding-top:20px;}
+.im-knowledge h2{color:#27a2c6}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

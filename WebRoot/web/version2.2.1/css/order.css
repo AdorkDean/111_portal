@@ -1,0 +1,120 @@
+@charset "utf-8";
+/* CSS Document */
+.mt10{margin-top:10px;}.mt20{margin-top:20px;}
+.order-box{zoom:1; margin-bottom:10px;} 
+.order-box:after{content:''; display:block; height:0; clear:both;}
+.order-main{float:left; width:100%;}
+.order-wrap{margin-right:260px;}
+.order-sub{float:left; position:relative; width:250px; margin-left:-250px;}
+.customer-service-info{border:1px solid #efefef;}
+.customer-service-form{border:1px solid #efefef; padding:40px 30px 0; height:528px;}
+/*退换货进度*/
+.customer-service-state{float:right; margin:6px 10px 0 0;}
+.customer-service-state ul li{float:left; position: relative;  }
+.customer-service-state .state-tip b{height:28px; width:28px; display: block; text-align: center; line-height:28px; color:#FFF; background: #d7d7d7; border-radius:50%; margin-top:3px; position: relative;}
+.customer-service-state .bra-line{width:90px; height:0; border-top:1px solid #d7d7d7; margin-top:17px;}
+.customer-service-state .finish-tip b{background: #00aaa0;border:3px solid #82d5d1;margin-top:0;}
+.customer-service-state .finish-line{border-top:1px solid #00aaa0;}
+.customer-service-state .state-tip span{display: block; position:absolute; top:40px; left:50%; margin-left:-45px; text-align: center; color:#666; width:90px;}
+.customer-service-state .state-tip span.doing-tit{color:#00aaa0;}
+.customer-service-state .error-tip b{background: #fe4310;border:3px solid #ffa58d;margin-top:0;}
+.customer-service-state .state-tip span.error-tit{color:#fe4310;}
+
+/*退换货信息*/
+.customer-service-info h2{height:50px; border-bottom:1px solid #efefef; line-height:50px; padding:0 30px; font-size:14px;}
+.order-number{height:42px; line-height:42px; border-bottom:1px dashed #efefef; padding:0 30px; overflow:hidden; white-space:nowrap; word-break:keep-all; text-overflow:ellipsis;}
+.order-number span{color:#999;}
+.order-number b{width:60px;}
+.customer-service-order-list li{height:80px; overflow:hidden; padding:0 30px;}
+.customer-service-order-list li img{width:50px; height:50px; display:block; float:left; margin:15px 10px 15px 0;}
+.customer-service-order-list li p{height:40px; line-height:20px; overflow:hidden; margin:20px 0;}
+.customer-service-order-info{border-top:1px dashed #efefef; padding:10px 30px;}
+.customer-service-order-info p{height:30px; line-height:30px; overflow:hidden; white-space:nowrap; word-break:keep-all; text-overflow:ellipsis;}
+.customer-service-order-info b{width:60px; display:inline-block; text-align:justify;}
+.customer-service-order-info span{color:#999;}
+.customer-service-question{padding:10px 0;}
+.customer-service-question li{padding:0 24px; height:30px; line-height:30px; overflow:hidden; white-space:nowrap; word-break:keep-all; text-overflow:ellipsis;}
+.customer-service-question li a:hover{color:#00aaa0;}
+/*退换货*/
+.customer-service-form-list{margin-bottom:20px;}
+.customer-service-form-list span{ float:left; width:85px; height:32px; line-height:32px; text-align:right; margin-right:5px;}
+.customer-service-form-info{ float:left;}
+.customer-service-type{ float:left; width:104px; padding:0 5px; height:30px; border:1px solid #efefef;}
+.customer-service-type select{width:100%; background:none; border:none; margin:7px 0 4px 0; margin:6px 0 4px 0\0; *margin:4px 0 4px 0; cursor:pointer;}
+.customer-service-type-box{ float:left; position:relative; z-index:9;}
+.customer-service-type-box span{width:20px; height:20px; display:inline-block; background:url(../images/order/question_ico.png) no-repeat; overflow:hidden; margin:6px 10px; cursor:pointer;}
+.customer-service-type-tips{background:#fee9e3; border:1px solid #fe4310; position:absolute; padding:10px 20px; width:470px; left:-30px; top:35px; display:none;}
+.customer-service-type-tips i{width:11px; height:11px; display:inline-block; overflow:hidden; background:url(../images/order/question_corner.png) no-repeat; position:absolute; top:-8px; left:44px;}
+.customer-service-type-tips p{color:#666; line-height:28px;}
+.customer-service-type-tips p b{ font-weight:bold;}
+.customer-service-count{width:90px; height:30px; background:#fff; border:1px solid #efefef; overflow:hidden;}
+.customer-service-count a{width:29px; height:30px; line-height:30px; font-size:18px; text-align:center; display:inline-block; display:block; float:left;}
+.customer-service-count a.minu{border-right:1px solid #efefef;}
+.customer-service-count a.plus{border-left:1px solid #efefef;}
+.customer-service-count input{height:16px; line-height:16px; width:30px; margin:7px 0; float:left; text-align:center; overflow:hidden;}
+.customer-service-leave-message{ width:406px; height:122px; border:1px solid #efefef; padding:7px;}
+.customer-service-leave-message textarea{height:122px; width:100%;}
+.customer-service-leave-message-tips{ width:420px; text-align:right; height:22px; line-height:22px;}
+.customer-service-upload li{width:110px; height:80px; float:left; margin-right:10px;}
+.customer-service-upload li img{width:108px; height:78px; display:block; border:1px solid #efefef;}
+.customer-service-upload li a{width:108px; height:78px; line-height:78px; display:block; background:#f3f5f7; border:1px dashed #efefef; color:#999; text-align:center; position:relative;}
+.customer-service-upload li input{width:108px; height:78px; opacity:0; position:absolute; left:0; top:0;}
+.customer-service-upload-tips{ padding-top:10px;}
+.customer-service-submit{height:38px; line-height:38px; width:210px; display:inline-block; text-align:center; font-size:16px; color:#fff; background:#fe4310; border-radius:2px; -webkit-border-radius:2px; margin-top:20px;}
+/*退换货审核进度*/
+.customer-service-state-tips{padding-top:120px;}
+.customer-service-state-tips img{width:90px; height:90px; display:block; margin:0 auto;}
+.customer-service-state-title{font-size:24px; text-align:center; color:#4c4c4c; line-height:40px; padding:5px 0;}
+.customer-service-state-text{text-align:center; color:#4c4c4c; line-height:30px;}
+.customer-service-state-text span{color:#fe4310;}
+.customer-service-state-tel span{width:204px; height:36px; line-height:36px; border:1px solid #d7d7d7; text-align:center; display:block; margin:30px auto 0; font-size:14px; color:#fe4310; border-radius:2px; -webkit-border-radius:2px;}
+/*用户退货*/
+.customer-service-reback{border:1px solid #efefef; padding:40px 80px 0; height:528px;}
+.customer-service-reback-list h2{ line-height:50px; color:#4c4c4c; font-size:24px;}
+.customer-service-reback-list span{ float:left; width:85px; height:32px; line-height:32px; text-align:right; margin-right:5px; color:#4c4c4c;}
+.customer-service-reback-info{float:left; line-height:32px; color:#4c4c4c;}
+.customer-service-reback-type{ float:left; width:150px; padding:0 5px; height:30px; border:1px solid #efefef;}
+.customer-service-reback-type input{width:100%; background:none; border:none; margin:6px 0 4px 0; margin:6px 0 4px 0\0; *margin:4px 0 4px 0; cursor:pointer;}
+.customer-service-reback-type input:-moz-placeholder,textarea:-moz-placeholder{color:#999}
+.customer-service-reback-type input:-ms-input-placeholder,textarea:-ms-input-placeholder{color:#999}
+.customer-service-reback-type input::-webkit-input-placeholder,textarea::-webkit-input-placeholder{color:#999}
+/*订单详情*/
+.order-details-box{border:1px solid #efefef; margin-top:10px;}
+.order-details-box h2{height:40px; line-height:40px; padding:0 15px; font-size:16px; font-weight:bold; border-bottom:1px 
+solid #efefef;}
+.order-details-state{padding:30px 40px;}
+.order-details-state-text{width:260px; float:left;}
+.order-details-state-location{color:#666;}
+.order-details-state-location span{font-size:14px; color:#00aaa0;}
+.order-details-state-location span.red{color:#fe4310;}
+.order-details-state-location span.black{color:#222;}
+.order-details-call{margin-top:10px;}
+.order-details-call a{width:88px; height:22px; line-height:22px; display:block; border:1px solid #efefef; border-radius:2px; -webkit-border-radius:2px; float:left;}
+.order-details-call a.order-pay{width:56px; height:24px; line-height:24px; display:block; border-radius:2px; -webkit-border-radius:2px; margin-right:10px; text-align:center; color:#fff; border:none; background:#fe4310;}
+.order-details-call a.order-success{width:56px; height:24px; line-height:24px; display:block; border-radius:2px; -webkit-border-radius:2px; margin-right:10px; text-align:center; color:#fff; border:none; background:#00aaa0;}
+.order-details-call i{width:17px; height:14px; display:inline-block; background:url(../images/order/base_icon02.png) no-repeat; background-size:17px 14px; float:left; margin:4px 6px 4px 8px;}
+.order-details-state-bar{float:left; margin:0 30px;}
+.order-details-state-bar ul li{float:left; position: relative;  }
+.order-details-state-bar .order-state-tip b{height:28px; width:28px; display: block; text-align: center; line-height:28px; color:#FFF; background: #d7d7d7; border-radius:50%; margin-top:3px; position: relative;}
+.order-details-state-bar .bra-line{width:90px; height:0; border-top:1px solid #d7d7d7; margin-top:17px;}
+.order-details-state-bar .finish-tip b{background: #00aaa0;border:3px solid #82d5d1;margin-top:0;}
+.order-details-state-bar .finish-line{border-top:1px solid #00aaa0;}
+.order-details-state-bar .order-state-tip span{display: block; position:absolute; top:36px; left:50%; margin-left:-45px; text-align: center; color:#666; width:90px;}
+.order-details-state-bar .order-state-tip span.doing-tit{color:#00aaa0;}
+.order-details-state-bar .error-tip b{background: #fe4310;border:3px solid #ffa58d;margin-top:0;}
+.order-details-state-bar .order-state-tip span.error-tit{color:#fe4310;}
+.logistics-details-box{padding:10px 40px;}
+.logistics-details-info{ line-height:20px;}
+.logistics-details-info span{width:60px; float:left;}
+.logistics-details-info p{padding:0 0 0 64px;}
+.logistics-details-info p b{font-weight:bold;}
+.w40{width:40%; float:left;}
+.order-details-info-box{border:1px solid #efefef; margin-top:10px; border-top:2px solid #00aaa0;}
+.order-details-info-box h2{height:40px; line-height:40px; border-bottom:1px solid #efefef;}
+.order-details-info-box h2 span{ float:left; display:block; text-align:center; font-size:14px; color:#666;}
+.w15{width:15%;}.w40{width:40%;}
+.order-details-info-list li{height:130px; overflow:hidden; margin-top:-1px; border-top:1px solid #efefef;}
+.order-details-info-list li span{ line-height:130px; text-align:center; float:left; display:block; color:#666;}
+.order-details-info-list li span.blue{color:#00aaa0; font-size:14px;}
+.order-details-info-list li span.red{color:#fe4310;}
+.order-details-info-list li img{width:100px; height:100px; display:block; margin:15px auto;}

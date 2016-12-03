@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_manufacturer" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TManufacturer" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="manu_name" property="manuName" jdbcType="VARCHAR" />
+    <result column="manu_logo" property="manuLogo" jdbcType="VARCHAR" />
+    <result column="manu_describe" property="manuDescribe" jdbcType="VARCHAR" />
+    <result column="slogan" property="slogan" jdbcType="VARCHAR" />
+    <result column="remarks" property="remarks" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TManufacturerExample" >
+    select id, manu_name, manu_logo, manu_describe, slogan, remarks, status, create_time
+    from t_manufacturer
+    <isParameterPresent >
+      <include refid="t_manufacturer.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TManufacturer" >
+    select id, manu_name, manu_logo, manu_describe, slogan, remarks, status, create_time
+    from t_manufacturer
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TManufacturer" >
+    delete from t_manufacturer
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TManufacturerExample" >
+    delete from t_manufacturer
+    <include refid="t_manufacturer.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TManufacturer" >
+    insert into t_manufacturer (id, manu_name, manu_logo, manu_describe, slogan, remarks, status,
+      create_time)
+    values (#id:BIGINT#, #manuName:VARCHAR#, #manuLogo:VARCHAR#, #manuDescribe:VARCHAR#,
+      #slogan:VARCHAR#, #remarks:VARCHAR#, #status:INTEGER#, #createTime:TIMESTAMP#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TManufacturer" >
+    insert into t_manufacturer
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="manuName" >
+        manu_name
+      </isNotNull>
+      <isNotNull prepend="," property="manuLogo" >
+        manu_logo
+      </isNotNull>
+      <isNotNull prepend="," property="manuDescribe" >
+        manu_describe
+      </isNotNull>
+      <isNotNull prepend="," property="slogan" >
+        slogan
+      </isNotNull>
+      <isNotNull prepend="," property="remarks" >
+        remarks
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        create_time
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="manuName" >
+        #manuName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="manuLogo" >
+        #manuLogo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="manuDescribe" >
+        #manuDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="slogan" >
+        #slogan:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="remarks" >
+        #remarks:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        #createTime:TIMESTAMP#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TManufacturerExample" resultClass="java.lang.Integer" >
+    select count(*) from t_manufacturer
+    <include refid="t_manufacturer.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_manufacturer
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.manuName" >
+        manu_name = #record.manuName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.manuLogo" >
+        manu_logo = #record.manuLogo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.manuDescribe" >
+        manu_describe = #record.manuDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.slogan" >
+        slogan = #record.slogan:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.remarks" >
+        remarks = #record.remarks:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        status = #record.status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createTime" >
+        create_time = #record.createTime:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_manufacturer.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_manufacturer
+    set id = #record.id:BIGINT#,
+      manu_name = #record.manuName:VARCHAR#,
+      manu_logo = #record.manuLogo:VARCHAR#,
+      manu_describe = #record.manuDescribe:VARCHAR#,
+      slogan = #record.slogan:VARCHAR#,
+      remarks = #record.remarks:VARCHAR#,
+      status = #record.status:INTEGER#,
+      create_time = #record.createTime:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="t_manufacturer.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TManufacturer" >
+    update t_manufacturer
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="manuName" >
+        manu_name = #manuName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="manuLogo" >
+        manu_logo = #manuLogo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="manuDescribe" >
+        manu_describe = #manuDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="slogan" >
+        slogan = #slogan:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="remarks" >
+        remarks = #remarks:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status = #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        create_time = #createTime:TIMESTAMP#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TManufacturer" >
+    update t_manufacturer
+    set manu_name = #manuName:VARCHAR#,
+      manu_logo = #manuLogo:VARCHAR#,
+      manu_describe = #manuDescribe:VARCHAR#,
+      slogan = #slogan:VARCHAR#,
+      remarks = #remarks:VARCHAR#,
+      status = #status:INTEGER#,
+      create_time = #createTime:TIMESTAMP#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TManufacturerExample" >
+                    select id, manu_name, manu_logo, manu_describe, slogan, remarks, status, create_time
+                    from t_manufacturer
+                    <isParameterPresent >
+                      <include refid="t_manufacturer.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

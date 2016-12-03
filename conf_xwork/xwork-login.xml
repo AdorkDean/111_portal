@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="login" extends="default" namespace="/login">
+		<action name="login" class="com.rc.portal.webapp.action.LoginAction">
+			<result name="login" type="freemarker">/WEB-INF/pages/login/login.ftl</result>
+			<result name="index" type="freemarker">${base}/index.html</result>
+			<result name="logout" type="redirect">/login/login!home.action</result>
+			<result name="oldlogin" type="freemarker">/WEB-INF/pages/login/oldlogin.ftl</result>
+		</action>
+		<action name="bindingmobile" class="com.rc.portal.webapp.action.unionlogin.BindingMobileAction">
+			<result name="index" type="freemarker">${base}/index.html</result>
+			<result name="popup" type="freemarker">/WEB-INF/pages/login/popup.ftl</result>
+		</action>
+		<action name="qqlogin" class="com.rc.portal.webapp.action.unionlogin.qqLoginAction">
+			<result name="qqlogin" type="redirect">/qqAfterLoginAction.action</result>
+			<result name="logout" type="redirect">/login/login!home.action</result>
+		</action>
+		<action name="qqAfterlogin" class="com.rc.portal.webapp.action.unionlogin.qqAfterLoginAction">
+			<result name="popup" type="freemarker">/WEB-INF/pages/login/popup.ftl</result>
+			<result name="index" type="freemarker">${base}/index.html</result>	
+			<result name="logout" type="redirect">/login/login!home.action</result>
+		</action>
+		<action name="wxlogin" class="com.rc.portal.webapp.action.unionlogin.wxLoginAction">
+			<result name="logout" type="redirect">/login/login!home.action</result>	
+		</action>
+		<action name="wxAfterlogin" class="com.rc.portal.webapp.action.unionlogin.wxAfterLoginAction">
+			<result name="logout" type="redirect">/login/login!home.action</result>	
+			<result name="popup" type="freemarker">/WEB-INF/pages/login/popup.ftl</result>
+			<result name="login" type="freemarker">/WEB-INF/pages/login/login.ftl</result>
+			<result name="index" type="freemarker">${base}/index.html</result>	
+		</action>
+		<action name="weibologin" class="com.rc.portal.webapp.action.unionlogin.weiboLoginAction">
+			<result name="logout" type="redirect">/login/login!home.action</result>	
+		</action>
+		<action name="weiboAfterlogin" class="com.rc.portal.webapp.action.unionlogin.weiboAfterLoginAction">
+			<result name="logout" type="redirect">/login/login!home.action</result>	
+			<result name="popup" type="freemarker">/WEB-INF/pages/login/popup.ftl</result>
+			<result name="index" type="freemarker">${base}/index.html</result>	
+		</action>
+		<action name="alipayreturnlogin" class="com.rc.portal.webapp.action.unionlogin.alipayReturnLoginAction">
+			<result name="logout" type="redirect">/login/login!home.action</result>	
+			<result name="popup" type="freemarker">/WEB-INF/pages/login/popup.ftl</result>
+			<result name="index" type="freemarker">${base}/index.html</result>	
+		</action>
+		<action name="alipaylogin" class="com.rc.portal.webapp.action.unionlogin.alipayLoginAction">
+			<result name="test" type="freemarker">/WEB-INF/pages/login/test.ftl</result>	
+		</action>
+		<action name="yktlogin" class="com.rc.portal.webapp.action.unionlogin.yktLoginAction">
+			<result name="logout" type="redirect">/login/login!home.action</result>	
+		</action>
+		<action name="yktAfterlogin" class="com.rc.portal.webapp.action.unionlogin.yktAfterLoginAction">
+			<result name="logout" type="redirect">/login/login!home.action</result>	
+			<result name="popup" type="freemarker">/WEB-INF/pages/login/popup.ftl</result>
+			<result name="login" type="freemarker">/WEB-INF/pages/login/login.ftl</result>
+			<result name="index" type="freemarker">${base}/index.html</result>	
+		</action>
+	</package>
+</xwork>

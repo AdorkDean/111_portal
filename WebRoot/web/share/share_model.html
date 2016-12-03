@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="">
+<meta name="keywords" content="">
+<meta name="renderer" content="webkit">
+<meta http-equiv="Cache-Control" content="no-siteapp"/>
+<!--允许全屏-->
+<meta content="yes" name="apple-mobile-web-app-capable">
+<meta content="yes" name="apple-touch-fullscreen">
+<meta content="fullscreen=yes,preventMove=no" name="ML-Config">
+<!--缩放比例-->
+<meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no"/>
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+<meta name="format-detection" content="telephone=no" />
+<meta name="format-detection" content="email=no" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<title>111医药馆健康领秀邀请您为健康加油，与领秀一齐共享健康时代！ </title>
+    <!-- Link Swiper's CSS -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" href="css/share.css">
+</head>
+<body class="bg-white">    
+    <!-- Swiper -->
+    <div class="swiper-container">
+        <div class="swiper-wrapper">
+            <div class="swiper-slide swiper-page1">
+				<div class="flip-corner"></div>
+            </div>
+            <div class="swiper-slide swiper-page2">
+            	<a href="http://www.111yao.com/register/register!rindex.action" class="register-btn">我要注册</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swiper JS -->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/swiper.min.js"></script>    
+    <!-- Initialize Swiper -->
+    <script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        paginationClickable: true,
+        direction: 'vertical',
+		onInit: function(swiper){ //Swiper2.x的初始化是onFirstInit
+		swiperAnimateCache(swiper); //隐藏动画元素 
+		swiperAnimate(swiper); //初始化完成开始动画
+	  }, 
+	  onSlideChangeEnd: function(swiper){ 
+		swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+	  } 
+    });
+    </script>
+</body>
+</html>

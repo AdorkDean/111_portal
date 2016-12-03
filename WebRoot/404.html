@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html class="no-js" lang="zh-CN">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="111医药馆网上药店是国家药监局认证指定网上药房|打造为老百姓服务药品价格低品种全|网上购药买药就选壹壹壹医药馆药品特卖网站" />
+    <meta name="keywords" content="壹壹壹医药馆|壹药馆|11医药馆|1药馆|医卡通|111医药馆|医药网|药品特卖网站" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="renderer" content="webkit" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta http-equiv="Cache-Control" content="no-siteapp"/> 
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="msapplication-TileImage" content="/static/image/win8-tile-icon.png" />
+    <meta name="msapplication-TileColor" content="#0e90d2" />
+    <title>111医药馆-要健康 要美丽 要时尚-医卡通买药价格低便宜实惠-国家药监局指定壹壹壹医药馆网上连锁药店</title>
+    <link rel="icon" type="/web/image/png" href="/web/img/favicon.png">
+    <link rel="icon" sizes="192x192" href="/web/img/favicon-196x196.png">
+    <link rel="apple-touch-icon-precomposed" href="/static/image/apple-icon-touch.png" />
+</head>
+
+<body>
+<!--#include virtual="/static/inc/version2.2.0/header.html" -->
+<link rel="stylesheet" type="text/css" href="/web/css/commonNew.css" />
+<div class="not-found-box w1210">
+	<img src="/web/img/not-found.png"/>
+    <p class="not-found-btn"><a href="/" class="rb-index">返回首页</a><a href="javascript:;" onclick="window.history.back();" class="rb-his">返回上一页</a></p>
+    <p class="not-found-tips">非常抱歉，我们会尽力修复的，或许您可以试着不要动<br/><span class="countTime">5</span>&nbsp;秒后我们将返回故事发生的地点（般若波罗密~）</p>
+</div>
+<!--#include virtual="/static/inc/version2.2.0/footer.html" -->
+<script>
+$(function()
+{
+	ctime();
+});
+var wait = 5;
+var clear = null;
+function ctime()
+{
+      clear = window.setInterval("time()", 1000);
+}
+function time() 
+{
+    if(wait == 0) 
+    {
+        window.clearInterval(clear);
+        window.location.href = "/";
+    }
+    if(wait > 0)
+    {
+        wait--;
+        $(".countTime").html(wait);
+    }
+    if(wait < 0)
+    {
+    	wait = 5;
+    }
+}    
+</script>
+</body>	
+</html>

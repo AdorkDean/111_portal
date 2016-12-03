@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="cart" extends="default" namespace="/carts">
+		<action name="cart" class="com.rc.portal.webapp.action.CartAction">
+		    <result name="cart-page" type="freemarker">/WEB-INF/pages/cart/cart.ftl</result>
+		    <result name="rebuy" type="redirect">/carts/cart!page.action</result>
+		</action>
+	</package>
+</xwork>

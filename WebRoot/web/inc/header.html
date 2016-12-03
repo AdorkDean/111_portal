@@ -1,0 +1,130 @@
+<div class="header">
+	<!--#include virtual="/static/inc/header_common.html" -->
+    <!--搜索-->
+    <div class="logo-search-cart">
+        <div class="w1210 clearfix clear">
+            <h1 class="logo fl">
+            <!--#include virtual="/static/imgout/header_logo.html" -->
+            </h1>
+            <div class="header-cart show-empty fr" id="mycart-id" style="border:#00a6a0 1px solid;height:35px;">
+            	<a href="javascript:cart()" class="header-cart-btn" target="_new">
+                    <b class="header-cart-icon"></b>
+                    <span class="header-cart-count"><i></i><b id="csum">0</b></span>
+                    我的购物车
+                </a>
+                
+                <!--
+                <div class="empty" style="background:#fff;height:auto;display:none;">
+                    	<i></i>
+                    	<ul class="cart-product">
+                        	<li>
+                            	<a href="#" class="delete-cart-pro">删除</a>
+                                <a href="#" class="cart-pro">
+                                	<img src="img/b1.jpg">
+                                    <div class="cart-pro-text">
+                                    	<p>汇仁肾宝片</p>
+                                    	<p><span>¥322.00</span>*1</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="#" class="delete-cart-pro">删除</a>
+                                <a href="#" class="cart-pro">
+                                	<img src="img/b1.jpg">
+                                    <div class="cart-pro-text">
+                                    	<p>汇仁肾宝片</p>
+                                    	<p><span>¥322.00</span>*1</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="#" class="delete-cart-pro">删除</a>
+                                <a href="#" class="cart-pro">
+                                	<img src="img/b1.jpg">
+                                    <div class="cart-pro-text">
+                                    	<p>汇仁肾宝片</p>
+                                    	<p><span>¥322.00</span>*1</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="#" class="delete-cart-pro">删除</a>
+                                <a href="#" class="cart-pro">
+                                	<img src="img/b1.jpg">
+                                    <div class="cart-pro-text">
+                                    	<p>汇仁肾宝片</p>
+                                    	<p><span>¥322.00</span>*1</p>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                            	<a href="#" class="delete-cart-pro">删除</a>
+                                <a href="#" class="cart-pro">
+                                	<img src="img/b1.jpg">
+                                    <div class="cart-pro-text">
+                                    	<p>汇仁肾宝片</p>
+                                    	<p><span>¥322.00</span>*1</p>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                        <div class="cart-final-price clearfix clear">
+                        	<a href="#" class="go-to-cart fr">去购物车</a>
+                        	<p class="cart-final-info">优惠<br/><span>￥322.00</span></p>
+                            <p class="cart-final-info">总价<br/><span>￥322.00</span></p>
+                        </div>
+                    </div>
+                    -->
+            </div>
+            <div class="header-search fl">
+                <div class="header-search-bar">
+                    <input type="text" class="header-search-input" name="" value="请输入搜索的内容..." onfocus="javascript:if(this.value=='请输入搜索的内容...'){ this.value='';this.style.color='#333'}" onblur="javascript:if(this.value==''){ this.value='请输入搜索的内容...';this.style.color='#c0c9ca'}">
+                    <a href="#" class="header-search-btn">搜 索</a>
+                    <ul class="search-list">
+                    	<li><a href="#">板蓝根</a></li>
+                        <li><a href="#">板蓝根</a></li>
+                        <li><a href="#">板蓝根</a></li>
+                        <li><a href="#">板蓝根</a></li>
+                    </ul>
+                </div>
+				<!--#include virtual="/static/imgout/header_keyword.html" -->
+                
+            </div>
+        </div>
+    </div>
+    <!--menu开始-->
+    <div class="nav-box">
+        <div class="menu">
+            <div class="all-sort"><h2><a href="javascript:void(0)">全部商品分类</a></h2></div>
+            <div class="important"><img src="/static/image/400.png"></div>
+			<!--#include virtual="/static/imgout/header_nav.html" -->
+        </div>
+    </div>
+    <!--menu结束-->
+	<!--#include virtual="/static/imgout/header_category.html" -->
+</div>
+<script>
+
+function cart(){
+  window.open("/carts/cart!page.action");
+}
+
+ getCartSum();
+ function getCartSum(){
+  jQuery.ajax
+   ({
+       type: "post",
+       url: "/carts/cart!getCartSum.action",	 
+       async:false, 
+       success: function(data)
+       {
+       	  var s=jQuery.parseJSON(data);
+          $('#csum').text(s.cnt);
+          $.each(s.list, function(i, n){
+          	  //alert(n.goods_name);
+          });
+       }
+   }); 
+ }
+</script>
+

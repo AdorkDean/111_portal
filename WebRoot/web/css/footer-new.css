@@ -1,0 +1,21 @@
+@charset "utf-8";
+/* CSS Document */
+.footer{border-top:2px #00a6a0 solid;}
+.footer-icon{height:150px; background:#f9fbfa; margin-top:20px;display:none;}
+.footer-icon-list{padding:0 5px;}
+.footer-icon-list li{width:240px; height:150px; float:left; text-align:center;}
+.footer-icon-list li b{width:58px; height:58px; display:block; margin:30px auto 10px;}
+.footer-icon-list li b.footer-ico1{background-position:0 0;cursor:pointer;}.footer-icon-list li b.footer-ico2{background-position:0 -58px;cursor:pointer;}.footer-icon-list li b.footer-ico3{background-position:0 -116px;cursor:pointer;}.footer-icon-list li b.footer-ico4{background-position:0 -174px;cursor:pointer;}.footer-icon-list li b.footer-ico5{background-position:0 -232px;cursor:pointer;}
+.footer-icon-list li p{font-size:18px; color:#2c2b2b;cursor:pointer;}
+.footer-list{float:left; margin:10px 50px 10px 20px;}
+.footer-list dt{font-size:18px; color:#2c2b2b;}
+.footer-info{padding:15px 0;}
+.footer-list dd{padding:5px 2px;}
+.footer-list dd li a{height:22px; line-height:22px; font-size:12px; font-size:"Helvetica Neue",Arial,"5b8b\4f53"}
+.footer-list dd li a:hover{color:#00a6a0;}
+.channel{width:134px; overflow:hidden; float:left;}
+.channel li{display:inline; float:left;}
+.channel li a{margin:0 0 7px 0;}
+.channel li a,.channel li a img{width:134px; height:34px; display:block;}
+.custom-service img{display:block; float:right; width:167px; height:172px; margin-left:35px;}.keep-on-record{padding:20px 0 60px; background:#fff; text-align:center;}
+.keep-on-record img{display:inline-block; margin:0 5px;}

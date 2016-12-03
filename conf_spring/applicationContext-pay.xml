@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	
+	<!-- 
+    <bean id="alipayParam" class="com.rc.portal.webapp.model.AlipayParam">
+        <property name="paygateway">
+        	<value>${alipay.paygateway}</value>
+        </property>
+        <property name="key">
+        	<value>${alipay.key}</value>
+        </property>
+        <property name="service">
+        	<value>${alipay.service}</value>
+        </property>
+        <property name="partner">
+        	<value>${alipay.partner}</value>
+        </property>
+        <property name="email">
+        	<value>${alipay.seller.email}</value>
+        </property>
+        <property name="paymenttype">
+        	<value>${alipay.payment_type}</value>
+        </property>
+        <property name="charset">
+        	<value>${alipay.CharSet}</value>
+        </property>
+        <property name="signtype">
+        	<value>${alipay.sign_type}</value>
+        </property>
+        <property name="returnurl">
+        	<value>${alipay.return.url}</value>
+        </property>
+        <property name="notifyurl">
+        	<value>${alipay.notify.url}</value>
+        </property>
+    </bean>    
+ -->
+</beans>

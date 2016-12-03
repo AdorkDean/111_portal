@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.0.xsd">
+	<bean id="lobHandler"
+		class="org.springframework.jdbc.support.lob.DefaultLobHandler" />
+	<!-- ibatis sqlMapClient config -->
+	<bean id="sqlMapClient"
+		class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation">
+			<value>classpath:applicationContext-sqlmap.xml</value>
+		</property>
+		<property name="dataSource" ref="dataSource" />
+		<property name="lobHandler" ref="lobHandler" />
+	</bean>
+	
+	<!-- Transaction manager for a single JDBC DataSource -->
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+
+	
+	<!-- add by yinbin 2011.03.30 -->
+	<!-- add DAO by yourself like this -->
+	<!--
+    <bean id="userinfoDao" class="com.rc.portal.dao.impl.UserinfoDaoiBatis">        
+        <property name="sqlMapClient" ref="sqlMapClient"/>
+    </bean>
+    -->      
+	<bean id="opensqldao" class="com.rc.portal.dao.impl.OpenSqlDAOImpl">
+	        <property name="sqlMapClient" ref="sqlMapClient" />
+	 </bean>
+ <bean id="cdeliverywaydao" class="com.rc.portal.dao.impl.CDeliveryWayDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="cimagedao" class="com.rc.portal.dao.impl.CImageDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="clocationdao" class="com.rc.portal.dao.impl.CLocationDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="cpaymentwaydao" class="com.rc.portal.dao.impl.CPaymentWayDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="cpositiondao" class="com.rc.portal.dao.impl.CPositionDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="cpositionlistdao" class="com.rc.portal.dao.impl.CPositionListDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tbranddao" class="com.rc.portal.dao.impl.TBrandDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tcartdao" class="com.rc.portal.dao.impl.TCartDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tcartitemdao" class="com.rc.portal.dao.impl.TCartItemDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tcategorydao" class="com.rc.portal.dao.impl.TCategoryDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tcategorygoodsdao" class="com.rc.portal.dao.impl.TCategoryGoodsDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tcouponcarddao" class="com.rc.portal.dao.impl.TCouponCardDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tcoupondao" class="com.rc.portal.dao.impl.TCouponDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tcustomercalldao" class="com.rc.portal.dao.impl.TCustomerCallDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tdosedao" class="com.rc.portal.dao.impl.TDoseDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tgoodscommentdao" class="com.rc.portal.dao.impl.TGoodsCommentDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tgoodsdao" class="com.rc.portal.dao.impl.TGoodsDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tgoodsextenddao" class="com.rc.portal.dao.impl.TGoodsExtendDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tgoodsimagesdao" class="com.rc.portal.dao.impl.TGoodsImagesDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tgoodspropertydao" class="com.rc.portal.dao.impl.TGoodsPropertyDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tgroupgoodsdao" class="com.rc.portal.dao.impl.TGroupGoodsDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tleaderdao" class="com.rc.portal.dao.impl.TLeaderDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlongcarddao" class="com.rc.portal.dao.impl.TLongCardDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlongdao" class="com.rc.portal.dao.impl.TLongDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmanufacturerdao" class="com.rc.portal.dao.impl.TManufacturerDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberbalancedao" class="com.rc.portal.dao.impl.TMemberBalanceDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmembercollectdao" class="com.rc.portal.dao.impl.TMemberCollectDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberdao" class="com.rc.portal.dao.impl.TMemberDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmembergradedao" class="com.rc.portal.dao.impl.TMemberGradeDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberleaderdao" class="com.rc.portal.dao.impl.TMemberLeaderDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmembermessagedao" class="com.rc.portal.dao.impl.TMemberMessageDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberreceiverdao" class="com.rc.portal.dao.impl.TMemberReceiverDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberthreebindingdao" class="com.rc.portal.dao.impl.TMemberThreeBindingDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="torderdao" class="com.rc.portal.dao.impl.TOrderDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="torderflowdao" class="com.rc.portal.dao.impl.TOrderFlowDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="torderitemdao" class="com.rc.portal.dao.impl.TOrderItemDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tpharmacistdao" class="com.rc.portal.dao.impl.TPharmacistDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tpromgiftdao" class="com.rc.portal.dao.impl.TPromGiftDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tpromitemdao" class="com.rc.portal.dao.impl.TPromItemDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tpromotiondao" class="com.rc.portal.dao.impl.TPromotionDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="treturndao" class="com.rc.portal.dao.impl.TReturnDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="treturnimagedao" class="com.rc.portal.dao.impl.TReturnImageDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="treturnitemdao" class="com.rc.portal.dao.impl.TReturnItemDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tshortbuydao" class="com.rc.portal.dao.impl.TShortBuyDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tshortgoodsdao" class="com.rc.portal.dao.impl.TShortGoodsDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tshortorderdao" class="com.rc.portal.dao.impl.TShortOrderDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+	 <bean id="tgoodsconsultdao" class="com.rc.portal.dao.impl.TGoodsConsultDAOImpl">
+	        <property name="sqlMapClient" ref="sqlMapClient" />
+	    </bean>
+	    
+ <bean id="tphysiciandao" class="com.rc.portal.dao.impl.TPhysicianDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+        <bean id="cpositiontypedao" class="com.rc.portal.dao.impl.CPositionTypeDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberintegraldao" class="com.rc.portal.dao.impl.TMemberIntegralDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tsysparameterdao" class="com.rc.portal.dao.impl.TSysParameterDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+      <bean id="tcouponrelevancedao" class="com.rc.portal.dao.impl.TCouponRelevanceDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="tgoodspremiumsdao" class="com.rc.portal.dao.impl.TGoodsPremiumsDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+      <bean id="tmemberaccountdao" class="com.rc.portal.dao.impl.TMemberAccountDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberamountoutdao" class="com.rc.portal.dao.impl.TMemberAmountOutDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+      <bean id="tstaticdao" class="com.rc.portal.dao.impl.TStaticDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+      <bean id="cartdao" class="com.rc.portal.dao.impl.CartDaoImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+        <property name="tpromitemdao" ref="tpromitemdao" />
+        <property name="tpromgiftdao" ref="tpromgiftdao" />
+        <property name="tpromotiondao" ref="tpromotiondao" />
+       
+    </bean> 
+    
+    <bean id="tgoodsbrokeragedao" class="com.rc.portal.dao.impl.TGoodsBrokerageDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tleaderimagedao" class="com.rc.portal.dao.impl.TLeaderImageDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+        <bean id="tordershipmentdao" class="com.rc.portal.dao.impl.TOrderShipmentDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="tgroupgoodskeyworddao" class="com.rc.portal.dao.impl.TGroupGoodsKeywordDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="torderleaderdao" class="com.rc.portal.dao.impl.TOrderLeaderDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    
+    <bean id="tleaderagentdao" class="com.rc.portal.dao.impl.TLeaderAgentDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+       <bean id="tleaderstaymoneydao" class="com.rc.portal.dao.impl.TLeaderStayMoneyDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+     <bean id="tleaderqrcodedao" class="com.rc.portal.dao.impl.TLeaderQrCodeDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="tlxannouncementdao" class="com.rc.portal.dao.impl.TLxAnnouncementDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxarticledao" class="com.rc.portal.dao.impl.TLxArticleDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxcontentdao" class="com.rc.portal.dao.impl.TLxContentDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxgoodsarticlebrokeragedao" class="com.rc.portal.dao.impl.TLxGoodsArticleBrokerageDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxgoodsarticledao" class="com.rc.portal.dao.impl.TLxGoodsArticleDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxlookcollectiondao" class="com.rc.portal.dao.impl.TLxLookCollectionDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxreceivereddao" class="com.rc.portal.dao.impl.TLxReceiveRedDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxredsharedao" class="com.rc.portal.dao.impl.TLxRedShareDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxsendreddao" class="com.rc.portal.dao.impl.TLxSendRedDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tlxsharecollectiondao" class="com.rc.portal.dao.impl.TLxShareCollectionDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="tmemberreceiverlatlondao" class="com.rc.portal.dao.impl.TMemberReceiverLatLonDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="clocationcitydao" class="com.rc.portal.dao.impl.CLocationCityDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+     <bean id="rxtorderdao" class="com.rc.portal.dao.impl.RxTOrderDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="rxtordergooddao" class="com.rc.portal.dao.impl.RxTOrderGoodDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="rxtreserveorderdao" class="com.rc.portal.dao.impl.RxTReserveOrderDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="tfreightdao" class="com.rc.portal.dao.impl.TFreightDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tgoodfreightdao" class="com.rc.portal.dao.impl.TGoodFreightDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    <bean id="tgoodspricedao" class="com.rc.portal.dao.impl.TGoodsPriceDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberarchivesexaminationdao" class="com.rc.portal.dao.impl.TMemberArchivesExaminationDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberarchiveslifediseasedao" class="com.rc.portal.dao.impl.TMemberArchivesLifeDiseaseDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberarchivesmedicalrecorddao" class="com.rc.portal.dao.impl.TMemberArchivesMedicalRecordDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberbasemessageextdao" class="com.rc.portal.dao.impl.TMemberBaseMessageExtDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmembercertificatesdao" class="com.rc.portal.dao.impl.TMemberCertificatesDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberhobbydao" class="com.rc.portal.dao.impl.TMemberHobbyDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tmemberyktdao" class="com.rc.portal.dao.impl.TMemberYktDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+       <bean id="yktgoodsdao" class="com.rc.portal.dao.impl.YktGoodsDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="tleaderaccountnumberdao" class="com.rc.portal.dao.impl.TLeaderAccountNumberDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tleaderarticledao" class="com.rc.portal.dao.impl.TLeaderArticleDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tleaderarticlegoodsdao" class="com.rc.portal.dao.impl.TLeaderArticleGoodsDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+
+    <bean id="tleaderpharmacydao" class="com.rc.portal.dao.impl.TLeaderPharmacyDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+    <bean id="tleadergoodsrecommenddao" class="com.rc.portal.dao.impl.TLeaderGoodsRecommendDAOImpl">
+        <property name="sqlMapClient" ref="sqlMapClient" />
+    </bean>
+    
+</beans>

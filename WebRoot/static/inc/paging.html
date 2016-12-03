@@ -1,0 +1,321 @@
+<div class="page-jump fr" style="float:right;">
+    <span id="psizeid"></span><span>到第</span><input type="text" value="1" id="pageval"/><span class="page_y">页</span>
+    <a href="javascript:void(0)" class="page_make" onclick="pageQuery()" style="margin-right:10px;margin-top:3px;color:#999;">确定</a>
+</div>
+<div class="page clearfix" style="float:right;">
+	<input type="hidden" value="" id="pagesId"/>
+	<input type="hidden" value="" id="curpageId"/>
+	<input type="hidden" value="" id="typeId"/>
+    <a href="javascript:;" class="page-next" onclick="pageNext()" id="pnextid" style="float:right;">下一页 </a>
+    <div id="adiv" style="float:right;"></div>
+    <a href="javascript:;" class="page-prev" onclick="pagePrev()" style="float:right;">上一页</a>
+</div>
+    
+<script type="text/javascript">
+	$(function()
+	{
+		var obj = $("#pageval");
+		obj.blur(function()
+		{
+			pageQuery();
+		})
+		.keyup(function(e)
+		{
+			var theEvent = e || window.event;    
+		    var code = theEvent.keyCode || theEvent.which || theEvent.charCode;  
+		    if(code == 13)
+		    {  
+		    	pageQuery();
+		    }
+		});
+	});
+	
+	/**
+	 * curPage : 当前页
+	 * pages ： 共多少页
+	 * pageSize ： 每页显示多少条
+	 */
+	function paging(curPage, pages, pageSize)
+	{
+		$("#psizeid").text("共"+pages+"页，");	
+		$("#pagesId").val(pages);
+		$("#curpageId").val(curPage);
+		setPages();
+	}
+	
+	//到第几页
+	function pageQuery()
+	{
+		var pagev = $("#pageval").val();
+		var size = $("#pagesId").val();
+		var type= $("#typeId").val();
+		if(isInts(pagev))
+		{
+			if(Number(pagev)>0&&Number(pagev)<=Number(size))
+			{
+				$("#curpageId").val(pagev);
+				setPages();
+				var pages = getCris(type);
+				updata(pagev, type, pages);
+			}
+			else
+			{
+				$alertCanDisplay("warn","输入页数有误!",null,null);
+				$("#pageval").val(1);
+			}
+		}
+		else
+		{
+			$alertCanDisplay("warn","请输入数字!",null,null);
+			$("#pageval").val(1);
+		}
+	}
+	
+	//判断是否是数字
+	function isInts(str)
+	{
+	    if (str == "")
+	    {
+	      	return false;
+	    }
+	    var r = /^[0-9]+$/;
+	    return r.test(str);
+	}
+	
+	//点击到哪一页
+	function pageQueryVal(v)
+	{
+		$("#curpageId").val(v);
+		var type = $("#typeId").val();
+		setPages();
+		var pages = getCris(type);
+		updata(v, type, pages);
+		var s = parseInt($.trim($("#pageval").val()));
+		$("#pageval").val(v);
+	}
+	
+	//上一页
+	function pagePrev()
+	{
+		var curpageId = $("#curpageId").val();
+		var type = $("#typeId").val();
+		if(curpageId == 1)
+		{
+			$("#pagePrev").unbind("click");
+		}
+		else
+		{
+			$("#curpageId").val(Number(curpageId)-Number(1));
+			setPages();
+			var pages = getCris(type);
+			updata(Number(curpageId)-Number(1), type, pages);
+			var v = parseInt($.trim($("#pageval").val()));
+			$("#pageval").val(v-1);
+		}
+	}
+	
+	//下一页
+	function pageNext()
+	{
+		var size = $("#pagesId").val();
+		var curpageId = $("#curpageId").val();
+		var type = $("#typeId").val();
+		if(curpageId == size)
+		{
+			$("#pnextid").unbind("click");
+		}
+		else
+		{
+			var newCurPage = parseInt(curpageId)+1;
+			$("#curpageId").val(newCurPage);
+			setPages();
+			var pages = getCris(type);
+			updata(newCurPage, type, pages);
+			var v = parseInt($.trim($("#pageval").val()));
+			$("#pageval").val(v+1);
+		}
+	}
+	
+	//初始化分页
+	function setPages()
+	{
+		var size = $("#pagesId").val();
+		var index= $("#curpageId").val();
+		var htmla = "";
+		if(size<5)
+		{
+			for (var i = 1; i <= size; i++) 
+			{
+				htmla += "<a href='javascript:void("+i+")' id='a"+i+"' name='aids' onclick='pageQueryVal("+i+")'>"+i+"</a>";
+			}
+			console.log(1);
+		}
+		else if (index == size) 
+		{
+			htmla += "<a href='javascript:void(1)' id='a1' name='aids' onclick='pageQueryVal(1)'>1</a>";
+			htmla += "<span id='span1'>...</span>";
+			for (var i = Number(index)-Number(4); i <=size; i++) 
+			{
+				htmla += "<a href='javascript:void("+i+")' id='a"+i+"' name='aids' onclick='pageQueryVal("+i+")'>"+i+"</a>";
+			}
+			
+			console.log(2);
+		}
+		else if(index<=3)
+		{
+			for (var i = 1; i <= 5; i++)
+			{
+				htmla += "<a href='javascript:void("+i+")' id='a"+i+"' name='aids' onclick='pageQueryVal("+i+")'>"+i+"</a>";
+			}
+			htmla += "<span id='span1'>...</span>";
+			console.log(3);
+		}
+		else if (index >=3 && (index<=Number(size)-Number(3))) 
+		{
+			htmla += "<a href='javascript:void(1)' id='a1' name='aids' onclick='pageQueryVal(1)'>1</a>";
+			htmla += "<span id='span1'>...</span>";
+			for(var i = Number(index)-Number(2); i <= Number(index)+Number(2); i++) 
+			{
+				htmla += "<a href='javascript:("+i+")' id='a"+i+"' name='aids' onclick='pageQueryVal("+i+")'>"+i+"</a>";
+			}
+			console.log(4);
+		}
+		else if(index>=(Number(size)-Number(2)))
+		{
+			htmla += "<a href='javascript:void(1)' id='a1' name='aids' onclick='pageQueryVal(1)'>1</a>";
+			htmla += "<span id='span1'>...</span>";
+			for (var i = Number(index)-Number(3); i <=size; i++)
+			{
+				htmla += "<a href='javascript:("+i+")' id='a"+i+"' name='aids' onclick='pageQueryVal("+i+")'>"+i+"</a>";
+			}
+			console.log(5);
+		}
+		$("#adiv").html("");
+		$("#adiv").append(htmla);
+		$("#a"+index+"").attr("class","current");
+	}
+	
+	/**
+	  * 更新当前页内容
+	  * currentPage : 当前页
+	  * type ： 差评类型
+	  * totalNum : 某类型评论总数
+	  */
+	function updata(currentPage, type, totalNum)
+	{
+		$("#divpagingid2").hide();
+		if(totalNum != 0)
+		{
+			var pageSize = 10;
+			var gid = $("#gid").val();
+			jQuery.ajax(
+			{
+			       type: "POST",
+			       async: false,
+			       url: "/goodsComment/ajaxGoodsComment!ajaxGoodsComment.action",	  
+			       data:{"goodsId":gid, "type":type, "currentPage":currentPage, "pageSize":pageSize},
+			       success: function(data)
+			       {
+			    	    var type = data.type;
+			    	    if(type == '' || type == null || type == undefined)
+			    	    {
+			    	    	type = 0;
+			    	    }
+			    	    $("#allData"+type).html("");
+			      		var allData = "";
+			      		for(var i=0; i<data.list.length; i++)
+			      		{
+			      			var headimg = data.list[i].headPortrait;
+			      			if(null == headimg || "" == headimg)
+			      			{
+			      				headimg = "static/image/temp/20151014/b09e2b114b6779b8fe47bcd8d38fe48a.png";
+			      			}
+							allData += '<li class="clearfix clear"><div class="w380"><div class="column1"><div class="assess-text"><span style="margin-right:15px">'+data.list[i].comment+'</span><span>'+data.list[i].createDate+'</span></div></div></div>'+
+							'<div class="w328"><div class="column2"><div class="start-bg"><span class="start start'+parseInt(data.list[i].sumFraction/4)+'"></span></div></div></div><div class="w300"><div class="column3"><dl class="assess-person">'+
+							'<dt><img src="http://ui1.111yao.com/'+headimg+'"/>'+data.list[i].userName+'</dt></dl></div></div></li>';
+	                	} 
+						$("#allData"+type).append(allData);
+						//重新计算页数
+						var pages = (totalNum % pageSize == 0) ? (totalNum / pageSize) : (parseInt(totalNum / pageSize) + 1);
+						$("#psizeid").html("共"+pages+"页，");
+						if(pages > 1)
+						{
+							$("#divpagingid2").show();
+						}
+			       },
+			       error:function()
+			       {
+			       		$alertCanDisplay("warn","网络异常!",null,null);
+			       }
+			   }); 
+		       
+			}
+		}
+	
+	    //评价选项卡切换
+		function tabonc(obj, curIndex)
+		{
+	    	//定位当前选项卡 
+			$("#tab-hd4 li").each(function(index)
+			{
+				if(index != curIndex)
+				{
+					$(this).removeClass("active2");
+				}
+			});
+			$(obj).addClass("active2");
+			
+			//显示相应选项卡内容
+			for(var i=0; i<5; i++)
+			{
+				if(curIndex == i)
+				{
+					$("#allData"+curIndex).show();
+				}
+				else
+				{
+					$("#allData"+i).hide();
+				}
+			}
+			
+			//评论类型
+			var type = "";
+			if(curIndex != 0)
+			{
+				type = curIndex;
+			}
+			
+			//初始化分页控件
+			var totalNum = getCris(type);
+			var pages = (totalNum % pageSize == 0) ? (totalNum / pageSize) : (parseInt(totalNum / pageSize) + 1);
+			$("#pagesId").val(pages);
+		    $("#curpageId").val(1);
+			$("#typeId").val(type);
+			setPages();
+			updata(1, type, totalNum);
+		}
+	    
+	    //获取某类型评论的评论总数
+	    function getCris(type)
+	    {
+	    	var cris = 0;
+	    	if(type == '' || type == null || type == undefined || type == 0)
+	    	{
+	    		cris = $.trim($("#totalCri").val());
+	    	}
+	    	if(type == 1)
+	    	{
+	    		cris = $.trim($("#goodCri").val());
+	    	}
+	    	if(type == 2)
+	    	{
+	    		cris = $.trim($("#middleCri").val());
+	    	}
+	    	if(type == 3)
+	    	{
+	    		cris = $.trim($("#poorCri").val());
+	    	}
+	    	return cris;
+	    }
+</script>
+<style>#adiv a:hover {background:#f5f5f5;}.page-prev:hover {background:#f5f5f5;}.page-next:hover {background:#f5f5f5;}</style>

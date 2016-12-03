@@ -1,0 +1,571 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_goods_extend" >
+   <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TGoodsExtend" >
+    <result column="goodsid" property="goodsid" jdbcType="BIGINT" />
+    <result column="pinyin_code" property="pinyinCode" jdbcType="VARCHAR" />
+    <result column="bases" property="bases" jdbcType="VARCHAR" />
+    <result column="characterd" property="characterd" jdbcType="VARCHAR" />
+    <result column="indication" property="indication" jdbcType="VARCHAR" />
+    <result column="usaged" property="usaged" jdbcType="VARCHAR" />
+    <result column="untoward_effect" property="untowardEffect" jdbcType="VARCHAR" />
+    <result column="taboo" property="taboo" jdbcType="VARCHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+    <result column="pharmacology" property="pharmacology" jdbcType="VARCHAR" />
+    <result column="storaged" property="storaged" jdbcType="VARCHAR" />
+    <result column="packing" property="packing" jdbcType="VARCHAR" />
+    <result column="lasts" property="lasts" jdbcType="VARCHAR" />
+    <result column="attending" property="attending" jdbcType="VARCHAR" />
+    <result column="seo_title" property="seoTitle" jdbcType="VARCHAR" />
+    <result column="seo_keyword" property="seoKeyword" jdbcType="VARCHAR" />
+    <result column="seo_describe" property="seoDescribe" jdbcType="VARCHAR" />
+    <result column="symptom" property="symptom" jdbcType="VARCHAR" />
+    <result column="symptom_rm" property="symptomRm" jdbcType="VARCHAR" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="position_rm" property="positionRm" jdbcType="VARCHAR" />
+    <result column="disease" property="disease" jdbcType="VARCHAR" />
+    <result column="disease_rm" property="diseaseRm" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ibatorgenerated_ResultMapWithBLOBs" class="com.rc.portal.vo.TGoodsExtendWithBLOBs" extends="t_goods_extend.ibatorgenerated_BaseResultMap" >
+    <result column="goods_describe" property="goodsDescribe" jdbcType="LONGVARBINARY" />
+    <result column="instruction" property="instruction" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExampleWithBLOBs" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="com.rc.portal.vo.TGoodsExtendExample" >
+    select goodsid, pinyin_code, bases, characterd, indication, usaged, untoward_effect, taboo,
+      note, pharmacology, storaged, packing, lasts, attending, seo_title, seo_keyword, seo_describe,
+      symptom, symptom_rm, position, position_rm, disease, disease_rm, goods_describe, instruction
+    from t_goods_extend
+    <isParameterPresent >
+      <include refid="t_goods_extend.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsExtendExample" >
+    select goodsid, pinyin_code, bases, characterd, indication, usaged, untoward_effect, taboo,
+      note, pharmacology, storaged, packing, lasts, attending, seo_title, seo_keyword, seo_describe,
+      symptom, symptom_rm, position, position_rm, disease, disease_rm
+    from t_goods_extend
+    <isParameterPresent >
+      <include refid="t_goods_extend.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="com.rc.portal.vo.TGoodsExtend" >
+    select goodsid, pinyin_code, bases, characterd, indication, usaged, untoward_effect, taboo,
+      note, pharmacology, storaged, packing, lasts, attending, seo_title, seo_keyword, seo_describe,
+      symptom, symptom_rm, position, position_rm, disease, disease_rm, goods_describe, instruction
+    from t_goods_extend
+    where goodsid = #goodsid:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TGoodsExtend" >
+    delete from t_goods_extend
+    where goodsid = #goodsid:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TGoodsExtendExample" >
+    delete from t_goods_extend
+    <include refid="t_goods_extend.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TGoodsExtendWithBLOBs" >
+    insert into t_goods_extend (goodsid, pinyin_code, bases, characterd, indication, usaged,
+      untoward_effect, taboo, note, pharmacology, storaged, packing, lasts, attending, seo_title,
+      seo_keyword, seo_describe, symptom, symptom_rm, position, position_rm, disease, disease_rm,
+      goods_describe, instruction)
+    values (#goodsid:BIGINT#, #pinyinCode:VARCHAR#, #bases:VARCHAR#, #characterd:VARCHAR#,
+      #indication:VARCHAR#, #usaged:VARCHAR#, #untowardEffect:VARCHAR#, #taboo:VARCHAR#,
+      #note:VARCHAR#, #pharmacology:VARCHAR#, #storaged:VARCHAR#, #packing:VARCHAR#,
+      #lasts:VARCHAR#, #attending:VARCHAR#, #seoTitle:VARCHAR#, #seoKeyword:VARCHAR#,
+      #seoDescribe:VARCHAR#, #symptom:VARCHAR#, #symptomRm:VARCHAR#, #position:VARCHAR#,
+      #positionRm:VARCHAR#, #disease:VARCHAR#, #diseaseRm:VARCHAR#, #goodsDescribe:LONGVARBINARY#,
+      #instruction:LONGVARBINARY#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TGoodsExtendWithBLOBs" >
+    insert into t_goods_extend
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="goodsid" >
+        goodsid
+      </isNotNull>
+      <isNotNull prepend="," property="pinyinCode" >
+        pinyin_code
+      </isNotNull>
+      <isNotNull prepend="," property="bases" >
+        bases
+      </isNotNull>
+      <isNotNull prepend="," property="characterd" >
+        characterd
+      </isNotNull>
+      <isNotNull prepend="," property="indication" >
+        indication
+      </isNotNull>
+      <isNotNull prepend="," property="usaged" >
+        usaged
+      </isNotNull>
+      <isNotNull prepend="," property="untowardEffect" >
+        untoward_effect
+      </isNotNull>
+      <isNotNull prepend="," property="taboo" >
+        taboo
+      </isNotNull>
+      <isNotNull prepend="," property="note" >
+        note
+      </isNotNull>
+      <isNotNull prepend="," property="pharmacology" >
+        pharmacology
+      </isNotNull>
+      <isNotNull prepend="," property="storaged" >
+        storaged
+      </isNotNull>
+      <isNotNull prepend="," property="packing" >
+        packing
+      </isNotNull>
+      <isNotNull prepend="," property="lasts" >
+        lasts
+      </isNotNull>
+      <isNotNull prepend="," property="attending" >
+        attending
+      </isNotNull>
+      <isNotNull prepend="," property="seoTitle" >
+        seo_title
+      </isNotNull>
+      <isNotNull prepend="," property="seoKeyword" >
+        seo_keyword
+      </isNotNull>
+      <isNotNull prepend="," property="seoDescribe" >
+        seo_describe
+      </isNotNull>
+      <isNotNull prepend="," property="symptom" >
+        symptom
+      </isNotNull>
+      <isNotNull prepend="," property="symptomRm" >
+        symptom_rm
+      </isNotNull>
+      <isNotNull prepend="," property="position" >
+        position
+      </isNotNull>
+      <isNotNull prepend="," property="positionRm" >
+        position_rm
+      </isNotNull>
+      <isNotNull prepend="," property="disease" >
+        disease
+      </isNotNull>
+      <isNotNull prepend="," property="diseaseRm" >
+        disease_rm
+      </isNotNull>
+      <isNotNull prepend="," property="goodsDescribe" >
+        goods_describe
+      </isNotNull>
+      <isNotNull prepend="," property="instruction" >
+        instruction
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="goodsid" >
+        #goodsid:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="pinyinCode" >
+        #pinyinCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bases" >
+        #bases:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="characterd" >
+        #characterd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="indication" >
+        #indication:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="usaged" >
+        #usaged:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="untowardEffect" >
+        #untowardEffect:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="taboo" >
+        #taboo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="note" >
+        #note:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pharmacology" >
+        #pharmacology:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="storaged" >
+        #storaged:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="packing" >
+        #packing:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="lasts" >
+        #lasts:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="attending" >
+        #attending:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoTitle" >
+        #seoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoKeyword" >
+        #seoKeyword:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoDescribe" >
+        #seoDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="symptom" >
+        #symptom:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="symptomRm" >
+        #symptomRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="position" >
+        #position:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="positionRm" >
+        #positionRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="disease" >
+        #disease:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="diseaseRm" >
+        #diseaseRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="goodsDescribe" >
+        #goodsDescribe:LONGVARBINARY#
+      </isNotNull>
+      <isNotNull prepend="," property="instruction" >
+        #instruction:LONGVARBINARY#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TGoodsExtendExample" resultClass="java.lang.Integer" >
+    select count(*) from t_goods_extend
+    <include refid="t_goods_extend.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_goods_extend
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.goodsid" >
+        goodsid = #record.goodsid:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.pinyinCode" >
+        pinyin_code = #record.pinyinCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bases" >
+        bases = #record.bases:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.characterd" >
+        characterd = #record.characterd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.indication" >
+        indication = #record.indication:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.usaged" >
+        usaged = #record.usaged:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.untowardEffect" >
+        untoward_effect = #record.untowardEffect:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.taboo" >
+        taboo = #record.taboo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.note" >
+        note = #record.note:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.pharmacology" >
+        pharmacology = #record.pharmacology:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.storaged" >
+        storaged = #record.storaged:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.packing" >
+        packing = #record.packing:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.lasts" >
+        lasts = #record.lasts:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.attending" >
+        attending = #record.attending:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.seoTitle" >
+        seo_title = #record.seoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.seoKeyword" >
+        seo_keyword = #record.seoKeyword:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.seoDescribe" >
+        seo_describe = #record.seoDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.symptom" >
+        symptom = #record.symptom:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.symptomRm" >
+        symptom_rm = #record.symptomRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.position" >
+        position = #record.position:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.positionRm" >
+        position_rm = #record.positionRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.disease" >
+        disease = #record.disease:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.diseaseRm" >
+        disease_rm = #record.diseaseRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.goodsDescribe" >
+        goods_describe = #record.goodsDescribe:LONGVARBINARY#
+      </isNotNull>
+      <isNotNull prepend="," property="record.instruction" >
+        instruction = #record.instruction:LONGVARBINARY#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_goods_extend.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExampleWithBLOBs" >
+    update t_goods_extend
+    set goodsid = #record.goodsid:BIGINT#,
+      pinyin_code = #record.pinyinCode:VARCHAR#,
+      bases = #record.bases:VARCHAR#,
+      characterd = #record.characterd:VARCHAR#,
+      indication = #record.indication:VARCHAR#,
+      usaged = #record.usaged:VARCHAR#,
+      untoward_effect = #record.untowardEffect:VARCHAR#,
+      taboo = #record.taboo:VARCHAR#,
+      note = #record.note:VARCHAR#,
+      pharmacology = #record.pharmacology:VARCHAR#,
+      storaged = #record.storaged:VARCHAR#,
+      packing = #record.packing:VARCHAR#,
+      lasts = #record.lasts:VARCHAR#,
+      attending = #record.attending:VARCHAR#,
+      seo_title = #record.seoTitle:VARCHAR#,
+      seo_keyword = #record.seoKeyword:VARCHAR#,
+      seo_describe = #record.seoDescribe:VARCHAR#,
+      symptom = #record.symptom:VARCHAR#,
+      symptom_rm = #record.symptomRm:VARCHAR#,
+      position = #record.position:VARCHAR#,
+      position_rm = #record.positionRm:VARCHAR#,
+      disease = #record.disease:VARCHAR#,
+      disease_rm = #record.diseaseRm:VARCHAR#,
+      goods_describe = #record.goodsDescribe:LONGVARBINARY#,
+      instruction = #record.instruction:LONGVARBINARY#
+    <isParameterPresent >
+      <include refid="t_goods_extend.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_goods_extend
+    set goodsid = #record.goodsid:BIGINT#,
+      pinyin_code = #record.pinyinCode:VARCHAR#,
+      bases = #record.bases:VARCHAR#,
+      characterd = #record.characterd:VARCHAR#,
+      indication = #record.indication:VARCHAR#,
+      usaged = #record.usaged:VARCHAR#,
+      untoward_effect = #record.untowardEffect:VARCHAR#,
+      taboo = #record.taboo:VARCHAR#,
+      note = #record.note:VARCHAR#,
+      pharmacology = #record.pharmacology:VARCHAR#,
+      storaged = #record.storaged:VARCHAR#,
+      packing = #record.packing:VARCHAR#,
+      lasts = #record.lasts:VARCHAR#,
+      attending = #record.attending:VARCHAR#,
+      seo_title = #record.seoTitle:VARCHAR#,
+      seo_keyword = #record.seoKeyword:VARCHAR#,
+      seo_describe = #record.seoDescribe:VARCHAR#,
+      symptom = #record.symptom:VARCHAR#,
+      symptom_rm = #record.symptomRm:VARCHAR#,
+      position = #record.position:VARCHAR#,
+      position_rm = #record.positionRm:VARCHAR#,
+      disease = #record.disease:VARCHAR#,
+      disease_rm = #record.diseaseRm:VARCHAR#
+    <isParameterPresent >
+      <include refid="t_goods_extend.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TGoodsExtendWithBLOBs" >
+    update t_goods_extend
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="pinyinCode" >
+        pinyin_code = #pinyinCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bases" >
+        bases = #bases:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="characterd" >
+        characterd = #characterd:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="indication" >
+        indication = #indication:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="usaged" >
+        usaged = #usaged:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="untowardEffect" >
+        untoward_effect = #untowardEffect:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="taboo" >
+        taboo = #taboo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="note" >
+        note = #note:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="pharmacology" >
+        pharmacology = #pharmacology:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="storaged" >
+        storaged = #storaged:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="packing" >
+        packing = #packing:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="lasts" >
+        lasts = #lasts:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="attending" >
+        attending = #attending:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoTitle" >
+        seo_title = #seoTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoKeyword" >
+        seo_keyword = #seoKeyword:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seoDescribe" >
+        seo_describe = #seoDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="symptom" >
+        symptom = #symptom:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="symptomRm" >
+        symptom_rm = #symptomRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="position" >
+        position = #position:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="positionRm" >
+        position_rm = #positionRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="disease" >
+        disease = #disease:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="diseaseRm" >
+        disease_rm = #diseaseRm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="goodsDescribe" >
+        goods_describe = #goodsDescribe:LONGVARBINARY#
+      </isNotNull>
+      <isNotNull prepend="," property="instruction" >
+        instruction = #instruction:LONGVARBINARY#
+      </isNotNull>
+    </dynamic>
+    where goodsid = #goodsid:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeyWithBLOBs" parameterClass="com.rc.portal.vo.TGoodsExtendWithBLOBs" >
+    update t_goods_extend
+    set pinyin_code = #pinyinCode:VARCHAR#,
+      bases = #bases:VARCHAR#,
+      characterd = #characterd:VARCHAR#,
+      indication = #indication:VARCHAR#,
+      usaged = #usaged:VARCHAR#,
+      untoward_effect = #untowardEffect:VARCHAR#,
+      taboo = #taboo:VARCHAR#,
+      note = #note:VARCHAR#,
+      pharmacology = #pharmacology:VARCHAR#,
+      storaged = #storaged:VARCHAR#,
+      packing = #packing:VARCHAR#,
+      lasts = #lasts:VARCHAR#,
+      attending = #attending:VARCHAR#,
+      seo_title = #seoTitle:VARCHAR#,
+      seo_keyword = #seoKeyword:VARCHAR#,
+      seo_describe = #seoDescribe:VARCHAR#,
+      symptom = #symptom:VARCHAR#,
+      symptom_rm = #symptomRm:VARCHAR#,
+      position = #position:VARCHAR#,
+      position_rm = #positionRm:VARCHAR#,
+      disease = #disease:VARCHAR#,
+      disease_rm = #diseaseRm:VARCHAR#,
+      goods_describe = #goodsDescribe:LONGVARBINARY#,
+      instruction = #instruction:LONGVARBINARY#
+    where goodsid = #goodsid:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TGoodsExtend" >
+    update t_goods_extend
+    set pinyin_code = #pinyinCode:VARCHAR#,
+      bases = #bases:VARCHAR#,
+      characterd = #characterd:VARCHAR#,
+      indication = #indication:VARCHAR#,
+      usaged = #usaged:VARCHAR#,
+      untoward_effect = #untowardEffect:VARCHAR#,
+      taboo = #taboo:VARCHAR#,
+      note = #note:VARCHAR#,
+      pharmacology = #pharmacology:VARCHAR#,
+      storaged = #storaged:VARCHAR#,
+      packing = #packing:VARCHAR#,
+      lasts = #lasts:VARCHAR#,
+      attending = #attending:VARCHAR#,
+      seo_title = #seoTitle:VARCHAR#,
+      seo_keyword = #seoKeyword:VARCHAR#,
+      seo_describe = #seoDescribe:VARCHAR#,
+      symptom = #symptom:VARCHAR#,
+      symptom_rm = #symptomRm:VARCHAR#,
+      position = #position:VARCHAR#,
+      position_rm = #positionRm:VARCHAR#,
+      disease = #disease:VARCHAR#,
+      disease_rm = #diseaseRm:VARCHAR#
+    where goodsid = #goodsid:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsExtendExample" >
+                    select goodsid, pinyin_code, bases, characterd, indication, usaged, untoward_effect, taboo,
+                      note, pharmacology, storaged, packing, lasts, attending, seo_title, seo_keyword, seo_describe,
+                      symptom, symptom_rm, position, position_rm, disease, disease_rm
+                    from t_goods_extend
+                    <isParameterPresent >
+                      <include refid="t_goods_extend.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

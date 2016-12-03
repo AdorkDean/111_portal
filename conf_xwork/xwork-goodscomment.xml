@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="goodsComment" extends="default" namespace="/goodsComment">
+		<action name="myGoodsComment" class="com.rc.portal.webapp.action.GoodsCommentAction" method="myGoodsCommentPage">			
+			<result name="my_goods_comment_page" type="freemarker">/WEB-INF/pages/goodsComment/my_goods_comment_list.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="goodsCommentPage" class="com.rc.portal.webapp.action.GoodsCommentAction" method="goodsCommentPage">			
+			<result name="goods_comment_page" type="freemarker">/WEB-INF/pages/goodsComment/goods_comment_list.ftl</result>
+		</action>
+		<action name="addGoodsCommentPage" class="com.rc.portal.webapp.action.GoodsCommentAction" method="addGoodsCommentPage">			
+			<result name="add_goodscomment_page" type="freemarker">/WEB-INF/pages/goodsComment/add_goods_comment.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="applyGoodsComment" class="com.rc.portal.webapp.action.GoodsCommentAction" method="applyGoodsComment">			
+			<result name="add_goodscomment_page" type="freemarker">/WEB-INF/pages/goodsComment/add_goods_comment.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="saveGoodsComment" class="com.rc.portal.webapp.action.GoodsCommentAction" method="saveGoodsComment">
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+		<action name="ajaxGoodsComment" class="com.rc.portal.webapp.action.GoodsCommentAction" method="ajaxGoodsComment"></action>
+		<action name="getListByAjax" class="com.rc.portal.webapp.action.GoodsCommentAction" method="getListByAjax"></action>
+		
+	</package>
+</xwork>

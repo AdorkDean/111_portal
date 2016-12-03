@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="member" extends="default" namespace="/member">
+		<action name="profile" class="com.rc.portal.webapp.action.MemberProfileAction" method="index">
+			<result name="index" type="freemarker">/WEB-INF/pages/member/profile/index.ftl</result>
+			<result name="perfect" type="freemarker">/WEB-INF/pages/member/profile/perfect.ftl</result>
+			<result name="upload_head_portrait" type="freemarker">/WEB-INF/pages/member/profile/upload_head_portrait.ftl</result>
+			<result name="edit_email" type="freemarker">/WEB-INF/pages/member/profile/edit_email.ftl</result>
+			<result name="edit_email_success" type="freemarker">/WEB-INF/pages/member/profile/edit_email_success.ftl</result>
+			<result name="edit_mobile" type="freemarker">/WEB-INF/pages/member/profile/edit_mobile.ftl</result>
+			<result name="edit_mobile_success" type="freemarker">/WEB-INF/pages/member/profile/edit_mobile_success.ftl</result>
+			<result name="edit_password" type="freemarker">/WEB-INF/pages/member/profile/edit_password.ftl</result>
+			<result name="edit_password_success" type="freemarker">/WEB-INF/pages/member/profile/edit_password_success.ftl</result>
+			<interceptor-ref name="loginStack"/>  
+		</action>
+		
+		<action name="order" class="com.rc.portal.webapp.action.MemberOrderAction" method="index">
+			<result name="address" type="freemarker">/WEB-INF/pages/temp/address2.ftl</result>
+			<result name="index" type="freemarker">/WEB-INF/pages/member/order/index.ftl</result>
+			<result name="list" type="freemarker">/WEB-INF/pages/member/order/list.ftl</result>
+			<result name="order_item" type="freemarker">/WEB-INF/pages/member/order/order_item.ftl</result>
+			<result name="detail" type="freemarker">/WEB-INF/pages/member/order/detail.ftl</result>
+			<result name="order_add" type="freemarker">/WEB-INF/pages/member/order/order_add_v3.ftl</result>
+			<result name="order_payment" type="freemarker">/WEB-INF/pages/member/order/order_payment_v2.ftl</result>
+			<result name="order_payment_submit" type="freemarker">/WEB-INF/pages/member/order/order_payment_submit.ftl</result>
+			<result name="order_success" type="freemarker">/WEB-INF/pages/member/order/order_success_v2.ftl</result>
+			<result name="wzf" type="freemarker">/WEB-INF/pages/member/order/wzf.ftl</result>
+			<result name="add_goodscomment_page" type="freemarker">/WEB-INF/pages/goodsComment/add_goods_comment.ftl</result>
+			<interceptor-ref name="loginStack"/>  
+		</action>
+		
+		<action name="login" class="com.rc.portal.webapp.action.MemberLoginAction" method="index">
+			<result name="login" type="freemarker">/WEB-INF/pages/login/index.ftl</result>
+		</action>
+		
+		<action name="receiver" class="com.rc.portal.webapp.action.MemberReceiverAction" method="queryReceiverList">
+			<result name="receiver_list" type="freemarker">/WEB-INF/pages/member/receiver/receiver_list.ftl</result>
+			<interceptor-ref name="loginStack"/> 
+		</action>
+		
+		<action name="collect" class="com.rc.portal.webapp.action.MemberCollectAction" method="index">
+			<result name="index" type="freemarker">/WEB-INF/pages/member/collect/index.ftl</result>
+			<interceptor-ref name="loginStack"/> 
+		</action>
+		
+		<action name="point" class="com.rc.portal.webapp.action.MemberPointAction" method="index">
+			<result name="index" type="freemarker">/WEB-INF/pages/member/point/index.ftl</result>
+			<result name="rule" type="freemarker">/WEB-INF/pages/member/point/rule.ftl</result>
+			<result name="point_list" type="freemarker">/WEB-INF/pages/member/point/point_list.ftl</result>
+			<interceptor-ref name="loginStack"/> 
+		</action>
+		
+		<action name="coupon" class="com.rc.portal.webapp.action.MemberCouponAction" method="index">
+			<result name="index" type="freemarker">/WEB-INF/pages/member/coupon/index.ftl</result>
+			<result name="rule" type="freemarker">/WEB-INF/pages/member/coupon/rule.ftl</result>
+			<interceptor-ref name="loginStack"/> 
+		</action>
+		
+	    <action name="amountout" class="com.rc.portal.webapp.action.MemberAmountOutAction">
+			<result name="amountOut" type="freemarker">/WEB-INF/pages/member/leader/amount_out.ftl</result>
+			<result name="amountList" type="freemarker">/WEB-INF/pages/member/leader/amount_list.ftl</result>
+			<result name="not_health_leader" type="redirect">/healthLeader/healthLeader!healthLeader.action</result>
+			<result name="url" type="redirect">${url}</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+	    <action name="amountout_st" class="com.rc.portal.webapp.action.MemberAmountOutAction">
+			<result name="amountOut" type="freemarker">/WEB-INF/pages/member/leader/amount_out.ftl</result>
+			<result name="not_health_leader" type="redirect">/healthLeader/healthLeader!healthLeader.action</result>
+			<result name="url" type="redirect">${url}</result>
+			<interceptor-ref name="loginStack"/>
+			<interceptor-ref name="submitToken"/>
+		</action>		
+		
+		<action name="help" class="com.rc.portal.webapp.action.MemberHelpAction">
+			<result name="after_service" type="freemarker">/WEB-INF/pages/member/help/after_service.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+		
+		
+		
+		<action name="return" class="com.rc.portal.webapp.action.GoodsReturnAction">
+			<result name="my_goodsreturn_page" type="freemarker">/WEB-INF/pages/goodsReturn/my_goods_returns_list.ftl</result>
+			<result name="go_my_goodsreturn_page" type="redirect">/member/return!myReturns.action</result>
+			<result name="apply_goodsreturn_page" type="freemarker">/WEB-INF/pages/goodsReturn/apply_goods_return.ftl</result>
+<!-- 			<result name="detail_return" type="freemarker">/WEB-INF/pages/goodsReturn/goods_return_detail.ftl</result> -->
+<!-- 			<result name="detail_return_nogoods" type="freemarker">/WEB-INF/pages/goodsReturn/goods_return_detail_nogoods.ftl</result> -->
+			<result name="detail_return" type="freemarker">/WEB-INF/pages/goodsReturn/return_good_money.ftl</result>
+			<result name="detail_return_nogoods" type="freemarker">/WEB-INF/pages/goodsReturn/return_money_only.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+		<action name="comment" class="com.rc.portal.webapp.action.GoodsCommentAction">
+			<result name="my_goods_comment_page" type="freemarker">/WEB-INF/pages/goodsComment/my_goods_comment_list.ftl</result>
+			<result name="add_goodscomment_page" type="freemarker">/WEB-INF/pages/goodsComment/add_goods_comment.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="consult" class="com.rc.portal.webapp.action.GoodsConsultAction">
+			<result name="my_goods_consult_page" type="freemarker">/WEB-INF/pages/goodsConsult/my_goods_consult_list.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="saveCall" class="com.rc.portal.webapp.action.GoodsAction">
+		</action>
+		
+		
+		<!-- 支付完成之后，payment项目调用接口 -->
+		<action name="writeStayMoneyByPayment" class="com.rc.portal.webapp.action.MemberOrderAction" method="writeStayMoneyByPayment">
+		</action>
+		
+		 <!-- <action name="myGoodsReturnPage" class="com.rc.portal.webapp.action.GoodsReturnAction" method="myReturns">
+			<result name="my_goodsreturn_page" type="freemarker">/WEB-INF/pages/goodsReturn/my_goods_returns_list.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+	
+		<action name="applyGoodsReturnPage" class="com.rc.portal.webapp.action.GoodsReturnAction" method="applyGoodsReturnPage">			
+			<result name="apply_goodsreturn_page" type="freemarker">/WEB-INF/pages/goodsReturn/apply_goods_return.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="saveGoodsReturn" class="com.rc.portal.webapp.action.GoodsReturnAction" method="saveGoodsReturn">
+			<result name="my_goodsreturn_page" type="freemarker">/WEB-INF/pages/goodsReturn/my_goods_returns_list.ftl</result>
+			<result name="my_goodsreturn_page" type="redirect">myGoodsReturnPage!myReturns.action</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="addLogisticsInfo" class="com.rc.portal.webapp.action.GoodsReturnAction" method="addLogisticsInfo">
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+		<action name="detailReturn" class="com.rc.portal.webapp.action.GoodsReturnAction" method="detailReturn">
+			<result name="detail_return" type="freemarker">/WEB-INF/pages/goodsReturn/goods_return_detail.ftl</result>
+			<result name="detail_return_nogoods" type="freemarker">/WEB-INF/pages/goodsReturn/goods_return_detail_nogoods.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action> -->
+		
+		<action name="orderlist" class="com.rc.portal.webapp.action.MemberOrderListAction" >
+			<result name="getOutOrderList" type="freemarker">/WEB-INF/pages/member/order/order_out_list.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+		<action name="reserveOrder" class="com.rc.portal.webapp.action.MemberReserveOrderAction" >
+			<result name="reserve_order_add" type="freemarker">/WEB-INF/pages/member/reserveorder/reserve_order_add.ftl</result>
+			<result name="reserve_order_add_success" type="freemarker">/WEB-INF/pages/member/reserveorder/reserve_order_add_success.ftl</result>
+		</action>
+		
+		<action name="center" class="com.rc.portal.webapp.action.PersonalCenterOrderAction" >
+			<result name="getOrderList" type="freemarker">/WEB-INF/pages/member/center/order_list.ftl</result>
+			<interceptor-ref name="loginStack"/>  
+		</action>	
+		
+		<action name="index" class="com.rc.portal.webapp.action.PersonalCenterAction" >
+			<result name="getCenterIndex" type="freemarker">/WEB-INF/pages/member/center/index.ftl</result>
+			<interceptor-ref name="loginStack"/>  
+		</action>	
+		<action name="memberCenter" class="com.rc.portal.webapp.action.MemberCenterAction" >
+			<result name="baseMemberCenter" type="freemarker">/WEB-INF/pages/member/membercenter/baseMemberCenter.ftl</result>
+			<result name="toEditBaseMemberCenter" type="redirect">/member/memberCenter!toEditBaseMemberCenter.action</result>
+			<result name="toAccountSecurity" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/accountSecurity.ftl</result>
+			<result name="toPasswordValidate" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/password-validate.ftl</result>
+			<result name="toPasswordSetnew" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/password-setnew.ftl</result>
+			<result name="toPasswordSetsuccess" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/password-setsuccess.ftl</result>
+			
+			<result name="toEmailBindValidate" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-bind-validate.ftl</result>
+			<result name="toEmailBindInput" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-bind-input.ftl</result>
+			<result name="toEmailBindSend" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-bind-send.ftl</result>
+			<result name="toEmailBindSuccess" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-bind-success.ftl</result>
+			<result name="toEmailUpdateValidate" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-update-validate.ftl</result>
+			<result name="toEmailUpdateInput" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-update-input.ftl</result>
+			<result name="toEmailUpdateSend" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-update-send.ftl</result>
+			<result name="toEmailUpdateSuccess" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-update-success.ftl</result>
+			<result name="toEmailLinkFail" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/email-link-fail.ftl</result>
+			
+			<result name="toMobileUpdateValidate" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/mobile-update-validate.ftl</result>
+			<result name="toMobileUpdateCaptcha" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/mobile-update-captcha.ftl</result>
+			<result name="toMobileUpdateSuccess" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/mobile-update-success.ftl</result>
+	
+			<result name="toMobileBindValidate" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/mobile-bind-validate.ftl</result>
+			<result name="toMobileBindCaptcha" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/mobile-bind-captcha.ftl</result>
+			<result name="toMobileBindSuccess" type="freemarker">/WEB-INF/pages/member/membercenter/account-security/mobile-bind-success.ftl</result>
+			<result name="upload_head_portrait_base_message" type="freemarker">/WEB-INF/pages/member/profile/upload_head_portrait_base_message.ftl</result>
+		
+			<interceptor-ref name="loginStack"/>
+		</action>
+		
+		<action name="bindingAmount" class="com.rc.portal.webapp.action.MemberAmountOutAction">
+			<result name="bindingAmountIndex" type="freemarker">/WEB-INF/pages/member/leader/bindingAmountIndex.ftl</result>
+			<result name="unbindingIndex" type="freemarker">/WEB-INF/pages/member/leader/unbindingIndex.ftl</result>
+			<result name="drawingProceedsIndex" type="freemarker">/WEB-INF/pages/member/leader/drawingProceedsIndex.ftl</result>
+			<result name="presentRecordList" type="freemarker">/WEB-INF/pages/member/leaderarticle/presentRecord.ftl</result>
+			<result name="proceedsDetailList" type="freemarker">/WEB-INF/pages/member/leaderarticle/proceedsDetail.ftl</result>
+			<result name="url" type="redirect">${url}</result>
+			<interceptor-ref name="loginStack"/>
+			<interceptor-ref name="leaderStack"/>
+		</action>
+		
+		 <action name="bindingAmount_st" class="com.rc.portal.webapp.action.MemberAmountOutAction">
+			<result name="bindingAmountIndex" type="freemarker">/WEB-INF/pages/member/leader/bindingAmountIndex.ftl</result>
+			<result name="unbindingIndex" type="freemarker">/WEB-INF/pages/member/leader/unbindingIndex.ftl</result>
+			<result name="todrawingProceedsIndex" type="redirect">/member/bindingAmount!drawingProceedsIndex.action</result>
+			<result name="url" type="redirect">${url}</result>
+			<interceptor-ref name="loginStack"/>
+			<interceptor-ref name="submitToken"/>
+			<interceptor-ref name="leaderStack"/>
+		</action>	
+	</package>
+</xwork>

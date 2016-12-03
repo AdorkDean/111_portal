@@ -1,0 +1,31 @@
+#nav-menu{height:38px;background:#fff;width:100%;position:relative; z-index:9;}
+#nav-menu .menu{height:38px; width:1090px; margin:0 auto;}
+#nav-menu .menu li{float:left;display:inline;font-size:14px;}
+#nav-menu .menu li h3{font-weight:normal;display:inline-block;float:left;position:relative; z-index:100;}
+#nav-menu .menu li a.nav-dropdown{display:inline-block;color:#222;height:37px; line-height:37px;text-decoration:none;font-size:14px; padding:0 10px;text-align:center; border:1px solid #fff; border-bottom:0; margin:0 0 0 59px;}
+#nav-menu .menu li.nav-hot{position:relative;}
+#nav-menu .menu li.nav-hot a.nav-dropdown{margin:0 10px 0 0; width:100px; padding:0;}
+#nav-menu .menu li.last a.nav-dropdown{margin:0 0 0 64px;}
+#nav-menu .menu li a.navhover, #nav-menu .menu li a.nav-dropdown:hover{background-color:#FFF; border:1px solid #d7d7d7; border-bottom:0;}
+#nav-menu .menu li.separate{height:14px; width:1px; background:#d7d7d7; padding:0; margin:12px 0;}
+#nav-menu .menu li a.selected,#nav-menu .menu li a.navhover,#nav-menu .menu li a.nav-dropdown:hover{color:#00aaa0;}
+#nav-menu .menu li a.nav-dropdown span{height:37px;line-height:37px;display:inline-block;font-weight:bold;}
+#nav-menu .menu li a.selected span,#nav-menu .menu li a.navhover span,#nav-menu .menu li a.nav-dropdown:hover span{cursor:pointer;}
+#nav-menu .menu li a.navhover span, #nav-menu .menu li a.nav-dropdown:hover span{width:100%;}
+#nav-menu .menu .children{display:none;position:absolute;top:37px;background:#FFF;border:1px solid #d7d7d7;line-height:normal; left:0; right:0;}
+#nav-menu .menu li.nav-hot .children{width:100px;}
+#nav-menu .menu .nav-column{width:220px; float:left; margin-right:70px;}
+#nav-menu .menu .nav-column.last{margin-right:0;}
+#nav-menu .menu .nav-column dd a{width:50%; height:34px; line-height:34px; display:block; float:left; font-size:12px; overflow:hidden; white-space:nowrap; word-break:keep-all; text-overflow:ellipsis;}
+#nav-menu .menu .nav-column dd a:hover{color:#00aaa0;}
+#nav-menu .menu .nav-column h3{padding-top:20px; height:40px; line-height:40px; border-bottom:1px solid #999; overflow:hidden; display:block; width:220px; white-space:nowrap; word-break:keep-all; text-overflow:ellipsis;}
+#nav-menu .menu .nav-column h3 a{font-size:14px; overflow:hidden; font-weight:bold;}
+#nav-menu .menu .children li h3{display:block; width:100%;}
+#nav-menu .menu .children li a{height:38px;line-height:38px;overflow:hidden;display:block;color:#222;text-align:left;
+text-decoration:none; font-size:14px; padding:0 22px;}
+#nav-menu .menu .children li a:hover{color:#00aaa0;}
+#nav-menu .menu .nav-column .nav-column-info dl{padding:10px 0;}
+#nav-menu .menu .nav-column .nav-column-info dt{ float:left; width:20px; height:34px; line-height:34px; overflow:hidden; font-size:12px;}
+#nav-menu .menu .nav-column .nav-column-info dd{ width:200px; float:left; line-height:34px;}
+#nav-menu .menu .nav-column .nav-column-info dd a{ width:100px; float:left; font-size:12px;}
+#nav-menu .menu .nav-column .nav-column-info dd a:hover{color:#00aaa0;}

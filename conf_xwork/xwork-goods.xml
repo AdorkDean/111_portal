@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="goods" extends="default" namespace="/goods">
+		<action name="goods" class="com.rc.portal.webapp.action.GoodsAction">
+			<result name="pc_goods_detail" type="freemarker" >/WEB-INF/pages/goods/pc_goods_detail.ftl</result>
+			<result name="rx" type="freemarker" >/WEB-INF/pages/goods/pc_rx_goods_detail.ftl</result>
+		</action>
+	</package>
+<!-- 	前台列表页 -->
+	<package name="goodsList" extends="default" namespace="/goodsList">
+		<action name="goodsList" class="com.rc.portal.webapp.action.GoodsListAction">
+<!-- 			<result name="getGoodsList" type="freemarker" >/WEB-INF/pages/goods/goodsList.ftl</result> -->
+			<result name="getGoodsList" type="freemarker" >/WEB-INF/pages/goods/goodsList_1.ftl</result>
+<!-- 			<result name="getYiyaoGoodsList" type="freemarker" >/WEB-INF/pages/goods/yaoGoodsList.ftl</result> -->
+			<result name="getYiyaoGoodsList" type="freemarker" >/WEB-INF/pages/goods/yaoGoodsList_1.ftl</result>
+<!-- 			<result name="getGoodListByKeyword" type="freemarker" >/WEB-INF/pages/goods/searchGoodsList.ftl</result> -->
+			<result name="getGoodListByKeyword" type="freemarker" >/WEB-INF/pages/goods/searchGoodsList_1.ftl</result>
+<!-- 			<result name="getGoodListByBrand" type="freemarker" >/WEB-INF/pages/goods/brandGoodsList.ftl</result> -->
+			<result name="getGoodListByBrand" type="freemarker" >/WEB-INF/pages/goods/brandGoodsList_1.ftl</result>
+		</action>
+	</package>
+</xwork>

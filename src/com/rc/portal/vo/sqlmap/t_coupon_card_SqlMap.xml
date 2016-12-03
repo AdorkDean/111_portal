@@ -1,0 +1,328 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_coupon_card" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TCouponCard" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="card_no" property="cardNo" jdbcType="VARCHAR" />
+    <result column="is_use" property="isUse" jdbcType="INTEGER" />
+    <result column="use_time" property="useTime" jdbcType="TIMESTAMP" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="ticket_id" property="ticketId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TCouponCardExample" >
+    select id, card_no, is_use, use_time, member_id, create_time, ticket_id
+    from t_coupon_card
+    <isParameterPresent >
+      <include refid="t_coupon_card.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TCouponCard" >
+    select id, card_no, is_use, use_time, member_id, create_time, ticket_id
+    from t_coupon_card
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TCouponCard" >
+    delete from t_coupon_card
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TCouponCardExample" >
+    delete from t_coupon_card
+    <include refid="t_coupon_card.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TCouponCard" >
+    insert into t_coupon_card (id, card_no, is_use, use_time, member_id, create_time, ticket_id)
+    values (#id:BIGINT#, #cardNo:VARCHAR#, #isUse:INTEGER#, #useTime:TIMESTAMP#, #memberId:BIGINT#,
+      #createTime:TIMESTAMP#, #ticketId:BIGINT#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TCouponCard" >
+    insert into t_coupon_card
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="cardNo" >
+        card_no
+      </isNotNull>
+      <isNotNull prepend="," property="isUse" >
+        is_use
+      </isNotNull>
+      <isNotNull prepend="," property="useTime" >
+        use_time
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        create_time
+      </isNotNull>
+      <isNotNull prepend="," property="ticketId" >
+        ticket_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="cardNo" >
+        #cardNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isUse" >
+        #isUse:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="useTime" >
+        #useTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        #createTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="ticketId" >
+        #ticketId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TCouponCardExample" resultClass="java.lang.Integer" >
+    select count(*) from t_coupon_card
+    <include refid="t_coupon_card.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_coupon_card
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardNo" >
+        card_no = #record.cardNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isUse" >
+        is_use = #record.isUse:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.useTime" >
+        use_time = #record.useTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createTime" >
+        create_time = #record.createTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.ticketId" >
+        ticket_id = #record.ticketId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_coupon_card.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_coupon_card
+    set id = #record.id:BIGINT#,
+      card_no = #record.cardNo:VARCHAR#,
+      is_use = #record.isUse:INTEGER#,
+      use_time = #record.useTime:TIMESTAMP#,
+      member_id = #record.memberId:BIGINT#,
+      create_time = #record.createTime:TIMESTAMP#,
+      ticket_id = #record.ticketId:BIGINT#
+    <isParameterPresent >
+      <include refid="t_coupon_card.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TCouponCard" >
+    update t_coupon_card
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="cardNo" >
+        card_no = #cardNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isUse" >
+        is_use = #isUse:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="useTime" >
+        use_time = #useTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="createTime" >
+        create_time = #createTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="ticketId" >
+        ticket_id = #ticketId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TCouponCard" >
+    update t_coupon_card
+    set card_no = #cardNo:VARCHAR#,
+      is_use = #isUse:INTEGER#,
+      use_time = #useTime:TIMESTAMP#,
+      member_id = #memberId:BIGINT#,
+      create_time = #createTime:TIMESTAMP#,
+      ticket_id = #ticketId:BIGINT#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TCouponCardExample" >
+                    select id, card_no, is_use, use_time, member_id, create_time, ticket_id
+                    from t_coupon_card
+                    <isParameterPresent >
+                      <include refid="t_coupon_card.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  
+  <select id="selectCouponCardByMemberid" resultClass="java.util.HashMap"
+		parameterClass="java.util.Map">
+		SELECT
+		t.card_no,
+		t1.name,
+		t1.start_price,
+		t1.end_price,
+		t1.dis_price,
+		t.id,
+        t1.id as couponid,
+        t1.scope
+		FROM
+		t_coupon_card t,
+		t_coupon t1
+		WHERE
+		t.ticket_id = t1.id
+		and (t.is_use =0 or (t.is_use=1 and t1.is_repeat=1))
+		and t1.status =1
+		and t1.start_time &lt;= now()
+		and t1.end_time &gt; now()
+		<isNotNull property="memberId">
+			and t.member_id=#memberId#
+		</isNotNull>
+	</select>
+	
+	
+	<select id="selectCouponCardByCardNo" resultClass="java.util.HashMap"
+		parameterClass="java.util.Map">
+		SELECT
+		t.card_no,
+		t1.name,
+		t1.start_price,
+		t1.end_price,
+		t1.dis_price,
+		t.id,
+        t1.id as couponid,
+        t1.scope
+		FROM
+		t_coupon_card t,
+		t_coupon t1
+		WHERE
+		t.ticket_id = t1.id
+		and (t.is_use =0 or (t.is_use=1 and t1.is_repeat=1))
+		and t1.status =1
+		and t1.start_time &lt;= now()
+		and t1.end_time &gt; now()
+		and (t.member_id is null or t.member_id =#memberId#)
+        <isNotNull property="couponCardId">
+			and t.id=#couponCardId#
+		</isNotNull>
+		<isNotNull property="couponCardNo">
+			and t.card_no=#couponCardNo#
+		</isNotNull>
+	</select>
+	
+	<!-- 过期优惠券个数  -->
+	<select id="selectCountTimeout" resultClass="java.lang.Integer" parameterClass="java.util.Map">
+		select count(*) from t_coupon_card cc left JOIN t_coupon c on cc.ticket_id = c.id 	where  cc.member_id = #memberId# and cc.is_use = 0 and NOW() > c.end_time
+	</select>
+	
+	<!--  过期优惠券  -->
+	<select id="selectTimeoutList" resultClass="java.util.HashMap" parameterClass="java.util.Map">
+		select cc.id as cardId,c.name,c.id,cc.card_no,c.start_time,c.end_time,c.dis_price,c.instro,c.scope from t_coupon_card cc left JOIN t_coupon c on cc.ticket_id = c.id 	where  cc.member_id = #memberId# and cc.is_use = 0 and NOW() > c.end_time
+		
+		order by cc.create_time desc
+		
+		limit $pageInfo.start$ ,$pageInfo.pageSize$
+	</select>
+	
+	<!-- 可用优惠券个数   -->
+	<select id="selectCountUse" resultClass="java.lang.Integer" parameterClass="java.util.Map">
+		select count(*) from t_coupon_card cc left JOIN t_coupon c on cc.ticket_id = c.id where  cc.member_id = #memberId# and cc.is_use = 0 and  c.end_time > NOW()
+	</select>
+	
+	<!-- 可用优惠券   -->
+	<select id="selectUseList" resultClass="java.util.HashMap" parameterClass="java.util.Map">
+		select cc.id as cardId,c.name,c.id,cc.card_no,c.start_time,c.end_time,c.dis_price,c.instro,c.scope from t_coupon_card cc left JOIN t_coupon c on cc.ticket_id = c.id where  cc.member_id = #memberId# and cc.is_use = 0 and  c.end_time > NOW() 
+		
+		order by cc.create_time desc
+		
+		limit $pageInfo.start$ ,$pageInfo.pageSize$
+	</select>
+	
+	<!-- 已使用优惠券个数   -->
+	<select id="selectCountUsed" resultClass="java.lang.Integer" parameterClass="java.util.Map">
+		select count(*) from t_coupon_card cc left JOIN t_coupon c on cc.ticket_id = c.id where  cc.member_id = #memberId# and cc.is_use = 1
+	</select>
+	<!-- 已使用优惠券    -->
+	<select id="selectUsedList" resultClass="java.util.HashMap" parameterClass="java.util.Map">
+		select cc.id as cardId,c.name,c.id,cc.card_no,c.start_time,c.end_time,c.dis_price,c.instro,c.scope from t_coupon_card cc left JOIN t_coupon c on cc.ticket_id = c.id where  cc.member_id = #memberId# and cc.is_use = 1
+		
+		order by cc.create_time desc
+		
+		limit $pageInfo.start$ ,$pageInfo.pageSize$
+	</select>
+	
+	<select id="selectCidList" resultClass="java.util.HashMap" parameterClass="java.util.Map">
+		select c.id from t_coupon_card cc left JOIN t_coupon c on cc.ticket_id = c.id where  cc.member_id = #memberId#
+	</select>
+	
+	<select id="selectCategoryName" resultClass="java.lang.String" parameterClass="java.util.Map">
+		SELECT tc.category_name from t_category tc,t_coupon_relevance tcr where tcr.relevance_id=tc.id AND tcr.coupon_id = #cid#
+	</select>
+	<select id="selectBrandName" resultClass="java.lang.String" parameterClass="java.util.Map">
+		SELECT tb.brand_name from t_brand tb,t_coupon_relevance tcr where tcr.relevance_id=tb.id AND tcr.coupon_id=#cid#
+	</select>
+	<select id="selectPshortName" resultClass="java.lang.String" parameterClass="java.util.Map">
+		SELECT tg.short_name from t_goods tg,t_coupon_relevance tcr where tcr.relevance_id=tg.id AND tcr.coupon_id=#cid#
+	</select>
+</sqlMap>

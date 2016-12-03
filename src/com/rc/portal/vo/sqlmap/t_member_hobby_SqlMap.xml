@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member_hobby" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMemberHobby" >
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="shopping_like" property="shoppingLike" jdbcType="VARCHAR" />
+    <result column="shopping_preference" property="shoppingPreference" jdbcType="VARCHAR" />
+    <result column="like_film" property="likeFilm" jdbcType="VARCHAR" />
+    <result column="like_character" property="likeCharacter" jdbcType="VARCHAR" />
+    <result column="like_star" property="likeStar" jdbcType="VARCHAR" />
+    <result column="like_brand" property="likeBrand" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberHobbyExample" >
+    select member_id, shopping_like, shopping_preference, like_film, like_character, like_star,
+      like_brand
+    from t_member_hobby
+    <isParameterPresent >
+      <include refid="t_member_hobby.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberHobby" >
+    select member_id, shopping_like, shopping_preference, like_film, like_character, like_star,
+      like_brand
+    from t_member_hobby
+    where member_id = #memberId:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberHobby" >
+    delete from t_member_hobby
+    where member_id = #memberId:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberHobbyExample" >
+    delete from t_member_hobby
+    <include refid="t_member_hobby.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMemberHobby" >
+    insert into t_member_hobby (member_id, shopping_like, shopping_preference, like_film,
+      like_character, like_star, like_brand)
+    values (#memberId:BIGINT#, #shoppingLike:VARCHAR#, #shoppingPreference:VARCHAR#,
+      #likeFilm:VARCHAR#, #likeCharacter:VARCHAR#, #likeStar:VARCHAR#, #likeBrand:VARCHAR#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMemberHobby" >
+    insert into t_member_hobby
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="shoppingLike" >
+        shopping_like
+      </isNotNull>
+      <isNotNull prepend="," property="shoppingPreference" >
+        shopping_preference
+      </isNotNull>
+      <isNotNull prepend="," property="likeFilm" >
+        like_film
+      </isNotNull>
+      <isNotNull prepend="," property="likeCharacter" >
+        like_character
+      </isNotNull>
+      <isNotNull prepend="," property="likeStar" >
+        like_star
+      </isNotNull>
+      <isNotNull prepend="," property="likeBrand" >
+        like_brand
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="shoppingLike" >
+        #shoppingLike:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shoppingPreference" >
+        #shoppingPreference:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="likeFilm" >
+        #likeFilm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="likeCharacter" >
+        #likeCharacter:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="likeStar" >
+        #likeStar:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="likeBrand" >
+        #likeBrand:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberHobbyExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member_hobby
+    <include refid="t_member_hobby.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member_hobby
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.shoppingLike" >
+        shopping_like = #record.shoppingLike:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.shoppingPreference" >
+        shopping_preference = #record.shoppingPreference:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.likeFilm" >
+        like_film = #record.likeFilm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.likeCharacter" >
+        like_character = #record.likeCharacter:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.likeStar" >
+        like_star = #record.likeStar:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.likeBrand" >
+        like_brand = #record.likeBrand:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member_hobby.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member_hobby
+    set member_id = #record.memberId:BIGINT#,
+      shopping_like = #record.shoppingLike:VARCHAR#,
+      shopping_preference = #record.shoppingPreference:VARCHAR#,
+      like_film = #record.likeFilm:VARCHAR#,
+      like_character = #record.likeCharacter:VARCHAR#,
+      like_star = #record.likeStar:VARCHAR#,
+      like_brand = #record.likeBrand:VARCHAR#
+    <isParameterPresent >
+      <include refid="t_member_hobby.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMemberHobby" >
+    update t_member_hobby
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="shoppingLike" >
+        shopping_like = #shoppingLike:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shoppingPreference" >
+        shopping_preference = #shoppingPreference:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="likeFilm" >
+        like_film = #likeFilm:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="likeCharacter" >
+        like_character = #likeCharacter:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="likeStar" >
+        like_star = #likeStar:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="likeBrand" >
+        like_brand = #likeBrand:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where member_id = #memberId:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberHobby" >
+    update t_member_hobby
+    set shopping_like = #shoppingLike:VARCHAR#,
+      shopping_preference = #shoppingPreference:VARCHAR#,
+      like_film = #likeFilm:VARCHAR#,
+      like_character = #likeCharacter:VARCHAR#,
+      like_star = #likeStar:VARCHAR#,
+      like_brand = #likeBrand:VARCHAR#
+    where member_id = #memberId:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberHobbyExample" >
+                    select member_id, shopping_like, shopping_preference, like_film, like_character, like_star,
+                      like_brand
+                    from t_member_hobby
+                    <isParameterPresent >
+                      <include refid="t_member_hobby.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

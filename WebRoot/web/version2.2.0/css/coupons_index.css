@@ -1,0 +1,33 @@
+.coupon-shade{display:none;position:fixed; top:0; left:0; right:0; bottom:0; z-index:99999;width:100%; height:100%; background: rgba(0,0,0,.5);}
+.discount-coupon{ height:416px; width:462px; position: absolute; top:50%; left:50%; margin:-254px 0 0 -253px ; background: url("http://img.zdfei.com/static/image/temp/20160701/956e69b58d5606482ba9fbfb70879989.png") no-repeat center center; padding:92px 0 0 45px;}
+.discount-coupon li{float:left; border-radius:5px; -webkit-border-radius:5px; margin:0 10px 10px 0; cursor:pointer;}
+.color01{background: #FFF url("http://img.zdfei.com/static/image/temp/20160701/20f83e38e9b8b1173fc1e797fa3915c3.jpg") no-repeat top right;}
+.color02{background: #FFF url("http://img.zdfei.com/static/image/temp/20160701/20f83e38e9b8b1173fc1e797fa3915c3.jpg") no-repeat top right;}
+.color03{background: #FFF url("http://img.zdfei.com/static/image/temp/20160701/8d8d18b33f3ebcdf39f8a60fc64a3c3d.jpg") no-repeat top right;}
+.color04{background: #FFF url("http://img.zdfei.com/static/image/temp/20160701/8d8d18b33f3ebcdf39f8a60fc64a3c3d.jpg") no-repeat top right;}
+.color05{background: #FFF url("http://img.zdfei.com/static/image/temp/20160701/20f83e38e9b8b1173fc1e797fa3915c3.jpg") no-repeat top right;}
+.color06{background: #FFF url("http://img.zdfei.com/static/image/temp/20160701/20f83e38e9b8b1173fc1e797fa3915c3.jpg") no-repeat top right;}
+.color07{background: #FFF url("http://img.zdfei.com/static/image/temp/20160701/8d8d18b33f3ebcdf39f8a60fc64a3c3d.jpg") no-repeat top right;}
+.color08{background: #FFF url("http://img.zdfei.com/static/image/temp/20160701/8d8d18b33f3ebcdf39f8a60fc64a3c3d.jpg") no-repeat top right;}
+.list-bg{width:173px; height:90px; padding-left:18px; position: relative;border-radius:5px;-webkit-border-radius:5px;}
+.color01 .list-bg{background: url("http://img.zdfei.com/static/image/temp/20160701/849725fe513f2e8e97cd7baee92562ea.png") no-repeat center bottom;}
+.color02 .list-bg{background: url("http://img.zdfei.com/static/image/temp/20160701/1505c117b4bff2c21a45c35d3b9ce85f.png") no-repeat center bottom;}
+.color03 .list-bg{background: url("http://img.zdfei.com/static/image/temp/20160701/744b02b3c2169fb3213e71bced16b344.png") no-repeat center bottom;}
+.color04 .list-bg{background: url("http://img.zdfei.com/static/image/temp/20160701/7c65f1936392c3e1682b0cd4f5d537df.png") no-repeat center bottom;}
+.color05 .list-bg{background: url("http://img.zdfei.com/static/image/temp/20160701/849725fe513f2e8e97cd7baee92562ea.png") no-repeat center bottom;}
+.color06 .list-bg{background: url("http://img.zdfei.com/static/image/temp/20160701/1505c117b4bff2c21a45c35d3b9ce85f.png") no-repeat center bottom;}
+.color07 .list-bg{background: url("http://img.zdfei.com/static/image/temp/20160701/744b02b3c2169fb3213e71bced16b344.png") no-repeat center bottom;}
+.color08 .list-bg{background: url("http://img.zdfei.com/static/image/temp/20160701/7c65f1936392c3e1682b0cd4f5d537df.png") no-repeat center bottom;}
+.list-bg b{display: block; text-align: left; font-size:36px; font-weight: bold; color:#e1385b;}
+.list-bg p{text-align: left; color:#333; font-size:12px;}
+.list-bg a{position: absolute; right:3px; top:10px; display: block; width:20px; height:68px; background: #ce3038; border-radius:20px; text-align: center; line-height:16px; color:#FFF}
+.list-bg a:hover{background: #d3444b;}
+.weight-p{font-weight: bold;}
+.coupon-close{position:absolute; top:10px; right:0px; display: block; width:27px; height:27px; cursor: pointer;}
+.red-packet{position: fixed; right:0; bottom:20px; z-index: 99999; height:124px;width:129px; cursor: pointer;}
+.red-packet img{display:block; height:124px;width:129px;}
+#maskForCoupon {display:none;position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 99999;width: 100%;height: 100%;//background: rgba(0,0,0,0);}
+#loadingGif {display:none;position: fixed;top: 0;left: 0;right: 0;bottom: 0;z-index: 9999999;top: 45%;left: 46.7%;}
+.grayfilerc {background:#ccc;}
+.grayfilerc .list-bg span{color:#ccc;}
+.cursorPo {cursor:pointer;}

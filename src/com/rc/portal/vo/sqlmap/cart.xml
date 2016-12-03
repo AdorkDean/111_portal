@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+
+<sqlMap namespace="mycart" >
+
+
+  
+  <!-- 修改购物车中的商品数量 -->
+  <update id="alert-cart-count" parameterClass="java.util.Map" >
+  UPDATE t_cart_item 
+   <isEqual property="flag" compareValue="1">
+    SET quantity = quantity+1
+  </isEqual>
+  <isEqual property="flag" compareValue="2">
+    SET quantity = quantity-1
+  </isEqual>
+  <isEqual property="flag" compareValue="3">
+    SET quantity = #quantity:decimal#
+  </isEqual>
+  WHERE id = #id:varchar#
+  </update>
+  
+  
+
+  <delete id="delete-cart-goods"  parameterClass="java.lang.String" >
+   DELETE FROM t_cart_item WHERE goods_id IN($ids$)
+  </delete>
+  
+  	  
+  <delete id="delete-cart-byser"  parameterClass="java.lang.Long" >
+   DELETE FROM t_cart_item WHERE cart IN(SELECT id FROM t_cart WHERE member_id=#userid:decimal#) and is_selected=1
+  </delete>
+  
+  <update id="check-cart-item"  parameterClass="java.util.Map" >
+  UPDATE t_cart_item SET is_selected=#flag:varchar#
+  WHERE id = #id:varchar#
+  </update>
+  
+  <update id="all-check-cart-item"  parameterClass="java.util.Map" >
+  UPDATE t_cart_item SET is_selected=#flag:varchar#
+  WHERE id in ($id$)
+  </update>
+  
+
+  
+  
+  <update id="remove-cart-userid"  parameterClass="java.util.Map"  >
+   UPDATE t_cart SET member_id = NULL WHERE member_id = #userid:decimal#
+  </update>
+  
+  <select id="select-cart-userid" parameterClass="java.util.Map" resultClass="java.lang.String" >
+   select cart_key from t_cart where member_id = #userid:decimal#
+  </select>
+	    
+  <delete id="delte_cart_zi" parameterClass="java.util.Map"  >
+  DELETE FROM t_cart_item WHERE cart_id = #cartid:decimal#
+  </delete>
+  
+  <update id="is_selected_false" parameterClass="java.util.Map"  >
+  UPDATE t_cart_item SET is_selected=FALSE WHERE cart_id = (SELECT id FROM t_cart WHERE member_id= #userid:decimal#) and goods_id = #productid:decimal#
+  </update>
+  
+  <select id="is_selected_false_isexit" parameterClass="java.util.Map" resultClass="java.lang.Integer">
+  SELECT COUNT(0) FROM t_cart_item WHERE cart = ( 
+	SELECT id FROM t_cart WHERE member_id = #userid:decimal# ) AND goods_id = #productid:decimal#
+  </select>
+  
+  <delete  id="empty-cart"  parameterClass="java.util.Map"  >
+  
+	DELETE FROM t_cart_item WHERE cart_id = 
+	(
+		SELECT id FROM t_cart cart WHERE 
+		 <isNull property="userid" >
+		 	cart.cart_key = #uuid:varchar#
+		</isNull>
+		<isNotNull property="userid" >
+		 	cart.member_id = #userid:decimal#
+		</isNotNull>  
+	);
+  </delete>
+  
+  <delete id="only-del-cart"  parameterClass="java.util.Map"  >
+	DELETE FROM t_cart_item WHERE cart_id = 
+	(
+		SELECT id FROM t_cart cart WHERE 
+		 <isNull property="userid" >
+		 	cart.cart_key = #uuid:varchar#
+		</isNull>
+		<isNotNull property="userid" >
+		 	cart.member_id = #userid:decimal#
+		</isNotNull>  
+	) and goods_id =#goods_id#
+  </delete>
+  
+  
+  
+   <delete id="batch-del-cart"  parameterClass="java.util.Map"  >
+	DELETE FROM t_cart_item WHERE cart_id = 
+	(
+		SELECT id FROM t_cart cart WHERE 
+		 <isNull property="userid" >
+		 	cart.cart_key = #uuid:varchar#
+		</isNull>
+		<isNotNull property="userid" >
+		 	cart.member_id = #userid:decimal#
+		</isNotNull>  
+	) and goods_id in ($product$)
+  </delete>
+  
+<select id="get-cart-item" parameterClass="java.util.Map"  resultClass="java.util.HashMap">
+	
+SELECT itm.id as itemid,g.id AS goodsid,itm.is_selected,g.goods_name,g.goodsno,g.price,
+<!-- 	g.pc_price, -->
+<!-- 	g.wap_price, -->
+<!-- 	g.app_price, -->
+	gp.price as pc_price,
+	g.abbreviation_picture as image_url,g.spec,itm.quantity,IFNULL(p.id,0) AS promid,
+	  IF(ykt.`id` IS NULL,'0','1') AS ykt_flag
+	FROM t_cart_item itm 
+	LEFT JOIN t_goods g ON itm.goods_id = g.id
+	LEFT JOIN t_promotion p ON g.`promotion_id`=p.id
+	LEFT JOIN t_goods_price gp ON gp.`goods_id` = g.`id` 
+	LEFT JOIN ykt_goods ykt  ON ykt.`goods_no`=g.`goodsno`
+	WHERE itm.cart_id = (
+		SELECT id FROM t_cart cart WHERE 
+		 <isNull property="userid" >
+		 	cart.cart_key = #uuid:varchar#
+		</isNull>
+		<isNotNull property="userid" >
+		 	cart.member_id = #userid:decimal#
+		</isNotNull>  
+	)
+		<isNotNull property="priceType" >
+			AND gp.`price_type` = #priceType:VARCHAR# 
+		</isNotNull>  
+		GROUP BY itm.id
+	order by itm.id
+</select>
+
+<!--暂时没找到地方用 <select id="syn-get-cart-item" parameterClass="java.util.Map"  resultClass="com.rc.portal.webapp.model.cart.CartItem">
+	
+SELECT itm.id as itemid,g.id AS goodsid,itm.is_selected,g.goods_name,g.goodsno,g.price,g.pc_price,
+	g.wap_price,g.app_price,g.abbreviation_picture as image_url,itm.quantity
+	FROM t_cart_item itm 
+	LEFT JOIN t_goods g ON itm.goods_id = g.id
+	WHERE itm.cart_id = (
+		SELECT id FROM t_cart cart WHERE 
+		 <isNull property="userid" >
+		 	cart.cart_key = #uuid:varchar#
+		</isNull>
+		<isNotNull property="userid" >
+		 	cart.member_id = #userid:decimal#
+		</isNotNull>  
+	)
+</select> -->
+
+
+<select id="get-goods-price" parameterClass="java.util.Map" resultClass="com.rc.portal.webapp.model.cart.GoodsPrice" >
+SELECT
+	t1.price AS pc_price,
+	t.stock
+FROM
+	t_goods t
+LEFT JOIN t_goods_price t1 ON t.id = t1.goods_id
+AND t1.platform_type = '111yao'
+AND t1.price_type = 'pc'
+where t.id = #goodsid:decimal#
+</select>
+  
+<update id="set-key" parameterClass="java.util.Map"  >
+  UPDATE t_cart SET cart_key = #key:varchar# WHERE id = #id:decimal#
+</update>
+
+<select id="prom_cart"  parameterClass="java.util.Map" resultClass="com.rc.portal.webapp.model.cart.CartPromModel" >
+	SELECT c.goods_id,c.quantity,g.promotion_id,p.type,gp.price as pc_price,cat.categoryid,g.stock
+	FROM t_cart_item c
+	LEFT JOIN t_goods g ON g.id = c.goods_id
+	LEFT JOIN t_promotion p ON g.`promotion_id`=p.id
+	LEFT JOIN t_category_goods cat ON g.id = cat.goodsid AND cat.type=2
+  LEFT JOIN t_goods_price gp ON c.goods_id = gp.goods_id  AND gp.platform_type='111yao' AND gp.price_type='pc'
+	WHERE  c.is_selected = 1 
+	  <isNotNull property="is_ykt_good" >
+		 and	c.is_ykt_good = #is_ykt_good#
+	  </isNotNull>  
+	AND c.cart_id = (
+		SELECT id FROM t_cart cart WHERE 
+		 <isNull property="userid" >
+		 	cart.cart_key = #uuid:varchar#
+		</isNull>
+		<isNotNull property="userid" >
+		 	cart.member_id = #userid:decimal#
+		</isNotNull>  
+	)
+</select>
+
+<!-- 暂时没找到地方用 <select id="mix-money" parameterClass="java.util.Map" resultClass="java.math.BigDecimal" >
+	SELECT SUM(g.pc_price) as money FROM t_prom_item t
+	LEFT JOIN t_goods g ON t.target_id=g.id
+	WHERE t.target_id IN($goods$) AND t.pid = #prom:decimal#
+	GROUP BY t.pid
+</select> -->
+
+ <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TPromotion" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="INTEGER" />
+    <result column="scope" property="scope" jdbcType="INTEGER" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="describ" property="describ" jdbcType="VARCHAR" />
+    <result column="advertise" property="advertise" jdbcType="VARCHAR" />
+    <result column="is_tiket" property="isTiket" jdbcType="INTEGER" />
+    <result column="start_time" property="startTime" jdbcType="TIMESTAMP" />
+    <result column="end_time" property="endTime" jdbcType="TIMESTAMP" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="BIGINT" />
+    <result column="link" property="link" jdbcType="VARCHAR" />
+    <result column="rule" property="rule" jdbcType="VARCHAR" />
+    <result column="min_amount" property="minAmount" jdbcType="DECIMAL" />
+    <result column="max_amount" property="maxAmount" jdbcType="DECIMAL" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+  </resultMap>
+  
+<select id="is-goods-promotion" parameterClass="java.lang.Long" resultMap="ibatorgenerated_BaseResultMap" >
+	SELECT p.* FROM t_promotion p
+	LEFT JOIN t_prom_item it ON it.pid=p.id AND p.type IN(1,2) AND p.status = 2
+	WHERE it.`target_id`=#gid:decimal#
+</select>
+
+<select id="is-category-promotion" parameterClass="java.lang.Long" resultMap="ibatorgenerated_BaseResultMap" >
+	SELECT p.* FROM t_promotion p
+	LEFT JOIN t_prom_item it ON it.pid=p.id AND p.type =3 AND p.status = 2
+	WHERE it.`target_id` in (SELECT categoryid FROM t_category_goods WHERE goodsid = #gid:decimal#)
+</select>
+
+<select id="cart-recommend" parameterClass="java.util.Map" resultClass="java.util.HashMap" >
+SELECT t.goods_name,pc_price,img.`image_url`,t.price
+FROM t_goods t 
+LEFT JOIN t_goods_images img ON t.id = img.goodsid AND isdefault=1
+WHERE t.id IN
+(
+	SELECT goodsid FROM t_category_goods WHERE categoryid IN
+	(
+		SELECT categoryid FROM t_category_goods WHERE goodsid IN
+		(
+			SELECT goods_id FROM t_cart_item WHERE cart_id = 1
+		)
+	)
+) 
+</select>
+
+<select id="get-cart-sum" parameterClass="java.util.Map"  resultClass="java.lang.Integer" >
+SELECT IFNULL(SUM(quantity),0) AS cnt FROM t_cart_item WHERE cart_id = 
+(
+SELECT id FROM t_cart cart WHERE 
+		 <isNull property="userid" >
+		 	cart.cart_key = #key:varchar#
+		</isNull>
+		<isNotNull property="userid" >
+		 	cart.member_id = #userid:decimal#
+		</isNotNull>  
+)
+		<isNotNull property="isSelected" prepend="and" >
+		 	is_selected = #isSelected:INTEGER#
+		</isNotNull>  
+
+ 
+</select>
+
+<select id="cart-prom-gift" parameterClass="java.lang.Long" resultClass="com.rc.portal.webapp.model.cart.CartGift" >
+	SELECT img.image_url,g.id  
+	FROM t_prom_gift  gf 
+	LEFT JOIN t_goods g ON gf.goods_id = g.id
+	LEFT JOIN t_goods_images img ON g.id = img.goodsid
+	WHERE pid = #promid:decimal#
+</select>
+
+
+<!--暂时没找到地方用 <select id="page-recomm"  parameterClass="java.util.Map" resultClass="java.util.HashMap" >
+
+SELECT  tg.id,img.`image_url`,tg.`goods_name`,tg.`pc_price`,tg.`price` 
+FROM t_category_goods cate
+LEFT JOIN t_goods tg ON cate.`goodsid` = tg.id
+LEFT JOIN t_goods_images img ON tg.id = img.goodsid AND isdefault=1
+WHERE cate.categoryid IN ( 
+	SELECT cat.`categoryid` FROM t_goods g
+	LEFT JOIN `t_category_goods` cat ON g.id = cat.`goodsid`
+	WHERE g.id = 1
+)
+
+</select> -->
+
+<select id="many-prom-gift" parameterClass="java.util.Map" resultClass="com.rc.portal.webapp.model.cart.CartGift"  >
+SELECT g.id  AS goodsid, gif.pid AS promid,g.abbreviation_picture as image_url,1 as cnt
+FROM t_prom_gift gif
+LEFT JOIN t_goods g ON gif.goods_id = g.id
+WHERE pid IN($giftpid$)
+
+</select>
+
+
+<select id="getnamestr" parameterClass="java.util.Map"  resultClass="java.lang.String">
+SELECT goods_name FROM t_goods WHERE id IN($allids$)
+</select>
+
+
+<select id="prom_in_cart"  parameterClass="java.util.Map" resultClass="java.util.HashMap" >
+SELECT g.id AS goodsid,
+g.promotion_id AS promid,
+p.`type` AS cxtype,
+(SELECT limit_count FROM t_prom_item itm WHERE itm.pid = p.id AND itm.target_id = g.id ) AS limitcount
+FROM t_goods g 
+LEFT JOIN t_prom_item prom ON g.id=prom.target_id
+LEFT JOIN t_promotion p ON g.promotion_id = p.id
+WHERE g.id 
+IN(
+  SELECT goods_id FROM t_cart_item WHERE cart_id = (
+	SELECT id FROM t_cart WHERE member_id = #userid:decimal#
+  )
+) AND g.promotion_id IS NOT NULL  AND p.type=1
+</select>
+
+<select id="order_in_cart"  parameterClass="java.util.Map" resultClass="java.util.HashMap" >
+	SELECT o.id,it.`goods_id`
+	FROM t_order o 
+	LEFT JOIN t_order_item it ON o.id = it.`order_id` 
+	LEFT JOIN t_goods g ON it.`goods_id`= g.id
+	LEFT JOIN t_promotion prom ON prom.id = g.`promotion_id` 
+	WHERE o.`member_id` = #userid:decimal# 
+	AND prom.status=2 AND prom.type=1 
+	AND NOW()>prom.start_time
+	AND o.order_status!=4 
+	AND g.promotion_id IS NOT NULL 
+</select>
+
+<delete id="prom-del-double" parameterClass="java.util.Map" >
+DELETE FROM t_cart_item 
+WHERE goods_id = #goodsid:decimal#
+AND cart_id = (
+   SELECT id FROM t_cart WHERE member_id = #userid:decimal#
+)
+</delete>
+
+<update id="update-limit-count" parameterClass="java.util.Map" >
+UPDATE t_cart_item 
+SET  quantity = #cnt:decimal# 
+WHERE (
+    cart_id = #cartid:decimal# 
+    AND goods_id = #goodsid:decimal# 
+  )
+</update>
+
+<select id="get-cartid-user" parameterClass="java.util.Map" resultClass="java.lang.Long"> 
+ SELECT id FROM  t_cart WHERE member_id = #userid:decimal#
+</select>
+<select id="selectIfYktOrAll" parameterClass="java.util.Map" resultClass="java.util.HashMap"> 
+ SELECT 
+  ct.`is_selected`,
+<!--   ct.`is_ykt_good`, -->
+  IF((ykt.id IS NOT NULL and ykt.id>0),1,0) AS is_ykt_good,
+  
+  t.id,ct.id as cartId
+FROM
+  t_cart_item ct 
+  LEFT JOIN t_cart t 
+    ON ct.`cart_id` = t.`id` 
+    LEFT JOIN ykt_goods ykt 
+    ON ykt.`goods_no` = 
+    (SELECT 
+      g.`goodsno` 
+    FROM
+      t_goods g 
+    WHERE g.id = ct.`goods_id` 
+    LIMIT 0, 1) 
+WHERE 
+	<isNull property="userid" >
+	 	t.cart_key = #cartKey:varchar#
+	</isNull>
+	<isNotNull property="userid" >
+	 	t.member_id = #userid:decimal#
+	</isNotNull>  
+
+</select>
+
+
+
+
+<select id="selectQuantityAndKucun" parameterClass="java.util.Map" resultClass="java.util.HashMap"> 
+	SELECT 
+	  ci.id AS itemId,
+	  ci.`quantity`,
+	  g.`stock`,
+	  gp.`status` ,
+	  g.`is_suit` 
+	FROM
+	  t_cart_item ci 
+	  LEFT JOIN t_goods g 
+	    ON ci.`goods_id` = g.`id` 
+	  LEFT JOIN t_goods_price gp 
+	    ON g.id = gp.`goods_id` 
+	WHERE ci.`cart_id` = #cartId:BIGINT# 
+	  AND gp.platform_type = '111yao' 
+	  AND ci.is_selected = 1 
+	  AND gp.price_type = #priceType:VARCHAR# 
+	  AND (
+	    ci.`quantity` > g.`stock` 
+	    OR gp.`status` = #priceStatus:VARCHAR#
+	    OR g.`is_suit` = 2 
+    	OR g.`is_suit` = 3
+	  )
+</select>
+
+<select id="selectDataByUserIdGoodId"  parameterClass="java.util.Map" resultClass="java.util.HashMap">
+SELECT 
+  itm.id AS itemid,
+  g.id AS goodsid,
+  itm.is_selected,
+  g.goods_name,
+  g.goodsno,
+  g.price,
+  gp.price AS pc_price,
+  g.abbreviation_picture AS image_url,
+  g.spec,
+  itm.quantity,
+  IFNULL(p.id, 0) AS promid,
+  IF(ykt.`id` IS NULL, '0', '1') AS ykt_flag 
+FROM
+  t_cart_item itm 
+  LEFT JOIN t_goods g 
+    ON itm.goods_id = g.id 
+  LEFT JOIN t_promotion p 
+    ON g.`promotion_id` = p.id 
+  LEFT JOIN t_goods_price gp 
+    ON gp.`goods_id` = g.`id` 
+  LEFT JOIN ykt_goods ykt 
+    ON ykt.`goods_no` = g.`goodsno` 
+WHERE itm.`goods_id` = #goodsId:BIGINT# 
+  AND itm.`cart_id` = 
+  (SELECT 
+    id 
+  FROM
+    t_cart 
+  WHERE 
+  <isNull property="memberId" >
+	 	cart_key = #key:varchar#
+	</isNull>
+	<isNotNull property="memberId" >
+	 	member_id = #memberId:BIGINT#
+	</isNotNull>  
+  )
+  AND gp.`price_type`='pc'
+  LIMIT 0,1
+</select>
+
+
+</sqlMap>

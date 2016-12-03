@@ -1,0 +1,17 @@
+.start-bg,.start-bg span{background:url(../img/start_ico.png) no-repeat;}
+.start-bg{height:15px;  margin:2px auto 0; background-position:-75px 0;}
+.start-bg span{height:15px; display:inline-block; background-position:0 0; float:left;}
+
+.member-main .list .list-con table td span{
+	display: block;
+	float: left;
+	height: 76px;
+	line-height: 76px;
+	padding-left:0px;
+}
+.start-bg span.start1{width:15px;}
+.start-bg span.start2{width:30px;}
+.start-bg span.start3{width:45px;}
+.start-bg span.start4{width:60px;}
+.start-bg span.start5{width:75px;}
+

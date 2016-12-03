@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member_account" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMemberAccount" >
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="remaining_amount" property="remainingAmount" jdbcType="DECIMAL" />
+    <result column="freeze_amount" property="freezeAmount" jdbcType="DECIMAL" />
+    <result column="wait_amount" property="waitAmount" jdbcType="DECIMAL" />
+    <result column="total_amount" property="totalAmount" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberAccountExample" >
+    select member_id, remaining_amount, freeze_amount, wait_amount, total_amount
+    from t_member_account
+    <isParameterPresent >
+      <include refid="t_member_account.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberAccount" >
+    select member_id, remaining_amount, freeze_amount, wait_amount, total_amount
+    from t_member_account
+    where member_id = #memberId:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberAccount" >
+    delete from t_member_account
+    where member_id = #memberId:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberAccountExample" >
+    delete from t_member_account
+    <include refid="t_member_account.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMemberAccount" >
+    insert into t_member_account (member_id, remaining_amount, freeze_amount, wait_amount,
+      total_amount)
+    values (#memberId:BIGINT#, #remainingAmount:DECIMAL#, #freezeAmount:DECIMAL#,
+      #waitAmount:DECIMAL#, #totalAmount:DECIMAL#)
+	<selectKey resultClass="long" keyProperty="memberId"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMemberAccount" >
+    insert into t_member_account
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="remainingAmount" >
+        remaining_amount
+      </isNotNull>
+      <isNotNull prepend="," property="freezeAmount" >
+        freeze_amount
+      </isNotNull>
+      <isNotNull prepend="," property="waitAmount" >
+        wait_amount
+      </isNotNull>
+      <isNotNull prepend="," property="totalAmount" >
+        total_amount
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="remainingAmount" >
+        #remainingAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="freezeAmount" >
+        #freezeAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="waitAmount" >
+        #waitAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="totalAmount" >
+        #totalAmount:DECIMAL#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="memberId"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberAccountExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member_account
+    <include refid="t_member_account.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member_account
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.remainingAmount" >
+        remaining_amount = #record.remainingAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.freezeAmount" >
+        freeze_amount = #record.freezeAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.waitAmount" >
+        wait_amount = #record.waitAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.totalAmount" >
+        total_amount = #record.totalAmount:DECIMAL#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member_account.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member_account
+    set member_id = #record.memberId:BIGINT#,
+      remaining_amount = #record.remainingAmount:DECIMAL#,
+      freeze_amount = #record.freezeAmount:DECIMAL#,
+      wait_amount = #record.waitAmount:DECIMAL#,
+      total_amount = #record.totalAmount:DECIMAL#
+    <isParameterPresent >
+      <include refid="t_member_account.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMemberAccount" >
+    update t_member_account
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="remainingAmount" >
+        remaining_amount = #remainingAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="freezeAmount" >
+        freeze_amount = #freezeAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="waitAmount" >
+        wait_amount = #waitAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="totalAmount" >
+        total_amount = #totalAmount:DECIMAL#
+      </isNotNull>
+    </dynamic>
+    where member_id = #memberId:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberAccount" >
+    update t_member_account
+    set remaining_amount = #remainingAmount:DECIMAL#,
+      freeze_amount = #freezeAmount:DECIMAL#,
+      wait_amount = #waitAmount:DECIMAL#,
+      total_amount = #totalAmount:DECIMAL#
+    where member_id = #memberId:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberAccountExample" >
+                    select member_id, remaining_amount, freeze_amount, wait_amount, total_amount
+                    from t_member_account
+                    <isParameterPresent >
+                      <include refid="t_member_account.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+
+	<select id="selectByPrimaryKeyLock" resultMap="ibatorgenerated_BaseResultMap"
+		parameterClass="java.util.Map">
+		select member_id, remaining_amount, freeze_amount,
+		wait_amount, total_amount
+		from t_member_account
+		where member_id =
+		#memberId# for update
+	</select>
+  
+    <update id="updateRemainingAmountByPrimaryKey" parameterClass="java.util.Map" >
+    update t_member_account
+    set remaining_amount = remaining_amount-#remainingAmount#
+    where member_id = #memberId#
+  </update>
+  
+  <select id="selectForUpdate" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+                    select member_id, remaining_amount, freeze_amount, wait_amount, total_amount
+                    from t_member_account where  member_id=#memberid# for update
+  </select>  
+</sqlMap>

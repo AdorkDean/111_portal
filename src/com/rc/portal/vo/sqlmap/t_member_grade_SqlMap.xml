@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member_grade" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMemberGrade" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="enterprise_discount" property="enterpriseDiscount" jdbcType="DECIMAL" />
+    <result column="consume_price" property="consumePrice" jdbcType="DECIMAL" />
+    <result column="is_default" property="isDefault" jdbcType="BIT" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="create_people" property="createPeople" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="update_people" property="updatePeople" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberGradeExample" >
+    select id, name, enterprise_discount, consume_price, is_default, create_date, create_people,
+      update_date, update_people
+    from t_member_grade
+    <isParameterPresent >
+      <include refid="t_member_grade.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberGrade" >
+    select id, name, enterprise_discount, consume_price, is_default, create_date, create_people,
+      update_date, update_people
+    from t_member_grade
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberGrade" >
+    delete from t_member_grade
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberGradeExample" >
+    delete from t_member_grade
+    <include refid="t_member_grade.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMemberGrade" >
+    insert into t_member_grade (id, name, enterprise_discount, consume_price, is_default,
+      create_date, create_people, update_date, update_people)
+    values (#id:BIGINT#, #name:VARCHAR#, #enterpriseDiscount:DECIMAL#, #consumePrice:DECIMAL#,
+      #isDefault:BIT#, #createDate:TIMESTAMP#, #createPeople:VARCHAR#, #updateDate:TIMESTAMP#,
+      #updatePeople:VARCHAR#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMemberGrade" >
+    insert into t_member_grade
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="name" >
+        name
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        enterprise_discount
+      </isNotNull>
+      <isNotNull prepend="," property="consumePrice" >
+        consume_price
+      </isNotNull>
+      <isNotNull prepend="," property="isDefault" >
+        is_default
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        create_date
+      </isNotNull>
+      <isNotNull prepend="," property="createPeople" >
+        create_people
+      </isNotNull>
+      <isNotNull prepend="," property="updateDate" >
+        update_date
+      </isNotNull>
+      <isNotNull prepend="," property="updatePeople" >
+        update_people
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="name" >
+        #name:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        #enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="consumePrice" >
+        #consumePrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="isDefault" >
+        #isDefault:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        #createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="createPeople" >
+        #createPeople:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updateDate" >
+        #updateDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatePeople" >
+        #updatePeople:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberGradeExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member_grade
+    <include refid="t_member_grade.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member_grade
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.name" >
+        name = #record.name:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.enterpriseDiscount" >
+        enterprise_discount = #record.enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.consumePrice" >
+        consume_price = #record.consumePrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isDefault" >
+        is_default = #record.isDefault:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDate" >
+        create_date = #record.createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createPeople" >
+        create_people = #record.createPeople:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updateDate" >
+        update_date = #record.updateDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updatePeople" >
+        update_people = #record.updatePeople:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member_grade.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member_grade
+    set id = #record.id:BIGINT#,
+      name = #record.name:VARCHAR#,
+      enterprise_discount = #record.enterpriseDiscount:DECIMAL#,
+      consume_price = #record.consumePrice:DECIMAL#,
+      is_default = #record.isDefault:BIT#,
+      create_date = #record.createDate:TIMESTAMP#,
+      create_people = #record.createPeople:VARCHAR#,
+      update_date = #record.updateDate:TIMESTAMP#,
+      update_people = #record.updatePeople:VARCHAR#
+    <isParameterPresent >
+      <include refid="t_member_grade.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMemberGrade" >
+    update t_member_grade
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="name" >
+        name = #name:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        enterprise_discount = #enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="consumePrice" >
+        consume_price = #consumePrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="isDefault" >
+        is_default = #isDefault:BIT#
+      </isNotNull>
+      <isNotNull prepend="," property="createDate" >
+        create_date = #createDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="createPeople" >
+        create_people = #createPeople:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updateDate" >
+        update_date = #updateDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updatePeople" >
+        update_people = #updatePeople:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberGrade" >
+    update t_member_grade
+    set name = #name:VARCHAR#,
+      enterprise_discount = #enterpriseDiscount:DECIMAL#,
+      consume_price = #consumePrice:DECIMAL#,
+      is_default = #isDefault:BIT#,
+      create_date = #createDate:TIMESTAMP#,
+      create_people = #createPeople:VARCHAR#,
+      update_date = #updateDate:TIMESTAMP#,
+      update_people = #updatePeople:VARCHAR#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberGradeExample" >
+                    select id, name, enterprise_discount, consume_price, is_default, create_date, create_people,
+                      update_date, update_people
+                    from t_member_grade
+                    <isParameterPresent >
+                      <include refid="t_member_grade.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  
+  <!--  查询会员的当前等级   -->
+  <select id="selectCurrentGrade" resultMap="ibatorgenerated_BaseResultMap" parameterClass="java.lang.String" >
+        select * from t_member_grade m where  m.id = #value#
+  </select>
+  
+  <!--  查询会员的下一个等级   -->
+  <select id="selectNextGrade" resultMap="ibatorgenerated_BaseResultMap" parameterClass="java.lang.String" >
+        select * from t_member_grade m where  m.consume_price >
+
+		(select mg.consume_price from t_member_grade mg   where id = #value# ) limit 1
+  </select>
+  
+  <!--  查询会员的默认等级   -->
+  <select id="selectDefaultGrade" resultMap="ibatorgenerated_BaseResultMap">
+        select * from t_member_grade where is_default = 1 order by consume_price limit 1
+  </select>
+  
+  <!--  查询最低积分会员等级   -->
+  <select id="selectlowGrade" resultMap="ibatorgenerated_BaseResultMap">
+        select * from t_member_grade order by consume_price limit 1
+  </select>
+  
+</sqlMap>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<package name="storeOrder" extends="default" namespace="/storeOrder">
+		<action name="storeOrder" class="com.rc.portal.webapp.action.StoreOrderAction">
+			<result name="storeList" type="freemarker">/WEB-INF/pages/member/order/storeOrderInfo.ftl</result>
+			<result name="comment" type="freemarker">/WEB-INF/pages/member/order/comment.ftl</result>
+			<result name="apply_healt_leader" type="redirect">/healthLeader/healthLeader!healthLeader.action</result>
+		    <interceptor-ref name="loginStack" /> 
+		</action>
+	</package>
+</xwork>

@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member_archives_medical_record" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMemberArchivesMedicalRecord" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="hospital" property="hospital" jdbcType="VARCHAR" />
+    <result column="doctor" property="doctor" jdbcType="VARCHAR" />
+    <result column="department" property="department" jdbcType="VARCHAR" />
+    <result column="create_dt" property="createDt" jdbcType="TIMESTAMP" />
+    <result column="medical_record_url" property="medicalRecordUrl" jdbcType="VARCHAR" />
+    <result column="illness_describe" property="illnessDescribe" jdbcType="VARCHAR" />
+    <result column="doctor_entrust" property="doctorEntrust" jdbcType="VARCHAR" />
+    <result column="illness_medication" property="illnessMedication" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecordExample" >
+    select id, member_id, hospital, doctor, department, create_dt, medical_record_url,
+      illness_describe, doctor_entrust, illness_medication
+    from t_member_archives_medical_record
+    <isParameterPresent >
+      <include refid="t_member_archives_medical_record.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecord" >
+    select id, member_id, hospital, doctor, department, create_dt, medical_record_url,
+      illness_describe, doctor_entrust, illness_medication
+    from t_member_archives_medical_record
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecord" >
+    delete from t_member_archives_medical_record
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecordExample" >
+    delete from t_member_archives_medical_record
+    <include refid="t_member_archives_medical_record.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecord" >
+    insert into t_member_archives_medical_record (id, member_id, hospital, doctor, department,
+      create_dt, medical_record_url, illness_describe, doctor_entrust, illness_medication)
+    values (#id:BIGINT#, #memberId:BIGINT#, #hospital:VARCHAR#, #doctor:VARCHAR#,
+      #department:VARCHAR#, #createDt:TIMESTAMP#, #medicalRecordUrl:VARCHAR#,
+      #illnessDescribe:VARCHAR#, #doctorEntrust:VARCHAR#, #illnessMedication:VARCHAR#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecord" >
+    insert into t_member_archives_medical_record
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="hospital" >
+        hospital
+      </isNotNull>
+      <isNotNull prepend="," property="doctor" >
+        doctor
+      </isNotNull>
+      <isNotNull prepend="," property="department" >
+        department
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt
+      </isNotNull>
+      <isNotNull prepend="," property="medicalRecordUrl" >
+        medical_record_url
+      </isNotNull>
+      <isNotNull prepend="," property="illnessDescribe" >
+        illness_describe
+      </isNotNull>
+      <isNotNull prepend="," property="doctorEntrust" >
+        doctor_entrust
+      </isNotNull>
+      <isNotNull prepend="," property="illnessMedication" >
+        illness_medication
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="hospital" >
+        #hospital:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="doctor" >
+        #doctor:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="department" >
+        #department:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="medicalRecordUrl" >
+        #medicalRecordUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="illnessDescribe" >
+        #illnessDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="doctorEntrust" >
+        #doctorEntrust:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="illnessMedication" >
+        #illnessMedication:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecordExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member_archives_medical_record
+    <include refid="t_member_archives_medical_record.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member_archives_medical_record
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.hospital" >
+        hospital = #record.hospital:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.doctor" >
+        doctor = #record.doctor:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.department" >
+        department = #record.department:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDt" >
+        create_dt = #record.createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.medicalRecordUrl" >
+        medical_record_url = #record.medicalRecordUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.illnessDescribe" >
+        illness_describe = #record.illnessDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.doctorEntrust" >
+        doctor_entrust = #record.doctorEntrust:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.illnessMedication" >
+        illness_medication = #record.illnessMedication:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member_archives_medical_record.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member_archives_medical_record
+    set id = #record.id:BIGINT#,
+      member_id = #record.memberId:BIGINT#,
+      hospital = #record.hospital:VARCHAR#,
+      doctor = #record.doctor:VARCHAR#,
+      department = #record.department:VARCHAR#,
+      create_dt = #record.createDt:TIMESTAMP#,
+      medical_record_url = #record.medicalRecordUrl:VARCHAR#,
+      illness_describe = #record.illnessDescribe:VARCHAR#,
+      doctor_entrust = #record.doctorEntrust:VARCHAR#,
+      illness_medication = #record.illnessMedication:VARCHAR#
+    <isParameterPresent >
+      <include refid="t_member_archives_medical_record.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecord" >
+    update t_member_archives_medical_record
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="hospital" >
+        hospital = #hospital:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="doctor" >
+        doctor = #doctor:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="department" >
+        department = #department:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt = #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="medicalRecordUrl" >
+        medical_record_url = #medicalRecordUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="illnessDescribe" >
+        illness_describe = #illnessDescribe:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="doctorEntrust" >
+        doctor_entrust = #doctorEntrust:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="illnessMedication" >
+        illness_medication = #illnessMedication:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecord" >
+    update t_member_archives_medical_record
+    set member_id = #memberId:BIGINT#,
+      hospital = #hospital:VARCHAR#,
+      doctor = #doctor:VARCHAR#,
+      department = #department:VARCHAR#,
+      create_dt = #createDt:TIMESTAMP#,
+      medical_record_url = #medicalRecordUrl:VARCHAR#,
+      illness_describe = #illnessDescribe:VARCHAR#,
+      doctor_entrust = #doctorEntrust:VARCHAR#,
+      illness_medication = #illnessMedication:VARCHAR#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberArchivesMedicalRecordExample" >
+                    select id, member_id, hospital, doctor, department, create_dt, medical_record_url,
+                      illness_describe, doctor_entrust, illness_medication
+                    from t_member_archives_medical_record
+                    <isParameterPresent >
+                      <include refid="t_member_archives_medical_record.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

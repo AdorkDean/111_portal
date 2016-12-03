@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMapConfig PUBLIC "-//iBATIS.com//DTD SQL Map Config 2.0//EN" "sql-map-config-2.dtd">
+<sqlMapConfig>
+	<settings cacheModelsEnabled="true" enhancementEnabled="true"
+		lazyLoadingEnabled="true" errorTracingEnabled="true" maxRequests="32"
+		maxSessions="10" maxTransactions="5" useStatementNamespaces="true" />
+	<!-- add by yinbin 2015.3.20 -->
+	<!-- add sqlmap by yourself like this -->
+
+
+<sqlMap resource="com/rc/portal/vo/sqlmap/c_delivery_way_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/c_image_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/c_location_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/c_payment_way_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/c_position_list_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/c_position_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_brand_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_cart_item_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_cart_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_category_goods_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_category_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_coupon_card_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_coupon_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_customer_call_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_dose_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_comment_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_extend_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_images_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_property_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_consult_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_group_goods_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_long_card_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_long_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_manufacturer_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_balance_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_collect_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_grade_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_leader_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_message_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_receiver_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_three_binding_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_order_flow_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_order_item_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_order_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_pharmacist_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_promotion_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_prom_gift_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_prom_item_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_return_image_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_return_item_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_return_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_short_buy_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_short_goods_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_short_order_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/cart.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_physician_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/c_position_type_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_integral_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_sys_parameter_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_coupon_relevance_SqlMap.xml"/>		
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_premiums_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_account_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_amount_out_SqlMap.xml"/>
+
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_static_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_brokerage_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_image_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_order_shipment_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_group_goods_keyword_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_order_leader_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_agent_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_stay_money_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_qr_code_SqlMap.xml"/>
+
+
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_look_collection_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_content_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_article_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_share_collection_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_announcement_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_red_share_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_goods_article_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_goods_article_brokerage_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_receive_red_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_lx_send_red_SqlMap.xml"/>
+
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_receiver_lat_lon_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/c_location_city_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/rx_t_order_good_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/rx_t_order_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/rx_t_reserve_order_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_freight_SqlMap.xml"/>
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_good_freight_SqlMap.xml"/>
+
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_goods_price_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_archives_examination_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_archives_life_disease_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_archives_medical_record_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_base_message_ext_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_certificates_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_hobby_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_member_ykt_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/ykt_goods_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_account_number_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_pharmacy_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_article_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_article_goods_SqlMap.xml" />
+<sqlMap resource="com/rc/portal/vo/sqlmap/t_leader_goods_recommend_SqlMap.xml" />
+</sqlMapConfig>

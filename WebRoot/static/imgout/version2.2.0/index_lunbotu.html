@@ -1,0 +1,41 @@
+<div class="fullSlide clearfix clear">
+    <div class="bd">
+        <ul>
+            			<li _src="url(http://img.zdfei.com/static/image/temp/20160412/26dc97edcbb8538eddd207d4ef7e4ca0.jpg)" style="background:#fff center center no-repeat;"><a target="_blank" href="/"></a></li>
+			<li _src="url(http://img.zdfei.com/static/image/temp/20160412/1a23a72d6c2df02eff4f6aea6b32045f.png)" style="background:#fff center center no-repeat;"><a target="_blank" href="/"></a></li>
+			<li _src="url(http://img.zdfei.com/static/image/temp/20160323/c8b0b7e24e334ff61a89108dd1f01240.jpg)" style="background:#fff center center no-repeat;"><a target="_blank" href="/"></a></li>
+			<li _src="url(http://img.zdfei.com/static/image/temp/20160412/d30ff0dcf389f9fcebaf9916ff07c000.jpg)" style="background:#fff center center no-repeat;"><a target="_blank" href="/"></a></li>
+        </ul>
+    </div>
+    <div class="hd">
+        <ul></ul>
+    </div>
+    <div class="gd"><span class="prev"></span><span class="next"></span></div>
+</div>
+<script type="text/javascript">
+jQuery(".fullSlide").hover(function() 
+{
+    jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+},
+function() 
+{
+    jQuery(this).find(".prev,.next").fadeOut()
+});
+jQuery(".fullSlide").slide(
+{
+    titCell: ".hd ul",
+    mainCell: ".bd ul",
+    effect: "fold",
+    autoPlay: true,
+    autoPage: true,
+    trigger: "click",
+    startFun: function(i)
+    {
+        var curLi = jQuery(".fullSlide .bd li").eq(i);
+        if ( !! curLi.attr("_src")) 
+        {
+            curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
+        }
+    }
+});
+</script>

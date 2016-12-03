@@ -1,0 +1,283 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_physician" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TPhysician" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="card_url" property="cardUrl" jdbcType="VARCHAR" />
+    <result column="seniority_url" property="seniorityUrl" jdbcType="VARCHAR" />
+    <result column="card_code" property="cardCode" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="work_year" property="workYear" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="audit_type" property="auditType" jdbcType="INTEGER" />
+    <result column="audit_remark" property="auditRemark" jdbcType="VARCHAR" />
+    <result column="admin_id" property="adminId" jdbcType="BIGINT" />
+    <result column="head_url" property="headUrl" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TPhysicianExample" >
+    select id, card_url, seniority_url, card_code, real_name, work_year, remark, audit_type,
+      audit_remark, admin_id, head_url
+    from t_physician
+    <isParameterPresent >
+      <include refid="t_physician.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TPhysician" >
+    select id, card_url, seniority_url, card_code, real_name, work_year, remark, audit_type,
+      audit_remark, admin_id, head_url
+    from t_physician
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TPhysician" >
+    delete from t_physician
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TPhysicianExample" >
+    delete from t_physician
+    <include refid="t_physician.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TPhysician" >
+    insert into t_physician (id, card_url, seniority_url, card_code, real_name, work_year, remark,
+      audit_type, audit_remark, admin_id, head_url)
+    values (#id:BIGINT#, #cardUrl:VARCHAR#, #seniorityUrl:VARCHAR#, #cardCode:VARCHAR#,
+      #realName:VARCHAR#, #workYear:VARCHAR#, #remark:VARCHAR#, #auditType:INTEGER#,
+      #auditRemark:VARCHAR#, #adminId:BIGINT#, #headUrl:VARCHAR#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TPhysician" >
+    insert into t_physician
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="cardUrl" >
+        card_url
+      </isNotNull>
+      <isNotNull prepend="," property="seniorityUrl" >
+        seniority_url
+      </isNotNull>
+      <isNotNull prepend="," property="cardCode" >
+        card_code
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        work_year
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        remark
+      </isNotNull>
+      <isNotNull prepend="," property="auditType" >
+        audit_type
+      </isNotNull>
+      <isNotNull prepend="," property="auditRemark" >
+        audit_remark
+      </isNotNull>
+      <isNotNull prepend="," property="adminId" >
+        admin_id
+      </isNotNull>
+      <isNotNull prepend="," property="headUrl" >
+        head_url
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="cardUrl" >
+        #cardUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seniorityUrl" >
+        #seniorityUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardCode" >
+        #cardCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        #workYear:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        #remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="auditType" >
+        #auditType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="auditRemark" >
+        #auditRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="adminId" >
+        #adminId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="headUrl" >
+        #headUrl:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TPhysicianExample" resultClass="java.lang.Integer" >
+    select count(*) from t_physician
+    <include refid="t_physician.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_physician
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardUrl" >
+        card_url = #record.cardUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.seniorityUrl" >
+        seniority_url = #record.seniorityUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardCode" >
+        card_code = #record.cardCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.realName" >
+        real_name = #record.realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.workYear" >
+        work_year = #record.workYear:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.remark" >
+        remark = #record.remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.auditType" >
+        audit_type = #record.auditType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.auditRemark" >
+        audit_remark = #record.auditRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.adminId" >
+        admin_id = #record.adminId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.headUrl" >
+        head_url = #record.headUrl:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_physician.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_physician
+    set id = #record.id:BIGINT#,
+      card_url = #record.cardUrl:VARCHAR#,
+      seniority_url = #record.seniorityUrl:VARCHAR#,
+      card_code = #record.cardCode:VARCHAR#,
+      real_name = #record.realName:VARCHAR#,
+      work_year = #record.workYear:VARCHAR#,
+      remark = #record.remark:VARCHAR#,
+      audit_type = #record.auditType:INTEGER#,
+      audit_remark = #record.auditRemark:VARCHAR#,
+      admin_id = #record.adminId:BIGINT#,
+      head_url = #record.headUrl:VARCHAR#
+    <isParameterPresent >
+      <include refid="t_physician.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TPhysician" >
+    update t_physician
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="cardUrl" >
+        card_url = #cardUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="seniorityUrl" >
+        seniority_url = #seniorityUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardCode" >
+        card_code = #cardCode:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name = #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        work_year = #workYear:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        remark = #remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="auditType" >
+        audit_type = #auditType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="auditRemark" >
+        audit_remark = #auditRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="adminId" >
+        admin_id = #adminId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="headUrl" >
+        head_url = #headUrl:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TPhysician" >
+    update t_physician
+    set card_url = #cardUrl:VARCHAR#,
+      seniority_url = #seniorityUrl:VARCHAR#,
+      card_code = #cardCode:VARCHAR#,
+      real_name = #realName:VARCHAR#,
+      work_year = #workYear:VARCHAR#,
+      remark = #remark:VARCHAR#,
+      audit_type = #auditType:INTEGER#,
+      audit_remark = #auditRemark:VARCHAR#,
+      admin_id = #adminId:BIGINT#,
+      head_url = #headUrl:VARCHAR#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TPhysicianExample" >
+                    select id, card_url, seniority_url, card_code, real_name, work_year, remark, audit_type,
+                      audit_remark, admin_id, head_url
+                    from t_physician
+                    <isParameterPresent >
+                      <include refid="t_physician.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

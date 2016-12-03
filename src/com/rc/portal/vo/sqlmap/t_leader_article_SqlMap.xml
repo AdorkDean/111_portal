@@ -1,0 +1,531 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_leader_article" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TLeaderArticle" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="share_image_url" property="shareImageUrl" jdbcType="VARCHAR" />
+    <result column="share_title" property="shareTitle" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="weight" property="weight" jdbcType="INTEGER" />
+    <result column="is_delete" property="isDelete" jdbcType="INTEGER" />
+    <result column="send_dt" property="sendDt" jdbcType="TIMESTAMP" />
+    <result column="format_type" property="formatType" jdbcType="INTEGER" />
+    <result column="click_like_sum" property="clickLikeSum" jdbcType="INTEGER" />
+    <result column="look_sum" property="lookSum" jdbcType="INTEGER" />
+    <result column="comment_sum" property="commentSum" jdbcType="INTEGER" />
+    <result column="leader_id" property="leaderId" jdbcType="BIGINT" />
+    <result column="audit_status" property="auditStatus" jdbcType="INTEGER" />
+    <result column="audit_date" property="auditDate" jdbcType="TIMESTAMP" />
+    <result column="audit_opinion" property="auditOpinion" jdbcType="VARCHAR" />
+    <result column="create_dt" property="createDt" jdbcType="TIMESTAMP" />
+    <result column="update_dt" property="updateDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ibatorgenerated_ResultMapWithBLOBs" class="com.rc.portal.vo.TLeaderArticle" extends="t_leader_article.ibatorgenerated_BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARBINARY" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExampleWithBLOBs" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="com.rc.portal.vo.TLeaderArticleExample" >
+    select id, title, share_image_url, share_title, status, weight, is_delete, send_dt, format_type,
+      click_like_sum, look_sum, comment_sum, leader_id, audit_status, audit_date, audit_opinion,
+      create_dt, update_dt, content
+    from t_leader_article
+    <isParameterPresent >
+      <include refid="t_leader_article.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLeaderArticleExample" >
+    select id, title, share_image_url, share_title, status, weight, is_delete, send_dt, format_type,
+      click_like_sum, look_sum, comment_sum, leader_id, audit_status, audit_date, audit_opinion,
+      create_dt, update_dt
+    from t_leader_article
+    <isParameterPresent >
+      <include refid="t_leader_article.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="com.rc.portal.vo.TLeaderArticle" >
+    select id, title, share_image_url, share_title, status, weight, is_delete, send_dt, format_type,
+      click_like_sum, look_sum, comment_sum, leader_id, audit_status, audit_date, audit_opinion,
+      create_dt, update_dt, content
+    from t_leader_article
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TLeaderArticle" >
+    delete from t_leader_article
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TLeaderArticleExample" >
+    delete from t_leader_article
+    <include refid="t_leader_article.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TLeaderArticle" >
+    insert into t_leader_article (id, title, share_image_url, share_title, status, weight,
+      is_delete, send_dt, format_type, click_like_sum, look_sum, comment_sum, leader_id,
+      audit_status, audit_date, audit_opinion, create_dt, update_dt, content)
+    values (#id:BIGINT#, #title:VARCHAR#, #shareImageUrl:VARCHAR#, #shareTitle:VARCHAR#,
+      #status:INTEGER#, #weight:INTEGER#, #isDelete:INTEGER#, #sendDt:TIMESTAMP#,
+      #formatType:INTEGER#, #clickLikeSum:INTEGER#, #lookSum:INTEGER#, #commentSum:INTEGER#,
+      #leaderId:BIGINT#, #auditStatus:INTEGER#, #auditDate:TIMESTAMP#, #auditOpinion:VARCHAR#,
+      #createDt:TIMESTAMP#, #updateDt:TIMESTAMP#, #content:LONGVARBINARY#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TLeaderArticle" >
+    insert into t_leader_article
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="title" >
+        title
+      </isNotNull>
+      <isNotNull prepend="," property="shareImageUrl" >
+        share_image_url
+      </isNotNull>
+      <isNotNull prepend="," property="shareTitle" >
+        share_title
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        weight
+      </isNotNull>
+      <isNotNull prepend="," property="isDelete" >
+        is_delete
+      </isNotNull>
+      <isNotNull prepend="," property="sendDt" >
+        send_dt
+      </isNotNull>
+      <isNotNull prepend="," property="formatType" >
+        format_type
+      </isNotNull>
+      <isNotNull prepend="," property="clickLikeSum" >
+        click_like_sum
+      </isNotNull>
+      <isNotNull prepend="," property="lookSum" >
+        look_sum
+      </isNotNull>
+      <isNotNull prepend="," property="commentSum" >
+        comment_sum
+      </isNotNull>
+      <isNotNull prepend="," property="leaderId" >
+        leader_id
+      </isNotNull>
+      <isNotNull prepend="," property="auditStatus" >
+        audit_status
+      </isNotNull>
+      <isNotNull prepend="," property="auditDate" >
+        audit_date
+      </isNotNull>
+      <isNotNull prepend="," property="auditOpinion" >
+        audit_opinion
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt
+      </isNotNull>
+      <isNotNull prepend="," property="updateDt" >
+        update_dt
+      </isNotNull>
+      <isNotNull prepend="," property="content" >
+        content
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="title" >
+        #title:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shareImageUrl" >
+        #shareImageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shareTitle" >
+        #shareTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        #weight:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isDelete" >
+        #isDelete:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="sendDt" >
+        #sendDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="formatType" >
+        #formatType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="clickLikeSum" >
+        #clickLikeSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="lookSum" >
+        #lookSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="commentSum" >
+        #commentSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="leaderId" >
+        #leaderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="auditStatus" >
+        #auditStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="auditDate" >
+        #auditDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="auditOpinion" >
+        #auditOpinion:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updateDt" >
+        #updateDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="content" >
+        #content:LONGVARBINARY#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TLeaderArticleExample" resultClass="java.lang.Integer" >
+    select count(*) from t_leader_article
+    <include refid="t_leader_article.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_leader_article
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.title" >
+        title = #record.title:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.shareImageUrl" >
+        share_image_url = #record.shareImageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.shareTitle" >
+        share_title = #record.shareTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        status = #record.status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.weight" >
+        weight = #record.weight:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isDelete" >
+        is_delete = #record.isDelete:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sendDt" >
+        send_dt = #record.sendDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.formatType" >
+        format_type = #record.formatType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.clickLikeSum" >
+        click_like_sum = #record.clickLikeSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.lookSum" >
+        look_sum = #record.lookSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.commentSum" >
+        comment_sum = #record.commentSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.leaderId" >
+        leader_id = #record.leaderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.auditStatus" >
+        audit_status = #record.auditStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.auditDate" >
+        audit_date = #record.auditDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.auditOpinion" >
+        audit_opinion = #record.auditOpinion:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDt" >
+        create_dt = #record.createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updateDt" >
+        update_dt = #record.updateDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.content" >
+        content = #record.content:LONGVARBINARY#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_leader_article.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExampleWithBLOBs" >
+    update t_leader_article
+    set id = #record.id:BIGINT#,
+      title = #record.title:VARCHAR#,
+      share_image_url = #record.shareImageUrl:VARCHAR#,
+      share_title = #record.shareTitle:VARCHAR#,
+      status = #record.status:INTEGER#,
+      weight = #record.weight:INTEGER#,
+      is_delete = #record.isDelete:INTEGER#,
+      send_dt = #record.sendDt:TIMESTAMP#,
+      format_type = #record.formatType:INTEGER#,
+      click_like_sum = #record.clickLikeSum:INTEGER#,
+      look_sum = #record.lookSum:INTEGER#,
+      comment_sum = #record.commentSum:INTEGER#,
+      leader_id = #record.leaderId:BIGINT#,
+      audit_status = #record.auditStatus:INTEGER#,
+      audit_date = #record.auditDate:TIMESTAMP#,
+      audit_opinion = #record.auditOpinion:VARCHAR#,
+      create_dt = #record.createDt:TIMESTAMP#,
+      update_dt = #record.updateDt:TIMESTAMP#,
+      content = #record.content:LONGVARBINARY#
+    <isParameterPresent >
+      <include refid="t_leader_article.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_leader_article
+    set id = #record.id:BIGINT#,
+      title = #record.title:VARCHAR#,
+      share_image_url = #record.shareImageUrl:VARCHAR#,
+      share_title = #record.shareTitle:VARCHAR#,
+      status = #record.status:INTEGER#,
+      weight = #record.weight:INTEGER#,
+      is_delete = #record.isDelete:INTEGER#,
+      send_dt = #record.sendDt:TIMESTAMP#,
+      format_type = #record.formatType:INTEGER#,
+      click_like_sum = #record.clickLikeSum:INTEGER#,
+      look_sum = #record.lookSum:INTEGER#,
+      comment_sum = #record.commentSum:INTEGER#,
+      leader_id = #record.leaderId:BIGINT#,
+      audit_status = #record.auditStatus:INTEGER#,
+      audit_date = #record.auditDate:TIMESTAMP#,
+      audit_opinion = #record.auditOpinion:VARCHAR#,
+      create_dt = #record.createDt:TIMESTAMP#,
+      update_dt = #record.updateDt:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="t_leader_article.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TLeaderArticle" >
+    update t_leader_article
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="title" >
+        title = #title:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shareImageUrl" >
+        share_image_url = #shareImageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shareTitle" >
+        share_title = #shareTitle:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status = #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="weight" >
+        weight = #weight:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isDelete" >
+        is_delete = #isDelete:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="sendDt" >
+        send_dt = #sendDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="formatType" >
+        format_type = #formatType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="clickLikeSum" >
+        click_like_sum = #clickLikeSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="lookSum" >
+        look_sum = #lookSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="commentSum" >
+        comment_sum = #commentSum:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="leaderId" >
+        leader_id = #leaderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="auditStatus" >
+        audit_status = #auditStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="auditDate" >
+        audit_date = #auditDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="auditOpinion" >
+        audit_opinion = #auditOpinion:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt = #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="updateDt" >
+        update_dt = #updateDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="content" >
+        content = #content:LONGVARBINARY#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeyWithBLOBs" parameterClass="com.rc.portal.vo.TLeaderArticle" >
+    update t_leader_article
+    set title = #title:VARCHAR#,
+      share_image_url = #shareImageUrl:VARCHAR#,
+      share_title = #shareTitle:VARCHAR#,
+      status = #status:INTEGER#,
+      weight = #weight:INTEGER#,
+      is_delete = #isDelete:INTEGER#,
+      send_dt = #sendDt:TIMESTAMP#,
+      format_type = #formatType:INTEGER#,
+      click_like_sum = #clickLikeSum:INTEGER#,
+      look_sum = #lookSum:INTEGER#,
+      comment_sum = #commentSum:INTEGER#,
+      leader_id = #leaderId:BIGINT#,
+      audit_status = #auditStatus:INTEGER#,
+      audit_date = #auditDate:TIMESTAMP#,
+      audit_opinion = #auditOpinion:VARCHAR#,
+      create_dt = #createDt:TIMESTAMP#,
+      update_dt = #updateDt:TIMESTAMP#,
+      content = #content:LONGVARBINARY#
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TLeaderArticle" >
+    update t_leader_article
+    set title = #title:VARCHAR#,
+      share_image_url = #shareImageUrl:VARCHAR#,
+      share_title = #shareTitle:VARCHAR#,
+      status = #status:INTEGER#,
+      weight = #weight:INTEGER#,
+      is_delete = #isDelete:INTEGER#,
+      send_dt = #sendDt:TIMESTAMP#,
+      format_type = #formatType:INTEGER#,
+      click_like_sum = #clickLikeSum:INTEGER#,
+      look_sum = #lookSum:INTEGER#,
+      comment_sum = #commentSum:INTEGER#,
+      leader_id = #leaderId:BIGINT#,
+      audit_status = #auditStatus:INTEGER#,
+      audit_date = #auditDate:TIMESTAMP#,
+      audit_opinion = #auditOpinion:VARCHAR#,
+      create_dt = #createDt:TIMESTAMP#,
+      update_dt = #updateDt:TIMESTAMP#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLeaderArticleExample" >
+                    select id, title, share_image_url, share_title, status, weight, is_delete, send_dt, format_type,
+                      click_like_sum, look_sum, comment_sum, leader_id, audit_status, audit_date, audit_opinion,
+                      create_dt, update_dt
+                    from t_leader_article
+                    <isParameterPresent >
+                      <include refid="t_leader_article.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  <select id="select_leader_article_tj" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="java.util.HashMap" >
+	SELECT
+		t.*
+	FROM
+		t_leader_article t
+	LEFT JOIN t_leader t1 ON t.leader_id = t1.id
+	where t.audit_status =2  and t.is_delete=0
+	AND t1.member_id =#memberId#
+	ORDER BY t.create_dt DESC
+	LIMIT $pageInfo.start$,$pageInfo.end$
+  </select>  
+  
+    <select id="select_leader_article_tj_2" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="java.util.HashMap" >
+	SELECT
+		t.*
+	FROM
+		t_leader_article t
+	LEFT JOIN t_leader t1 ON t.leader_id = t1.id
+	where t.audit_status =2  and t.is_delete=0
+	AND t1.member_id =#memberId#
+	ORDER BY t.create_dt DESC
+	LIMIT $page_start$,$page_end$
+  </select> 
+  
+   <select id="select_leader_article_tj_count" resultClass="java.lang.Integer" parameterClass="java.util.Map" >
+	select  count(*) from t_leader_article t
+	LEFT JOIN t_leader t1 ON t.leader_id = t1.id
+	where t.audit_status =2  and t.is_delete=0
+	AND t1.member_id =#memberId#
+	ORDER BY t.create_dt DESC
+  </select> 
+  
+   <select id="select_leader_pharmacy_goods_count" resultClass="java.lang.Integer" parameterClass="java.util.Map" >
+	SELECT COUNT(*) FROM t_leader_pharmacy AS p WHERE 1 = 1 AND p.leader_id = #leader_id#
+  </select> 
+  
+  <!-- 草稿箱文章列表  -->
+   <select id="select_draft_leader_article" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="java.util.HashMap" >
+	SELECT
+		t.*
+	FROM
+		t_leader_article t
+	LEFT JOIN t_leader t1 ON t.leader_id = t1.id
+	where t.audit_status in (0,1,3)  and t.is_delete=0
+	AND t1.member_id =#memberId#
+	ORDER BY t.create_dt DESC
+	LIMIT $pageInfo.start$,$pageInfo.end$
+  </select>  
+  
+  <select id="select_draft_leader_article_count" resultClass="java.lang.Integer" parameterClass="java.util.Map" >
+	SELECT
+		count(*)
+	FROM
+		t_leader_article t
+	LEFT JOIN t_leader t1 ON t.leader_id = t1.id
+	where t.audit_status in (0,1,3)  and t.is_delete=0
+	AND t1.member_id =#memberId#
+	ORDER BY t.create_dt DESC
+  </select>  
+  
+  
+  
+  
+</sqlMap>

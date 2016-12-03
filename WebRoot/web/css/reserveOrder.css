@@ -1,0 +1,61 @@
+.state s{  background: url(../img/product_ico_yf.png) no-repeat;}
+.w1210{width:1000px;}
+.shopping-cart-main{background: none;}
+.shopping-state{width:1000px; background: #eee; margin:0 auto;}
+.shopping-state{padding: 15px 0 40px;}
+.section4{width:932px;}
+#process .proce{width:270px;}
+#process .node, #process .proce{  background-image: url(../img/bg_state_yf.jpg);}
+.bar-left{  background: #1eb8c8;}
+.state{background: #FFF; color:#000;}
+.doing .state{background: #1eb8c8; color:#FFF;}
+.state s{background-position: 0 -67px;}
+.state-yf s{background-position: -17px -67px;}
+.my-shopping-cart-list{border:none;}
+.add-new-receiver{color:#2a96db;}
+.message-input{width:190px;float:left; margin-top:0;}
+.phone-yf{width:60px; display: inline-block;float:left; height:26px; line-height:26px;}
+.leave-message i{float:left; margin:5px 0 0 5px; font-style: normal;}
+.file-box{position:relative; width:110px; height:80px; border:1px dashed #959595;background: #EEE; line-height:80px; text-align: center;}
+.file-box input{position: absolute; top:0; left:0; width:110px; height:80px; opacity: 0; filter:alpha(opacity=0);  cursor: pointer;}
+.file-box i{display: block; position: absolute; top:-14px; right:-8px; height:17px; width:17px; background: url("../img/health-close.png") no-repeat; cursor: pointer;}
+.jpg-yf{margin-top:8px;}
+.w555{width:346px;}
+.cart-list-price{padding-top:20px;}
+.cart-list-operate{padding-top:20px;}
+.cart-product-info,.shopping-cart-title{border:none;}
+.cart-product-spec,.cart-product-title{text-align: left;}
+.position-yf{position: relative;}
+.serve-yf{position:absolute; top:12px; right:15px; width:12px; height:12px; display: block;background: url("../img/yf_ico01.png") no-repeat;}
+.serve-tet{position:absolute; top:-85px; right:0; background: #555; border-radius:3px; color:#FFF; width:160px; padding:10px;}
+.serve-tet p{line-height:16px; text-align: left; }
+.serve-tet em{display:block; position:absolute; bottom:-4px; right:10px;width:7px; height:4px; background: url("../img/sort_ico.png") no-repeat;}
+.serve-tet em{background-position: 0 -6px;}
+.leave-message{overflow: hidden;}
+.tel-yf{background: url("../img/yf_ico02.png") no-repeat; padding-left:15px; height:12px;;line-height:12px;}
+.for-settle-accounts{height:50px; line-height:50px;}
+.go-settle-accounts.gray{background: #e37070;}
+.go-settle-accounts{height:50px; line-height:50px; margin-bottom:20px; font-size:24px;}
+
+#.reserve_img img{max-width:110px;_width:expression(this.width > 110 ? "110px" : this.width);}
+.reserve_img img{width:110px;height:80px}
+
+
+/* WebKit browsers */
+::-webkit-input-placeholder {
+	color: #777;
+}
+/* Mozilla Firefox 4 to 18 */
+:-moz-placeholder {
+	color: #777;
+	opacity: 1;
+}
+/* Mozilla Firefox 19+ */
+::-moz-placeholder {
+	color: #777;
+	opacity: 1;
+}
+/* Internet Explorer 10+ */
+:-ms-input-placeholder {
+	color: #777;
+}

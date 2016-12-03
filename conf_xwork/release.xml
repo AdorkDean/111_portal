@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "xwork-1.1.1.dtd">
+<xwork>
+<package name="/release_pkg" extends="default" namespace="/release">
+
+	<action name="pject" class="com.rc.portal.webapp.action.ReleaseProject" >
+	</action>	
+	
+	<action name="project" class="com.rc.portal.webapp.action.ReleaseProject" >
+	        <result name="project_page" type="freemarker">/WEB-INF/pages/release/release_project.ftl</result>	        	        	               
+	        <result name="project_record" type="freemarker">/WEB-INF/pages/release/release_project.ftl</result>
+	         <interceptor-ref name="loginStack"/> 	        	        	               
+	</action>	
+	
+	<action name="man" class="com.rc.portal.webapp.action.ReleaseMan" >
+	        <result name="man_page" type="freemarker">/WEB-INF/pages/release/release_man.ftl</result>	        	        	               
+	        <result name="man_record" type="freemarker">/WEB-INF/pages/release/release_man.ftl</result>	
+	         <interceptor-ref name="loginStack"/>         	        	               
+	</action>	
+	
+	<action name="hero" class="com.rc.portal.webapp.action.ReleaseHero" >
+	        <result name="hero_page" type="freemarker">/WEB-INF/pages/release/release_hero.ftl</result>	        	        	               
+	        <result name="hero_record" type="freemarker">/WEB-INF/pages/release/release_hero.ftl</result>	
+	         <interceptor-ref name="loginStack"/>         	        	               
+	</action>	
+	
+	
+	
+</package>
+</xwork>
+

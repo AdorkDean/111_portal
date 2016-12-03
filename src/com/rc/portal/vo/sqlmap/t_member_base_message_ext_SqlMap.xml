@@ -1,0 +1,564 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member_base_message_ext" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMemberBaseMessageExt" >
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="bill_email" property="billEmail" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="head_portrait" property="headPortrait" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="area_id" property="areaId" jdbcType="BIGINT" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="is_enterprise" property="isEnterprise" jdbcType="INTEGER" />
+    <result column="enterprise_discount" property="enterpriseDiscount" jdbcType="DECIMAL" />
+    <result column="nationality" property="nationality" jdbcType="VARCHAR" />
+    <result column="nation" property="nation" jdbcType="VARCHAR" />
+    <result column="is_marry" property="isMarry" jdbcType="INTEGER" />
+    <result column="family_member" property="familyMember" jdbcType="INTEGER" />
+    <result column="identity" property="identity" jdbcType="INTEGER" />
+    <result column="live_status" property="liveStatus" jdbcType="VARCHAR" />
+    <result column="personal_income" property="personalIncome" jdbcType="INTEGER" />
+    <result column="child_age" property="childAge" jdbcType="VARCHAR" />
+    <result column="is_cart" property="isCart" jdbcType="INTEGER" />
+    <result column="place_origin" property="placeOrigin" jdbcType="VARCHAR" />
+    <result column="company_name" property="companyName" jdbcType="VARCHAR" />
+    <result column="industry" property="industry" jdbcType="INTEGER" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="work_year" property="workYear" jdbcType="INTEGER" />
+    <result column="diploma" property="diploma" jdbcType="INTEGER" />
+    <result column="graduation_school" property="graduationSchool" jdbcType="VARCHAR" />
+    <result column="graduation_dt" property="graduationDt" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberBaseMessageExtExample" >
+    select member_id, bill_email, real_name, head_portrait, sex, area_id, area, address, nick_name,
+      birthday, is_enterprise, enterprise_discount, nationality, nation, is_marry, family_member,
+      identity, live_status, personal_income, child_age, is_cart, place_origin, company_name,
+      industry, position, work_year, diploma, graduation_school, graduation_dt
+    from t_member_base_message_ext
+    <isParameterPresent >
+      <include refid="t_member_base_message_ext.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberBaseMessageExt" >
+    select member_id, bill_email, real_name, head_portrait, sex, area_id, area, address, nick_name,
+      birthday, is_enterprise, enterprise_discount, nationality, nation, is_marry, family_member,
+      identity, live_status, personal_income, child_age, is_cart, place_origin, company_name,
+      industry, position, work_year, diploma, graduation_school, graduation_dt
+    from t_member_base_message_ext
+    where member_id = #memberId:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberBaseMessageExt" >
+    delete from t_member_base_message_ext
+    where member_id = #memberId:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberBaseMessageExtExample" >
+    delete from t_member_base_message_ext
+    <include refid="t_member_base_message_ext.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMemberBaseMessageExt" >
+    insert into t_member_base_message_ext (member_id, bill_email, real_name, head_portrait, sex,
+      area_id, area, address, nick_name, birthday, is_enterprise, enterprise_discount, nationality,
+      nation, is_marry, family_member, identity, live_status, personal_income, child_age, is_cart,
+      place_origin, company_name, industry, position, work_year, diploma, graduation_school,
+      graduation_dt)
+    values (#memberId:BIGINT#, #billEmail:VARCHAR#, #realName:VARCHAR#, #headPortrait:VARCHAR#,
+      #sex:INTEGER#, #areaId:BIGINT#, #area:VARCHAR#, #address:VARCHAR#, #nickName:VARCHAR#,
+      #birthday:TIMESTAMP#, #isEnterprise:INTEGER#, #enterpriseDiscount:DECIMAL#,
+      #nationality:VARCHAR#, #nation:VARCHAR#, #isMarry:INTEGER#, #familyMember:INTEGER#,
+      #identity:INTEGER#, #liveStatus:VARCHAR#, #personalIncome:INTEGER#, #childAge:VARCHAR#,
+      #isCart:INTEGER#, #placeOrigin:VARCHAR#, #companyName:VARCHAR#, #industry:INTEGER#,
+      #position:VARCHAR#, #workYear:INTEGER#, #diploma:INTEGER#, #graduationSchool:VARCHAR#,
+      #graduationDt:VARCHAR#)
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMemberBaseMessageExt" >
+    insert into t_member_base_message_ext
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="billEmail" >
+        bill_email
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name
+      </isNotNull>
+      <isNotNull prepend="," property="headPortrait" >
+        head_portrait
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        sex
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        area_id
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        area
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        address
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        nick_name
+      </isNotNull>
+      <isNotNull prepend="," property="birthday" >
+        birthday
+      </isNotNull>
+      <isNotNull prepend="," property="isEnterprise" >
+        is_enterprise
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        enterprise_discount
+      </isNotNull>
+      <isNotNull prepend="," property="nationality" >
+        nationality
+      </isNotNull>
+      <isNotNull prepend="," property="nation" >
+        nation
+      </isNotNull>
+      <isNotNull prepend="," property="isMarry" >
+        is_marry
+      </isNotNull>
+      <isNotNull prepend="," property="familyMember" >
+        family_member
+      </isNotNull>
+      <isNotNull prepend="," property="identity" >
+        identity
+      </isNotNull>
+      <isNotNull prepend="," property="liveStatus" >
+        live_status
+      </isNotNull>
+      <isNotNull prepend="," property="personalIncome" >
+        personal_income
+      </isNotNull>
+      <isNotNull prepend="," property="childAge" >
+        child_age
+      </isNotNull>
+      <isNotNull prepend="," property="isCart" >
+        is_cart
+      </isNotNull>
+      <isNotNull prepend="," property="placeOrigin" >
+        place_origin
+      </isNotNull>
+      <isNotNull prepend="," property="companyName" >
+        company_name
+      </isNotNull>
+      <isNotNull prepend="," property="industry" >
+        industry
+      </isNotNull>
+      <isNotNull prepend="," property="position" >
+        position
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        work_year
+      </isNotNull>
+      <isNotNull prepend="," property="diploma" >
+        diploma
+      </isNotNull>
+      <isNotNull prepend="," property="graduationSchool" >
+        graduation_school
+      </isNotNull>
+      <isNotNull prepend="," property="graduationDt" >
+        graduation_dt
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="billEmail" >
+        #billEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="headPortrait" >
+        #headPortrait:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        #sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        #areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        #area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        #address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        #nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="birthday" >
+        #birthday:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="isEnterprise" >
+        #isEnterprise:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        #enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="nationality" >
+        #nationality:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="nation" >
+        #nation:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isMarry" >
+        #isMarry:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="familyMember" >
+        #familyMember:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="identity" >
+        #identity:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="liveStatus" >
+        #liveStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="personalIncome" >
+        #personalIncome:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="childAge" >
+        #childAge:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isCart" >
+        #isCart:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="placeOrigin" >
+        #placeOrigin:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="companyName" >
+        #companyName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="industry" >
+        #industry:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="position" >
+        #position:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        #workYear:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="diploma" >
+        #diploma:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="graduationSchool" >
+        #graduationSchool:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="graduationDt" >
+        #graduationDt:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberBaseMessageExtExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member_base_message_ext
+    <include refid="t_member_base_message_ext.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member_base_message_ext
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.billEmail" >
+        bill_email = #record.billEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.realName" >
+        real_name = #record.realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.headPortrait" >
+        head_portrait = #record.headPortrait:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sex" >
+        sex = #record.sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.areaId" >
+        area_id = #record.areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.area" >
+        area = #record.area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.address" >
+        address = #record.address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.nickName" >
+        nick_name = #record.nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.birthday" >
+        birthday = #record.birthday:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isEnterprise" >
+        is_enterprise = #record.isEnterprise:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.enterpriseDiscount" >
+        enterprise_discount = #record.enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.nationality" >
+        nationality = #record.nationality:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.nation" >
+        nation = #record.nation:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isMarry" >
+        is_marry = #record.isMarry:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.familyMember" >
+        family_member = #record.familyMember:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.identity" >
+        identity = #record.identity:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.liveStatus" >
+        live_status = #record.liveStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.personalIncome" >
+        personal_income = #record.personalIncome:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.childAge" >
+        child_age = #record.childAge:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isCart" >
+        is_cart = #record.isCart:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.placeOrigin" >
+        place_origin = #record.placeOrigin:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.companyName" >
+        company_name = #record.companyName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.industry" >
+        industry = #record.industry:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.position" >
+        position = #record.position:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.workYear" >
+        work_year = #record.workYear:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.diploma" >
+        diploma = #record.diploma:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.graduationSchool" >
+        graduation_school = #record.graduationSchool:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.graduationDt" >
+        graduation_dt = #record.graduationDt:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member_base_message_ext.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member_base_message_ext
+    set member_id = #record.memberId:BIGINT#,
+      bill_email = #record.billEmail:VARCHAR#,
+      real_name = #record.realName:VARCHAR#,
+      head_portrait = #record.headPortrait:VARCHAR#,
+      sex = #record.sex:INTEGER#,
+      area_id = #record.areaId:BIGINT#,
+      area = #record.area:VARCHAR#,
+      address = #record.address:VARCHAR#,
+      nick_name = #record.nickName:VARCHAR#,
+      birthday = #record.birthday:TIMESTAMP#,
+      is_enterprise = #record.isEnterprise:INTEGER#,
+      enterprise_discount = #record.enterpriseDiscount:DECIMAL#,
+      nationality = #record.nationality:VARCHAR#,
+      nation = #record.nation:VARCHAR#,
+      is_marry = #record.isMarry:INTEGER#,
+      family_member = #record.familyMember:INTEGER#,
+      identity = #record.identity:INTEGER#,
+      live_status = #record.liveStatus:VARCHAR#,
+      personal_income = #record.personalIncome:INTEGER#,
+      child_age = #record.childAge:VARCHAR#,
+      is_cart = #record.isCart:INTEGER#,
+      place_origin = #record.placeOrigin:VARCHAR#,
+      company_name = #record.companyName:VARCHAR#,
+      industry = #record.industry:INTEGER#,
+      position = #record.position:VARCHAR#,
+      work_year = #record.workYear:INTEGER#,
+      diploma = #record.diploma:INTEGER#,
+      graduation_school = #record.graduationSchool:VARCHAR#,
+      graduation_dt = #record.graduationDt:VARCHAR#
+    <isParameterPresent >
+      <include refid="t_member_base_message_ext.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMemberBaseMessageExt" >
+    update t_member_base_message_ext
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="billEmail" >
+        bill_email = #billEmail:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name = #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="headPortrait" >
+        head_portrait = #headPortrait:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        sex = #sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        area_id = #areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        area = #area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        address = #address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        nick_name = #nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="birthday" >
+        birthday = #birthday:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="isEnterprise" >
+        is_enterprise = #isEnterprise:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        enterprise_discount = #enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="nationality" >
+        nationality = #nationality:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="nation" >
+        nation = #nation:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isMarry" >
+        is_marry = #isMarry:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="familyMember" >
+        family_member = #familyMember:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="identity" >
+        identity = #identity:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="liveStatus" >
+        live_status = #liveStatus:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="personalIncome" >
+        personal_income = #personalIncome:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="childAge" >
+        child_age = #childAge:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isCart" >
+        is_cart = #isCart:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="placeOrigin" >
+        place_origin = #placeOrigin:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="companyName" >
+        company_name = #companyName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="industry" >
+        industry = #industry:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="position" >
+        position = #position:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="workYear" >
+        work_year = #workYear:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="diploma" >
+        diploma = #diploma:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="graduationSchool" >
+        graduation_school = #graduationSchool:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="graduationDt" >
+        graduation_dt = #graduationDt:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where member_id = #memberId:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberBaseMessageExt" >
+    update t_member_base_message_ext
+    set bill_email = #billEmail:VARCHAR#,
+      real_name = #realName:VARCHAR#,
+      head_portrait = #headPortrait:VARCHAR#,
+      sex = #sex:INTEGER#,
+      area_id = #areaId:BIGINT#,
+      area = #area:VARCHAR#,
+      address = #address:VARCHAR#,
+      nick_name = #nickName:VARCHAR#,
+      birthday = #birthday:TIMESTAMP#,
+      is_enterprise = #isEnterprise:INTEGER#,
+      enterprise_discount = #enterpriseDiscount:DECIMAL#,
+      nationality = #nationality:VARCHAR#,
+      nation = #nation:VARCHAR#,
+      is_marry = #isMarry:INTEGER#,
+      family_member = #familyMember:INTEGER#,
+      identity = #identity:INTEGER#,
+      live_status = #liveStatus:VARCHAR#,
+      personal_income = #personalIncome:INTEGER#,
+      child_age = #childAge:VARCHAR#,
+      is_cart = #isCart:INTEGER#,
+      place_origin = #placeOrigin:VARCHAR#,
+      company_name = #companyName:VARCHAR#,
+      industry = #industry:INTEGER#,
+      position = #position:VARCHAR#,
+      work_year = #workYear:INTEGER#,
+      diploma = #diploma:INTEGER#,
+      graduation_school = #graduationSchool:VARCHAR#,
+      graduation_dt = #graduationDt:VARCHAR#
+    where member_id = #memberId:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberBaseMessageExtExample" >
+                    select member_id, bill_email, real_name, head_portrait, sex, area_id, area, address, nick_name,
+                      birthday, is_enterprise, enterprise_discount, nationality, nation, is_marry, family_member,
+                      identity, live_status, personal_income, child_age, is_cart, place_origin, company_name,
+                      industry, position, work_year, diploma, graduation_school, graduation_dt
+                    from t_member_base_message_ext
+                    <isParameterPresent >
+                      <include refid="t_member_base_message_ext.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  <select id="selectNickName" resultClass="java.lang.String" parameterClass="java.util.HashMap">
+	SELECT nick_name from t_member_base_message_ext WHERE member_id=#memberId:BIGINT#
+  </select> 
+</sqlMap>

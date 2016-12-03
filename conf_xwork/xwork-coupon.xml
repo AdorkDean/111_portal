@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="coupon" extends="default" namespace="/coupon">
+		<action name="coupon" class="com.rc.portal.webapp.action.CouponAction">
+			<interceptor-ref name="loginStack"/> 
+		</action>
+	</package>
+</xwork>

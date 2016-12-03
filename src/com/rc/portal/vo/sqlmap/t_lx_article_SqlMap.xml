@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_lx_article" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TLxArticle" >
+    <result column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="share_img" property="shareImg" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="create_dt" property="createDt" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <resultMap id="ibatorgenerated_ResultMapWithBLOBs" class="com.rc.portal.vo.TLxArticleWithBLOBs" extends="t_lx_article.ibatorgenerated_BaseResultMap" >
+    <result column="content" property="content" jdbcType="LONGVARCHAR" />
+    <result column="share_tile" property="shareTile" jdbcType="VARBINARY" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExampleWithBLOBs" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="com.rc.portal.vo.TLxArticleExample" >
+    select id, title, share_img, status, create_dt, content, share_tile
+    from t_lx_article
+    <isParameterPresent >
+      <include refid="t_lx_article.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLxArticleExample" >
+    select id, title, share_img, status, create_dt
+    from t_lx_article
+    <isParameterPresent >
+      <include refid="t_lx_article.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_ResultMapWithBLOBs" parameterClass="com.rc.portal.vo.TLxArticle" >
+    select id, title, share_img, status, create_dt, content, share_tile
+    from t_lx_article
+    where id = #id:INTEGER#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TLxArticle" >
+    delete from t_lx_article
+    where id = #id:INTEGER#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TLxArticleExample" >
+    delete from t_lx_article
+    <include refid="t_lx_article.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TLxArticleWithBLOBs" >
+    insert into t_lx_article (id, title, share_img, status, create_dt, content, share_tile)
+    values (#id:INTEGER#, #title:VARCHAR#, #shareImg:VARCHAR#, #status:INTEGER#,
+      #createDt:TIMESTAMP#, #content:LONGVARCHAR#, #shareTile:VARBINARY#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TLxArticleWithBLOBs" >
+    insert into t_lx_article
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="title" >
+        title
+      </isNotNull>
+      <isNotNull prepend="," property="shareImg" >
+        share_img
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt
+      </isNotNull>
+      <isNotNull prepend="," property="content" >
+        content
+      </isNotNull>
+      <isNotNull prepend="," property="shareTile" >
+        share_tile
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="title" >
+        #title:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shareImg" >
+        #shareImg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="content" >
+        #content:LONGVARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shareTile" >
+        #shareTile:VARBINARY#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TLxArticleExample" resultClass="java.lang.Integer" >
+    select count(*) from t_lx_article
+    <include refid="t_lx_article.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_lx_article
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.title" >
+        title = #record.title:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.shareImg" >
+        share_img = #record.shareImg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        status = #record.status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDt" >
+        create_dt = #record.createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.content" >
+        content = #record.content:LONGVARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.shareTile" >
+        share_tile = #record.shareTile:VARBINARY#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_lx_article.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExampleWithBLOBs" >
+    update t_lx_article
+    set id = #record.id:INTEGER#,
+      title = #record.title:VARCHAR#,
+      share_img = #record.shareImg:VARCHAR#,
+      status = #record.status:INTEGER#,
+      create_dt = #record.createDt:TIMESTAMP#,
+      content = #record.content:LONGVARCHAR#,
+      share_tile = #record.shareTile:VARBINARY#
+    <isParameterPresent >
+      <include refid="t_lx_article.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_lx_article
+    set id = #record.id:INTEGER#,
+      title = #record.title:VARCHAR#,
+      share_img = #record.shareImg:VARCHAR#,
+      status = #record.status:INTEGER#,
+      create_dt = #record.createDt:TIMESTAMP#
+    <isParameterPresent >
+      <include refid="t_lx_article.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TLxArticleWithBLOBs" >
+    update t_lx_article
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="title" >
+        title = #title:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shareImg" >
+        share_img = #shareImg:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status = #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt = #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="content" >
+        content = #content:LONGVARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="shareTile" >
+        share_tile = #shareTile:VARBINARY#
+      </isNotNull>
+    </dynamic>
+    where id = #id:INTEGER#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeyWithBLOBs" parameterClass="com.rc.portal.vo.TLxArticleWithBLOBs" >
+    update t_lx_article
+    set title = #title:VARCHAR#,
+      share_img = #shareImg:VARCHAR#,
+      status = #status:INTEGER#,
+      create_dt = #createDt:TIMESTAMP#,
+      content = #content:LONGVARCHAR#,
+      share_tile = #shareTile:VARBINARY#
+    where id = #id:INTEGER#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TLxArticle" >
+    update t_lx_article
+    set title = #title:VARCHAR#,
+      share_img = #shareImg:VARCHAR#,
+      status = #status:INTEGER#,
+      create_dt = #createDt:TIMESTAMP#
+    where id = #id:INTEGER#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TLxArticleExample" >
+                    select id, title, share_img, status, create_dt
+                    from t_lx_article
+                    <isParameterPresent >
+                      <include refid="t_lx_article.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

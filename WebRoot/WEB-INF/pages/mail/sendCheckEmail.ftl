@@ -1,0 +1,1 @@
+请您妥善保管验证码:${randomUUID?default('')}

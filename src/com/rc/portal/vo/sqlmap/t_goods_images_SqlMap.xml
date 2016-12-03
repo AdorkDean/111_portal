@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_goods_images" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TGoodsImages" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="titel" property="titel" jdbcType="VARCHAR" />
+    <result column="artwork_url" property="artworkUrl" jdbcType="VARCHAR" />
+    <result column="image_url" property="imageUrl" jdbcType="VARCHAR" />
+    <result column="sort" property="sort" jdbcType="INTEGER" />
+    <result column="user_type" property="userType" jdbcType="INTEGER" />
+    <result column="isdefault" property="isdefault" jdbcType="INTEGER" />
+    <result column="goodsid" property="goodsid" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsImagesExample" >
+    select id, titel, artwork_url, image_url, sort, user_type, isdefault, goodsid
+    from t_goods_images
+    <isParameterPresent >
+      <include refid="t_goods_images.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsImages" >
+    select id, titel, artwork_url, image_url, sort, user_type, isdefault, goodsid
+    from t_goods_images
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TGoodsImages" >
+    delete from t_goods_images
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TGoodsImagesExample" >
+    delete from t_goods_images
+    <include refid="t_goods_images.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TGoodsImages" >
+    insert into t_goods_images (id, titel, artwork_url, image_url, sort, user_type, isdefault,
+      goodsid)
+    values (#id:BIGINT#, #titel:VARCHAR#, #artworkUrl:VARCHAR#, #imageUrl:VARCHAR#, #sort:INTEGER#,
+      #userType:INTEGER#, #isdefault:INTEGER#, #goodsid:BIGINT#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TGoodsImages" >
+    insert into t_goods_images
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="titel" >
+        titel
+      </isNotNull>
+      <isNotNull prepend="," property="artworkUrl" >
+        artwork_url
+      </isNotNull>
+      <isNotNull prepend="," property="imageUrl" >
+        image_url
+      </isNotNull>
+      <isNotNull prepend="," property="sort" >
+        sort
+      </isNotNull>
+      <isNotNull prepend="," property="userType" >
+        user_type
+      </isNotNull>
+      <isNotNull prepend="," property="isdefault" >
+        isdefault
+      </isNotNull>
+      <isNotNull prepend="," property="goodsid" >
+        goodsid
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="titel" >
+        #titel:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="artworkUrl" >
+        #artworkUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="imageUrl" >
+        #imageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sort" >
+        #sort:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="userType" >
+        #userType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isdefault" >
+        #isdefault:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="goodsid" >
+        #goodsid:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TGoodsImagesExample" resultClass="java.lang.Integer" >
+    select count(*) from t_goods_images
+    <include refid="t_goods_images.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_goods_images
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.titel" >
+        titel = #record.titel:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.artworkUrl" >
+        artwork_url = #record.artworkUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.imageUrl" >
+        image_url = #record.imageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sort" >
+        sort = #record.sort:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.userType" >
+        user_type = #record.userType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isdefault" >
+        isdefault = #record.isdefault:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.goodsid" >
+        goodsid = #record.goodsid:BIGINT#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_goods_images.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_goods_images
+    set id = #record.id:BIGINT#,
+      titel = #record.titel:VARCHAR#,
+      artwork_url = #record.artworkUrl:VARCHAR#,
+      image_url = #record.imageUrl:VARCHAR#,
+      sort = #record.sort:INTEGER#,
+      user_type = #record.userType:INTEGER#,
+      isdefault = #record.isdefault:INTEGER#,
+      goodsid = #record.goodsid:BIGINT#
+    <isParameterPresent >
+      <include refid="t_goods_images.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TGoodsImages" >
+    update t_goods_images
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="titel" >
+        titel = #titel:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="artworkUrl" >
+        artwork_url = #artworkUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="imageUrl" >
+        image_url = #imageUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sort" >
+        sort = #sort:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="userType" >
+        user_type = #userType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isdefault" >
+        isdefault = #isdefault:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="goodsid" >
+        goodsid = #goodsid:BIGINT#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TGoodsImages" >
+    update t_goods_images
+    set titel = #titel:VARCHAR#,
+      artwork_url = #artworkUrl:VARCHAR#,
+      image_url = #imageUrl:VARCHAR#,
+      sort = #sort:INTEGER#,
+      user_type = #userType:INTEGER#,
+      isdefault = #isdefault:INTEGER#,
+      goodsid = #goodsid:BIGINT#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsImagesExample" >
+                    select id, titel, artwork_url, image_url, sort, user_type, isdefault, goodsid
+                    from t_goods_images
+                    <isParameterPresent >
+                      <include refid="t_goods_images.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member_amount_out" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMemberAmountOut" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="out_type" property="outType" jdbcType="INTEGER" />
+    <result column="amount" property="amount" jdbcType="DECIMAL" />
+    <result column="alipay_no" property="alipayNo" jdbcType="VARCHAR" />
+    <result column="bank_name" property="bankName" jdbcType="VARCHAR" />
+    <result column="bank_no" property="bankNo" jdbcType="VARCHAR" />
+    <result column="out_time" property="outTime" jdbcType="TIMESTAMP" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="card_id" property="cardId" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="out_fee" property="outFee" jdbcType="DECIMAL" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="serial_number" property="serialNumber" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberAmountOutExample" >
+    select id, member_id, out_type, amount, alipay_no, bank_name, bank_no, out_time, real_name,
+      card_id, status, out_fee, remark, serial_number
+    from t_member_amount_out
+    <isParameterPresent >
+      <include refid="t_member_amount_out.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberAmountOut" >
+    select id, member_id, out_type, amount, alipay_no, bank_name, bank_no, out_time, real_name,
+      card_id, status, out_fee, remark, serial_number
+    from t_member_amount_out
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberAmountOut" >
+    delete from t_member_amount_out
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberAmountOutExample" >
+    delete from t_member_amount_out
+    <include refid="t_member_amount_out.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMemberAmountOut" >
+    insert into t_member_amount_out (id, member_id, out_type, amount, alipay_no, bank_name, bank_no,
+      out_time, real_name, card_id, status, out_fee, remark, serial_number)
+    values (#id:BIGINT#, #memberId:BIGINT#, #outType:INTEGER#, #amount:DECIMAL#, #alipayNo:VARCHAR#,
+      #bankName:VARCHAR#, #bankNo:VARCHAR#, #outTime:TIMESTAMP#, #realName:VARCHAR#,
+      #cardId:VARCHAR#, #status:INTEGER#, #outFee:DECIMAL#, #remark:VARCHAR#,
+      #serialNumber:VARCHAR#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMemberAmountOut" >
+    insert into t_member_amount_out
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="outType" >
+        out_type
+      </isNotNull>
+      <isNotNull prepend="," property="amount" >
+        amount
+      </isNotNull>
+      <isNotNull prepend="," property="alipayNo" >
+        alipay_no
+      </isNotNull>
+      <isNotNull prepend="," property="bankName" >
+        bank_name
+      </isNotNull>
+      <isNotNull prepend="," property="bankNo" >
+        bank_no
+      </isNotNull>
+      <isNotNull prepend="," property="outTime" >
+        out_time
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name
+      </isNotNull>
+      <isNotNull prepend="," property="cardId" >
+        card_id
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status
+      </isNotNull>
+      <isNotNull prepend="," property="outFee" >
+        out_fee
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        remark
+      </isNotNull>
+      <isNotNull prepend="," property="serialNumber" >
+        serial_number
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="outType" >
+        #outType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="amount" >
+        #amount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="alipayNo" >
+        #alipayNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankName" >
+        #bankName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankNo" >
+        #bankNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="outTime" >
+        #outTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardId" >
+        #cardId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="outFee" >
+        #outFee:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        #remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="serialNumber" >
+        #serialNumber:VARCHAR#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberAmountOutExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member_amount_out
+    <include refid="t_member_amount_out.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member_amount_out
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.outType" >
+        out_type = #record.outType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.amount" >
+        amount = #record.amount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.alipayNo" >
+        alipay_no = #record.alipayNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankName" >
+        bank_name = #record.bankName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bankNo" >
+        bank_no = #record.bankNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.outTime" >
+        out_time = #record.outTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.realName" >
+        real_name = #record.realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cardId" >
+        card_id = #record.cardId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        status = #record.status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.outFee" >
+        out_fee = #record.outFee:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.remark" >
+        remark = #record.remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.serialNumber" >
+        serial_number = #record.serialNumber:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member_amount_out.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member_amount_out
+    set id = #record.id:BIGINT#,
+      member_id = #record.memberId:BIGINT#,
+      out_type = #record.outType:INTEGER#,
+      amount = #record.amount:DECIMAL#,
+      alipay_no = #record.alipayNo:VARCHAR#,
+      bank_name = #record.bankName:VARCHAR#,
+      bank_no = #record.bankNo:VARCHAR#,
+      out_time = #record.outTime:TIMESTAMP#,
+      real_name = #record.realName:VARCHAR#,
+      card_id = #record.cardId:VARCHAR#,
+      status = #record.status:INTEGER#,
+      out_fee = #record.outFee:DECIMAL#,
+      remark = #record.remark:VARCHAR#,
+      serial_number = #record.serialNumber:VARCHAR#
+    <isParameterPresent >
+      <include refid="t_member_amount_out.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMemberAmountOut" >
+    update t_member_amount_out
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="outType" >
+        out_type = #outType:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="amount" >
+        amount = #amount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="alipayNo" >
+        alipay_no = #alipayNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankName" >
+        bank_name = #bankName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bankNo" >
+        bank_no = #bankNo:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="outTime" >
+        out_time = #outTime:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name = #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cardId" >
+        card_id = #cardId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status = #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="outFee" >
+        out_fee = #outFee:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        remark = #remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="serialNumber" >
+        serial_number = #serialNumber:VARCHAR#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMemberAmountOut" >
+    update t_member_amount_out
+    set member_id = #memberId:BIGINT#,
+      out_type = #outType:INTEGER#,
+      amount = #amount:DECIMAL#,
+      alipay_no = #alipayNo:VARCHAR#,
+      bank_name = #bankName:VARCHAR#,
+      bank_no = #bankNo:VARCHAR#,
+      out_time = #outTime:TIMESTAMP#,
+      real_name = #realName:VARCHAR#,
+      card_id = #cardId:VARCHAR#,
+      status = #status:INTEGER#,
+      out_fee = #outFee:DECIMAL#,
+      remark = #remark:VARCHAR#,
+      serial_number = #serialNumber:VARCHAR#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberAmountOutExample" >
+                    select id, member_id, out_type, amount, alipay_no, bank_name, bank_no, out_time, real_name,
+                      card_id, status, out_fee, remark, serial_number
+                    from t_member_amount_out
+                    <isParameterPresent >
+                      <include refid="t_member_amount_out.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  
+   <select id="selectListPage" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+    select id, member_id, out_type, amount, alipay_no, bank_name, bank_no, out_time, real_name,
+     card_id, status, out_fee, remark,serial_number
+    from t_member_amount_out
+    where member_id = #member_id:BIGINT# order by id desc 
+    limit $pageInfo.start$ ,$pageInfo.end$
+  </select>
+  
+  <select id="selectListPageCount" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+                    select count(*) from t_member_amount_out
+    				where member_id = #member_id:BIGINT#
+  </select>
+  
+  <select id="selectAmountSum" resultClass="java.lang.Double" parameterClass="java.util.HashMap" >
+                    select sum(amount) from t_member_amount_out
+                     where member_id = #member_id:BIGINT#
+                    <isNotNull property="status" >
+                       and status=#status#
+                    </isNotNull>                   
+    				
+  </select>
+  <!-- 提现记录 -->
+  <select id="selectPresentRecordList" resultClass="java.util.HashMap" parameterClass="java.util.HashMap" >
+    select id, member_id, out_type, amount, alipay_no, bank_name, bank_no, out_time, real_name,
+     card_id, status, out_fee, remark,serial_number
+    from t_member_amount_out
+    where member_id = #member_id:BIGINT# 
+    <isNotNull property="start_date">
+		<isNotNull property="end_date">
+		   AND DATE_FORMAT(out_time,'%Y-%m-%d') &gt;= #start_date# AND  DATE_FORMAT(out_time,'%Y-%m-%d') &lt;= #end_date#
+		</isNotNull>
+    </isNotNull>
+     ORDER BY out_time desc
+    LIMIT $pageInfo.start$,$pageInfo.end$
+  </select>
+  
+  <select id="selectPresentRecordListCount" resultClass="java.lang.Integer" parameterClass="java.util.HashMap" >
+                    select count(*) from t_member_amount_out
+    				where member_id = #member_id:BIGINT#
+    		<isNotNull property="start_date">
+					<isNotNull property="end_date">
+		 			  AND DATE_FORMAT(out_time,'%Y-%m-%d') &gt;= #start_date# AND  DATE_FORMAT(out_time,'%Y-%m-%d') &lt;= #end_date#
+		   </isNotNull>
+    </isNotNull>
+  </select>
+</sqlMap>

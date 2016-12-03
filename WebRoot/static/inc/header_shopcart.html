@@ -1,0 +1,24 @@
+<div class="header-cart fr" id="mycart-id">
+	<a href="javascript:void(-1);" onclick="javascript:cart()" class="header-cart-btn" >
+        <b class="header-cart-icon"></b>
+        <span class="header-cart-count"><i></i><b id="csum">0</b></span>
+        	我的购物车
+       </a>
+    
+       <div class="empty" id="empty1" style="display:none">
+        	<i></i>
+            <img src="/static/image/empty_cart.png"/>
+            <p class="mt20">购物车好饿</p>
+            <p>快去逛逛吧~</p>
+        </div>
+        
+     <div class="empty" id="empty2" style="background:#fff;height:auto;display:none;">
+        	<i></i>
+        	<ul class="cart-product" id="cart-product-top" ></ul>
+            <div class="cart-final-price clearfix clear">
+            	<a href="javascript:void(0)" onclick="cart()" class="go-to-cart fr">去购物车</a>
+            	<p class="cart-final-info">优惠<br/><span id="yh" >￥0.00</span></p>
+                <p class="cart-final-info">总价<br/><span id="zj">￥0.00</span></p>
+            </div>
+      </div>
+</div>

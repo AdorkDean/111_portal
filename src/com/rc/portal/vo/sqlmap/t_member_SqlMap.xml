@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_member" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TMember" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="password" property="password" jdbcType="VARCHAR" />
+    <result column="member_grade_id" property="memberGradeId" jdbcType="BIGINT" />
+    <result column="area_id" property="areaId" jdbcType="BIGINT" />
+    <result column="email" property="email" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="VARCHAR" />
+    <result column="real_name" property="realName" jdbcType="VARCHAR" />
+    <result column="nick_name" property="nickName" jdbcType="VARCHAR" />
+    <result column="sex" property="sex" jdbcType="INTEGER" />
+    <result column="birthday" property="birthday" jdbcType="TIMESTAMP" />
+    <result column="head_portrait" property="headPortrait" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="INTEGER" />
+    <result column="is_enterprise" property="isEnterprise" jdbcType="INTEGER" />
+    <result column="enterprise_discount" property="enterpriseDiscount" jdbcType="DECIMAL" />
+    <result column="is_leader" property="isLeader" jdbcType="INTEGER" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+    <result column="platform" property="platform" jdbcType="INTEGER" />
+    <result column="source" property="source" jdbcType="INTEGER" />
+    <result column="register_ip" property="registerIp" jdbcType="VARCHAR" />
+    <result column="register_date" property="registerDate" jdbcType="TIMESTAMP" />
+    <result column="last_date" property="lastDate" jdbcType="TIMESTAMP" />
+    <result column="last_ip" property="lastIp" jdbcType="VARCHAR" />
+    <result column="is_email_check" property="isEmailCheck" jdbcType="INTEGER" />
+    <result column="is_mobile_check" property="isMobileCheck" jdbcType="INTEGER" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="blood_type" property="bloodType" jdbcType="VARCHAR" />
+    <result column="accumulate_integral" property="accumulateIntegral" jdbcType="INTEGER" />
+    <result column="history" property="history" jdbcType="VARCHAR" />
+    <result column="allergy" property="allergy" jdbcType="VARCHAR" />
+    <result column="drug" property="drug" jdbcType="VARCHAR" />
+    <result column="md5_data" property="md5Data" jdbcType="VARCHAR" />
+    <result column="is_agent" property="isAgent" jdbcType="INTEGER" />
+    <result column="agent_id" property="agentId" jdbcType="BIGINT" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberExample" >
+    select id, user_name, password, member_grade_id, area_id, email, mobile, phone, real_name,
+      nick_name, sex, birthday, head_portrait, status, is_enterprise, enterprise_discount,
+      is_leader, integral, platform, source, register_ip, register_date, last_date, last_ip,
+      is_email_check, is_mobile_check, area, address, blood_type, accumulate_integral, history,
+      allergy, drug, md5_data, is_agent, agent_id
+    from t_member
+    <isParameterPresent >
+      <include refid="t_member.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMember" >
+    select id, user_name, password, member_grade_id, area_id, email, mobile, phone, real_name,
+      nick_name, sex, birthday, head_portrait, status, is_enterprise, enterprise_discount,
+      is_leader, integral, platform, source, register_ip, register_date, last_date, last_ip,
+      is_email_check, is_mobile_check, area, address, blood_type, accumulate_integral, history,
+      allergy, drug, md5_data, is_agent, agent_id
+    from t_member
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TMember" >
+    delete from t_member
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TMemberExample" >
+    delete from t_member
+    <include refid="t_member.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TMember" >
+    insert into t_member (id, user_name, password, member_grade_id, area_id, email, mobile, phone,
+      real_name, nick_name, sex, birthday, head_portrait, status, is_enterprise,
+      enterprise_discount, is_leader, integral, platform, source, register_ip, register_date,
+      last_date, last_ip, is_email_check, is_mobile_check, area, address, blood_type,
+      accumulate_integral, history, allergy, drug, md5_data, is_agent, agent_id)
+    values (#id:BIGINT#, #userName:VARCHAR#, #password:VARCHAR#, #memberGradeId:BIGINT#,
+      #areaId:BIGINT#, #email:VARCHAR#, #mobile:VARCHAR#, #phone:VARCHAR#, #realName:VARCHAR#,
+      #nickName:VARCHAR#, #sex:INTEGER#, #birthday:TIMESTAMP#, #headPortrait:VARCHAR#,
+      #status:INTEGER#, #isEnterprise:INTEGER#, #enterpriseDiscount:DECIMAL#, #isLeader:INTEGER#,
+      #integral:INTEGER#, #platform:INTEGER#, #source:INTEGER#, #registerIp:VARCHAR#,
+      #registerDate:TIMESTAMP#, #lastDate:TIMESTAMP#, #lastIp:VARCHAR#, #isEmailCheck:INTEGER#,
+      #isMobileCheck:INTEGER#, #area:VARCHAR#, #address:VARCHAR#, #bloodType:VARCHAR#,
+      #accumulateIntegral:INTEGER#, #history:VARCHAR#, #allergy:VARCHAR#, #drug:VARCHAR#,
+      #md5Data:VARCHAR#, #isAgent:INTEGER#, #agentId:BIGINT#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TMember" >
+    insert into t_member
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="userName" >
+        user_name
+      </isNotNull>
+      <isNotNull prepend="," property="password" >
+        password
+      </isNotNull>
+      <isNotNull prepend="," property="memberGradeId" >
+        member_grade_id
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        area_id
+      </isNotNull>
+      <isNotNull prepend="," property="email" >
+        email
+      </isNotNull>
+      <isNotNull prepend="," property="mobile" >
+        mobile
+      </isNotNull>
+      <isNotNull prepend="," property="phone" >
+        phone
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        nick_name
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        sex
+      </isNotNull>
+      <isNotNull prepend="," property="birthday" >
+        birthday
+      </isNotNull>
+      <isNotNull prepend="," property="headPortrait" >
+        head_portrait
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status
+      </isNotNull>
+      <isNotNull prepend="," property="isEnterprise" >
+        is_enterprise
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        enterprise_discount
+      </isNotNull>
+      <isNotNull prepend="," property="isLeader" >
+        is_leader
+      </isNotNull>
+      <isNotNull prepend="," property="integral" >
+        integral
+      </isNotNull>
+      <isNotNull prepend="," property="platform" >
+        platform
+      </isNotNull>
+      <isNotNull prepend="," property="source" >
+        source
+      </isNotNull>
+      <isNotNull prepend="," property="registerIp" >
+        register_ip
+      </isNotNull>
+      <isNotNull prepend="," property="registerDate" >
+        register_date
+      </isNotNull>
+      <isNotNull prepend="," property="lastDate" >
+        last_date
+      </isNotNull>
+      <isNotNull prepend="," property="lastIp" >
+        last_ip
+      </isNotNull>
+      <isNotNull prepend="," property="isEmailCheck" >
+        is_email_check
+      </isNotNull>
+      <isNotNull prepend="," property="isMobileCheck" >
+        is_mobile_check
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        area
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        address
+      </isNotNull>
+      <isNotNull prepend="," property="bloodType" >
+        blood_type
+      </isNotNull>
+      <isNotNull prepend="," property="accumulateIntegral" >
+        accumulate_integral
+      </isNotNull>
+      <isNotNull prepend="," property="history" >
+        history
+      </isNotNull>
+      <isNotNull prepend="," property="allergy" >
+        allergy
+      </isNotNull>
+      <isNotNull prepend="," property="drug" >
+        drug
+      </isNotNull>
+      <isNotNull prepend="," property="md5Data" >
+        md5_data
+      </isNotNull>
+      <isNotNull prepend="," property="isAgent" >
+        is_agent
+      </isNotNull>
+      <isNotNull prepend="," property="agentId" >
+        agent_id
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="userName" >
+        #userName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="password" >
+        #password:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="memberGradeId" >
+        #memberGradeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        #areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="email" >
+        #email:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mobile" >
+        #mobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="phone" >
+        #phone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        #nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        #sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="birthday" >
+        #birthday:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="headPortrait" >
+        #headPortrait:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isEnterprise" >
+        #isEnterprise:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        #enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="isLeader" >
+        #isLeader:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="integral" >
+        #integral:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="platform" >
+        #platform:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="source" >
+        #source:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="registerIp" >
+        #registerIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="registerDate" >
+        #registerDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="lastDate" >
+        #lastDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="lastIp" >
+        #lastIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isEmailCheck" >
+        #isEmailCheck:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isMobileCheck" >
+        #isMobileCheck:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        #area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        #address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bloodType" >
+        #bloodType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="accumulateIntegral" >
+        #accumulateIntegral:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="history" >
+        #history:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="allergy" >
+        #allergy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="drug" >
+        #drug:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="md5Data" >
+        #md5Data:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isAgent" >
+        #isAgent:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="agentId" >
+        #agentId:BIGINT#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TMemberExample" resultClass="java.lang.Integer" >
+    select count(*) from t_member
+    <include refid="t_member.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_member
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.userName" >
+        user_name = #record.userName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.password" >
+        password = #record.password:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberGradeId" >
+        member_grade_id = #record.memberGradeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.areaId" >
+        area_id = #record.areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.email" >
+        email = #record.email:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mobile" >
+        mobile = #record.mobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.phone" >
+        phone = #record.phone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.realName" >
+        real_name = #record.realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.nickName" >
+        nick_name = #record.nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sex" >
+        sex = #record.sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.birthday" >
+        birthday = #record.birthday:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.headPortrait" >
+        head_portrait = #record.headPortrait:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.status" >
+        status = #record.status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isEnterprise" >
+        is_enterprise = #record.isEnterprise:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.enterpriseDiscount" >
+        enterprise_discount = #record.enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isLeader" >
+        is_leader = #record.isLeader:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.integral" >
+        integral = #record.integral:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.platform" >
+        platform = #record.platform:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.source" >
+        source = #record.source:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.registerIp" >
+        register_ip = #record.registerIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.registerDate" >
+        register_date = #record.registerDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.lastDate" >
+        last_date = #record.lastDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.lastIp" >
+        last_ip = #record.lastIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isEmailCheck" >
+        is_email_check = #record.isEmailCheck:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isMobileCheck" >
+        is_mobile_check = #record.isMobileCheck:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.area" >
+        area = #record.area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.address" >
+        address = #record.address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.bloodType" >
+        blood_type = #record.bloodType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.accumulateIntegral" >
+        accumulate_integral = #record.accumulateIntegral:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.history" >
+        history = #record.history:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.allergy" >
+        allergy = #record.allergy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.drug" >
+        drug = #record.drug:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.md5Data" >
+        md5_data = #record.md5Data:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isAgent" >
+        is_agent = #record.isAgent:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.agentId" >
+        agent_id = #record.agentId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_member.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_member
+    set id = #record.id:BIGINT#,
+      user_name = #record.userName:VARCHAR#,
+      password = #record.password:VARCHAR#,
+      member_grade_id = #record.memberGradeId:BIGINT#,
+      area_id = #record.areaId:BIGINT#,
+      email = #record.email:VARCHAR#,
+      mobile = #record.mobile:VARCHAR#,
+      phone = #record.phone:VARCHAR#,
+      real_name = #record.realName:VARCHAR#,
+      nick_name = #record.nickName:VARCHAR#,
+      sex = #record.sex:INTEGER#,
+      birthday = #record.birthday:TIMESTAMP#,
+      head_portrait = #record.headPortrait:VARCHAR#,
+      status = #record.status:INTEGER#,
+      is_enterprise = #record.isEnterprise:INTEGER#,
+      enterprise_discount = #record.enterpriseDiscount:DECIMAL#,
+      is_leader = #record.isLeader:INTEGER#,
+      integral = #record.integral:INTEGER#,
+      platform = #record.platform:INTEGER#,
+      source = #record.source:INTEGER#,
+      register_ip = #record.registerIp:VARCHAR#,
+      register_date = #record.registerDate:TIMESTAMP#,
+      last_date = #record.lastDate:TIMESTAMP#,
+      last_ip = #record.lastIp:VARCHAR#,
+      is_email_check = #record.isEmailCheck:INTEGER#,
+      is_mobile_check = #record.isMobileCheck:INTEGER#,
+      area = #record.area:VARCHAR#,
+      address = #record.address:VARCHAR#,
+      blood_type = #record.bloodType:VARCHAR#,
+      accumulate_integral = #record.accumulateIntegral:INTEGER#,
+      history = #record.history:VARCHAR#,
+      allergy = #record.allergy:VARCHAR#,
+      drug = #record.drug:VARCHAR#,
+      md5_data = #record.md5Data:VARCHAR#,
+      is_agent = #record.isAgent:INTEGER#,
+      agent_id = #record.agentId:BIGINT#
+    <isParameterPresent >
+      <include refid="t_member.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TMember" >
+    update t_member
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="userName" >
+        user_name = #userName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="password" >
+        password = #password:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="memberGradeId" >
+        member_grade_id = #memberGradeId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        area_id = #areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="email" >
+        email = #email:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mobile" >
+        mobile = #mobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="phone" >
+        phone = #phone:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="realName" >
+        real_name = #realName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="nickName" >
+        nick_name = #nickName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="sex" >
+        sex = #sex:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="birthday" >
+        birthday = #birthday:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="headPortrait" >
+        head_portrait = #headPortrait:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="status" >
+        status = #status:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isEnterprise" >
+        is_enterprise = #isEnterprise:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="enterpriseDiscount" >
+        enterprise_discount = #enterpriseDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="isLeader" >
+        is_leader = #isLeader:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="integral" >
+        integral = #integral:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="platform" >
+        platform = #platform:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="source" >
+        source = #source:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="registerIp" >
+        register_ip = #registerIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="registerDate" >
+        register_date = #registerDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="lastDate" >
+        last_date = #lastDate:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="lastIp" >
+        last_ip = #lastIp:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isEmailCheck" >
+        is_email_check = #isEmailCheck:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="isMobileCheck" >
+        is_mobile_check = #isMobileCheck:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="area" >
+        area = #area:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="address" >
+        address = #address:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="bloodType" >
+        blood_type = #bloodType:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="accumulateIntegral" >
+        accumulate_integral = #accumulateIntegral:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="history" >
+        history = #history:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="allergy" >
+        allergy = #allergy:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="drug" >
+        drug = #drug:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="md5Data" >
+        md5_data = #md5Data:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="isAgent" >
+        is_agent = #isAgent:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="agentId" >
+        agent_id = #agentId:BIGINT#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TMember" >
+    update t_member
+    set user_name = #userName:VARCHAR#,
+      password = #password:VARCHAR#,
+      member_grade_id = #memberGradeId:BIGINT#,
+      area_id = #areaId:BIGINT#,
+      email = #email:VARCHAR#,
+      mobile = #mobile:VARCHAR#,
+      phone = #phone:VARCHAR#,
+      real_name = #realName:VARCHAR#,
+      nick_name = #nickName:VARCHAR#,
+      sex = #sex:INTEGER#,
+      birthday = #birthday:TIMESTAMP#,
+      head_portrait = #headPortrait:VARCHAR#,
+      status = #status:INTEGER#,
+      is_enterprise = #isEnterprise:INTEGER#,
+      enterprise_discount = #enterpriseDiscount:DECIMAL#,
+      is_leader = #isLeader:INTEGER#,
+      integral = #integral:INTEGER#,
+      platform = #platform:INTEGER#,
+      source = #source:INTEGER#,
+      register_ip = #registerIp:VARCHAR#,
+      register_date = #registerDate:TIMESTAMP#,
+      last_date = #lastDate:TIMESTAMP#,
+      last_ip = #lastIp:VARCHAR#,
+      is_email_check = #isEmailCheck:INTEGER#,
+      is_mobile_check = #isMobileCheck:INTEGER#,
+      area = #area:VARCHAR#,
+      address = #address:VARCHAR#,
+      blood_type = #bloodType:VARCHAR#,
+      accumulate_integral = #accumulateIntegral:INTEGER#,
+      history = #history:VARCHAR#,
+      allergy = #allergy:VARCHAR#,
+      drug = #drug:VARCHAR#,
+      md5_data = #md5Data:VARCHAR#,
+      is_agent = #isAgent:INTEGER#,
+      agent_id = #agentId:BIGINT#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TMemberExample" >
+                    select id, user_name, password, member_grade_id, area_id, email, mobile, phone, real_name,
+                      nick_name, sex, birthday, head_portrait, status, is_enterprise, enterprise_discount,
+                      is_leader, integral, platform, source, register_ip, register_date, last_date, last_ip,
+                      is_email_check, is_mobile_check, area, address, blood_type, accumulate_integral, history,
+                      allergy, drug, md5_data, is_agent, agent_id
+                    from t_member
+                    <isParameterPresent >
+                      <include refid="t_member.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+  <select id="ibatorgenerated_selectByUserName" resultMap="ibatorgenerated_BaseResultMap" parameterClass="java.util.HashMap" >
+    select *
+    from t_member
+    where user_name = #user_name:varchar#
+  </select>
+  
+  <select id="selectmemberByOpenid" resultMap="ibatorgenerated_BaseResultMap" parameterClass="java.util.HashMap" >
+	 SELECT * FROM t_member t WHERE t.id =(select tmb.member_id from t_member_three_binding tmb 
+	 <dynamic prepend="where">
+	      <isNotNull prepend="and" property="binding_uuid" >
+	        	tmb.binding_uuid = #binding_uuid# limit 1
+	      </isNotNull>
+      </dynamic>
+	 )
+     limit 1
+  </select>
+    <select id="selectmemberByWxOpenid" resultMap="ibatorgenerated_BaseResultMap" parameterClass="java.util.HashMap" >
+	 SELECT * FROM t_member t WHERE t.id =(select tmb.member_id from t_member_three_binding tmb 
+	 <dynamic prepend="where">
+	      <isNotNull prepend="and" property="binding_uuid" >
+	        	tmb.binding_uuid = #binding_uuid# and tmb.source=0 limit 1
+	      </isNotNull>
+      </dynamic>
+	 )
+	 limit 1
+  </select>
+  
+  
+  
+  
+  
+  
+  
+  <select id="selectTuijianByMemberId" resultClass="java.lang.Long"
+	parameterClass="java.util.HashMap">
+	SELECT
+	ma.member_id
+	FROM
+	t_member m
+	LEFT JOIN t_leader_agent la
+	ON m.id =
+	la.member_id
+	LEFT JOIN
+	t_member_account ma
+	ON
+	ma.member_id=la.member_id
+	WHERE la.member_id = #memberId:BIGINT#
+	
+</select>
+
+<select id="ibatorgenerated_selectByMobile" resultClass="java.lang.Long" parameterClass="java.util.HashMap" >
+    select count(*)
+    from t_member
+    where mobile = #mobile:varchar# and is_mobile_check=1
+  </select>
+  
+  <select id="ibatorgenerated_selectMemberByMobile" resultMap="ibatorgenerated_BaseResultMap" parameterClass="java.util.HashMap" >
+   SELECT * FROM t_member WHERE  mobile =#mobile:varchar# and is_mobile_check=1  ORDER BY `ID` DESC LIMIT 0,1
+  </select>
+  <select id="selectMemberCenter" resultClass="java.util.HashMap" parameterClass="java.util.Map">
+	  select (
+		SELECT
+			count(tcp.id)
+		FROM
+			t_coupon_card tcp
+LEFT JOIN t_coupon c ON c.id=tcp.ticket_id
+		WHERE
+			tcp.member_id = t.id
+		AND tcp.is_use = 0
+		AND c.end_time &gt; NOW()
+	) AS copCount,tmbm.head_portrait,t.is_email_check,t.is_mobile_check,t.integral,t.id,tmbm.nick_name,t.user_name, tmg.`name` as gradeName,t.source FROM t_member t
+	LEFT JOIN t_member_grade tmg ON tmg.id=t.member_grade_id
+	left join t_member_base_message_ext tmbm on tmbm.member_id=t.id
+	WHERE 1=1 AND t.id=#memberId#
+  </select>
+  <select id="ibatorgenerated_selectMemberByEmail" resultMap="ibatorgenerated_BaseResultMap" parameterClass="java.util.HashMap" >
+   SELECT * FROM t_member WHERE  email =#email:varchar# and is_email_check=1  ORDER BY `ID` DESC LIMIT 0,1
+  </select>
+  
+   <select id="selectKeyByCookpassword" resultClass="java.lang.String" parameterClass="java.util.HashMap">
+	SELECT password from t_member WHERE `password`=#cookpassword:varchar# limit 1
+  </select>  
+  
+   <select id="leaderPowderListByMemberId" resultClass="java.util.HashMap" parameterClass="java.util.HashMap">
+		SELECT
+		t.member_id,
+		t.leader_id,
+		t.nick_name,
+		t.head_portrait,
+		DATE_FORMAT(t.register_date,'%Y-%m-%d') AS register_date ,
+		t.order_count,
+		t.money
+	FROM
+		leader_profit_view t LEFT JOIN  t_leader t1 ON t.leader_id = t1.id
+	WHERE
+		t1.member_id = #memberId#
+		<isEqual property="orderby" compareValue="1">
+		     order by t.order_count desc
+		</isEqual>
+		<isEqual property="orderby" compareValue="2">
+		      order by t.money desc
+		</isEqual>
+		limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select> 
+  
+  <select id="leaderPowderListCountByMemberId" resultClass="java.lang.Integer"  parameterClass="java.util.HashMap">
+	SELECT
+		count(t.member_id)
+	FROM
+		leader_profit_view t LEFT JOIN  t_leader t1 ON t.leader_id = t1.id
+	WHERE
+		t1.member_id = #memberId#
+  </select> 
+  
+  
+</sqlMap>
+

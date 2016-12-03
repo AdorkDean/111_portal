@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="t_goods_property" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.TGoodsProperty" >
+    <result column="goodsid" property="goodsid" jdbcType="BIGINT" />
+    <result column="attention" property="attention" jdbcType="INTEGER" />
+    <result column="sales" property="sales" jdbcType="INTEGER" />
+    <result column="evaluate" property="evaluate" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsPropertyExample" >
+    select goodsid, attention, sales, evaluate
+    from t_goods_property
+    <isParameterPresent >
+      <include refid="t_goods_property.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsProperty" >
+    select goodsid, attention, sales, evaluate
+    from t_goods_property
+    where goodsid = #goodsid:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.TGoodsProperty" >
+    delete from t_goods_property
+    where goodsid = #goodsid:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.TGoodsPropertyExample" >
+    delete from t_goods_property
+    <include refid="t_goods_property.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.TGoodsProperty" >
+    insert into t_goods_property (goodsid, attention, sales, evaluate)
+    values (#goodsid:BIGINT#, #attention:INTEGER#, #sales:INTEGER#, #evaluate:INTEGER#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.TGoodsProperty" >
+    insert into t_goods_property
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="goodsid" >
+        goodsid
+      </isNotNull>
+      <isNotNull prepend="," property="attention" >
+        attention
+      </isNotNull>
+      <isNotNull prepend="," property="sales" >
+        sales
+      </isNotNull>
+      <isNotNull prepend="," property="evaluate" >
+        evaluate
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="goodsid" >
+        #goodsid:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="attention" >
+        #attention:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="sales" >
+        #sales:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="evaluate" >
+        #evaluate:INTEGER#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.TGoodsPropertyExample" resultClass="java.lang.Integer" >
+    select count(*) from t_goods_property
+    <include refid="t_goods_property.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update t_goods_property
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.goodsid" >
+        goodsid = #record.goodsid:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.attention" >
+        attention = #record.attention:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.sales" >
+        sales = #record.sales:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.evaluate" >
+        evaluate = #record.evaluate:INTEGER#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="t_goods_property.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update t_goods_property
+    set goodsid = #record.goodsid:BIGINT#,
+      attention = #record.attention:INTEGER#,
+      sales = #record.sales:INTEGER#,
+      evaluate = #record.evaluate:INTEGER#
+    <isParameterPresent >
+      <include refid="t_goods_property.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.TGoodsProperty" >
+    update t_goods_property
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="attention" >
+        attention = #attention:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="sales" >
+        sales = #sales:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="evaluate" >
+        evaluate = #evaluate:INTEGER#
+      </isNotNull>
+    </dynamic>
+    where goodsid = #goodsid:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.TGoodsProperty" >
+    update t_goods_property
+    set attention = #attention:INTEGER#,
+      sales = #sales:INTEGER#,
+      evaluate = #evaluate:INTEGER#
+    where goodsid = #goodsid:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.TGoodsPropertyExample" >
+                    select goodsid, attention, sales, evaluate
+                    from t_goods_property
+                    <isParameterPresent >
+                      <include refid="t_goods_property.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

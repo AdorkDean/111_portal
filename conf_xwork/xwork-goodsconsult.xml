@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="goodsConsult" extends="default" namespace="/goodsConsult">
+		<action name="myGoodsConsultPage" class="com.rc.portal.webapp.action.GoodsConsultAction" method="myGoodsConsultPage">			
+			<result name="my_goods_consult_page" type="freemarker">/WEB-INF/pages/goodsConsult/my_goods_consult_list.ftl</result>
+			<interceptor-ref name="loginStack"/>
+		</action>
+		<action name="ajaxGoodsConsultByPage" class="com.rc.portal.webapp.action.GoodsConsultAction" method="ajaxGoodsConsultByPage"></action>
+		<action name="initAjaxGoodsConsult" class="com.rc.portal.webapp.action.GoodsConsultAction" method="initAjaxGoodsConsult"></action>
+		<action name="showGoodsConsults" class="com.rc.portal.webapp.action.GoodsConsultAction" method="showGoodsConsults"></action>
+		
+		<action name="saveGoodsConsult" class="com.rc.portal.webapp.action.GoodsConsultAction" method="saveGoodsConsult">
+		</action>
+		<action name="ifConsultGoods" class="com.rc.portal.webapp.action.GoodsConsultAction" method="ifConsultGoods"></action>
+		<action name="ifLogin" class="com.rc.portal.webapp.action.GoodsConsultAction" method="ifLogin"></action>
+	</package>
+</xwork>

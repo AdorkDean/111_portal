@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE xwork PUBLIC "-//OpenSymphony Group//XWork 1.1.1//EN" "http://www.opensymphony.com/xwork/xwork-1.1.1.dtd">
+<xwork>
+	<!-- Configuration for the user package. -->
+	<package name="activity" extends="default" namespace="/activity">
+		<action name="activityDo" class="com.rc.portal.webapp.action.activity.ActivityDo">
+		</action>
+	</package>
+</xwork>

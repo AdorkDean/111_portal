@@ -1,0 +1,646 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="rx_t_reserve_order" >
+  <resultMap id="ibatorgenerated_BaseResultMap" class="com.rc.portal.vo.RxTReserveOrder" >
+    <result column="id" property="id" jdbcType="BIGINT" />
+    <result column="order_sn" property="orderSn" jdbcType="VARCHAR" />
+    <result column="goodid" property="goodid" jdbcType="BIGINT" />
+    <result column="good_price" property="goodPrice" jdbcType="DECIMAL" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+    <result column="member_id" property="memberId" jdbcType="BIGINT" />
+    <result column="receiver" property="receiver" jdbcType="VARCHAR" />
+    <result column="area_id" property="areaId" jdbcType="BIGINT" />
+    <result column="area_name" property="areaName" jdbcType="VARCHAR" />
+    <result column="detailed_address" property="detailedAddress" jdbcType="VARCHAR" />
+    <result column="longitude" property="longitude" jdbcType="VARCHAR" />
+    <result column="latitude" property="latitude" jdbcType="VARCHAR" />
+    <result column="store_id" property="storeId" jdbcType="VARCHAR" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="reply_mobile" property="replyMobile" jdbcType="VARCHAR" />
+    <result column="order_status" property="orderStatus" jdbcType="INTEGER" />
+    <result column="audit_status" property="auditStatus" jdbcType="INTEGER" />
+    <result column="order_amount" property="orderAmount" jdbcType="DECIMAL" />
+    <result column="promotional_discount" property="promotionalDiscount" jdbcType="DECIMAL" />
+    <result column="coupon_discount" property="couponDiscount" jdbcType="DECIMAL" />
+    <result column="integration_discount" property="integrationDiscount" jdbcType="DECIMAL" />
+    <result column="use_integration" property="useIntegration" jdbcType="INTEGER" />
+    <result column="adjust_amount" property="adjustAmount" jdbcType="DECIMAL" />
+    <result column="rx_img_url" property="rxImgUrl" jdbcType="VARCHAR" />
+    <result column="create_dt" property="createDt" jdbcType="TIMESTAMP" />
+    <result column="source" property="source" jdbcType="INTEGER" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="cancel_remark" property="cancelRemark" jdbcType="VARCHAR" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="update_dt" property="updateDt" jdbcType="TIMESTAMP" />
+    <result column="order_id" property="orderId" jdbcType="BIGINT" />
+    <result column="freight" property="freight" jdbcType="DECIMAL" />
+    <result column="cancel_dt" property="cancelDt" jdbcType="TIMESTAMP" />
+    <result column="is_end" property="isEnd" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="ibatorgenerated_Example_Where_Clause" >
+    <iterate property="oredCriteria" conjunction="or" prepend="where" removeFirstPrepend="iterate" >
+      <isEqual property="oredCriteria[].valid" compareValue="true" >
+        (
+        <iterate prepend="and" property="oredCriteria[].criteriaWithoutValue" conjunction="and" >
+          $oredCriteria[].criteriaWithoutValue[]$
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithSingleValue" conjunction="and" >
+          $oredCriteria[].criteriaWithSingleValue[].condition$
+            #oredCriteria[].criteriaWithSingleValue[].value#
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithListValue" conjunction="and" >
+          $oredCriteria[].criteriaWithListValue[].condition$
+          <iterate property="oredCriteria[].criteriaWithListValue[].values" open="(" close=")" conjunction="," >
+            #oredCriteria[].criteriaWithListValue[].values[]#
+          </iterate>
+        </iterate>
+        <iterate prepend="and" property="oredCriteria[].criteriaWithBetweenValue" conjunction="and" >
+          $oredCriteria[].criteriaWithBetweenValue[].condition$
+          #oredCriteria[].criteriaWithBetweenValue[].values[0]# and
+          #oredCriteria[].criteriaWithBetweenValue[].values[1]#
+        </iterate>
+        )
+      </isEqual>
+    </iterate>
+  </sql>
+  <select id="ibatorgenerated_selectByExample" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.RxTReserveOrderExample" >
+    select id, order_sn, goodid, good_price, num, member_id, receiver, area_id, area_name,
+      detailed_address, longitude, latitude, store_id, mobile, reply_mobile, order_status,
+      audit_status, order_amount, promotional_discount, coupon_discount, integration_discount,
+      use_integration, adjust_amount, rx_img_url, create_dt, source, remark, cancel_remark,
+      update_user, update_dt, order_id, freight, cancel_dt, is_end
+    from rx_t_reserve_order
+    <isParameterPresent >
+      <include refid="rx_t_reserve_order.ibatorgenerated_Example_Where_Clause" />
+      <isNotNull property="orderByClause" >
+        order by $orderByClause$
+      </isNotNull>
+    </isParameterPresent>
+  </select>
+  <select id="ibatorgenerated_selectByPrimaryKey" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.RxTReserveOrder" >
+    select id, order_sn, goodid, good_price, num, member_id, receiver, area_id, area_name,
+      detailed_address, longitude, latitude, store_id, mobile, reply_mobile, order_status,
+      audit_status, order_amount, promotional_discount, coupon_discount, integration_discount,
+      use_integration, adjust_amount, rx_img_url, create_dt, source, remark, cancel_remark,
+      update_user, update_dt, order_id, freight, cancel_dt, is_end
+    from rx_t_reserve_order
+    where id = #id:BIGINT#
+  </select>
+  <delete id="ibatorgenerated_deleteByPrimaryKey" parameterClass="com.rc.portal.vo.RxTReserveOrder" >
+    delete from rx_t_reserve_order
+    where id = #id:BIGINT#
+  </delete>
+  <delete id="ibatorgenerated_deleteByExample" parameterClass="com.rc.portal.vo.RxTReserveOrderExample" >
+    delete from rx_t_reserve_order
+    <include refid="rx_t_reserve_order.ibatorgenerated_Example_Where_Clause" />
+  </delete>
+  <insert id="ibatorgenerated_insert" parameterClass="com.rc.portal.vo.RxTReserveOrder" >
+    insert into rx_t_reserve_order (id, order_sn, goodid, good_price, num, member_id, receiver,
+      area_id, area_name, detailed_address, longitude, latitude, store_id, mobile, reply_mobile,
+      order_status, audit_status, order_amount, promotional_discount, coupon_discount,
+      integration_discount, use_integration, adjust_amount, rx_img_url, create_dt, source, remark,
+      cancel_remark, update_user, update_dt, order_id, freight, cancel_dt, is_end)
+    values (#id:BIGINT#, #orderSn:VARCHAR#, #goodid:BIGINT#, #goodPrice:DECIMAL#, #num:INTEGER#,
+      #memberId:BIGINT#, #receiver:VARCHAR#, #areaId:BIGINT#, #areaName:VARCHAR#,
+      #detailedAddress:VARCHAR#, #longitude:VARCHAR#, #latitude:VARCHAR#, #storeId:VARCHAR#,
+      #mobile:VARCHAR#, #replyMobile:VARCHAR#, #orderStatus:INTEGER#, #auditStatus:INTEGER#,
+      #orderAmount:DECIMAL#, #promotionalDiscount:DECIMAL#, #couponDiscount:DECIMAL#,
+      #integrationDiscount:DECIMAL#, #useIntegration:INTEGER#, #adjustAmount:DECIMAL#,
+      #rxImgUrl:VARCHAR#, #createDt:TIMESTAMP#, #source:INTEGER#, #remark:VARCHAR#,
+      #cancelRemark:VARCHAR#, #updateUser:VARCHAR#, #updateDt:TIMESTAMP#, #orderId:BIGINT#,
+      #freight:DECIMAL#, #cancelDt:TIMESTAMP#, #isEnd:INTEGER#)
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <insert id="ibatorgenerated_insertSelective" parameterClass="com.rc.portal.vo.RxTReserveOrder" >
+    insert into rx_t_reserve_order
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        id
+      </isNotNull>
+      <isNotNull prepend="," property="orderSn" >
+        order_sn
+      </isNotNull>
+      <isNotNull prepend="," property="goodid" >
+        goodid
+      </isNotNull>
+      <isNotNull prepend="," property="goodPrice" >
+        good_price
+      </isNotNull>
+      <isNotNull prepend="," property="num" >
+        num
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id
+      </isNotNull>
+      <isNotNull prepend="," property="receiver" >
+        receiver
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        area_id
+      </isNotNull>
+      <isNotNull prepend="," property="areaName" >
+        area_name
+      </isNotNull>
+      <isNotNull prepend="," property="detailedAddress" >
+        detailed_address
+      </isNotNull>
+      <isNotNull prepend="," property="longitude" >
+        longitude
+      </isNotNull>
+      <isNotNull prepend="," property="latitude" >
+        latitude
+      </isNotNull>
+      <isNotNull prepend="," property="storeId" >
+        store_id
+      </isNotNull>
+      <isNotNull prepend="," property="mobile" >
+        mobile
+      </isNotNull>
+      <isNotNull prepend="," property="replyMobile" >
+        reply_mobile
+      </isNotNull>
+      <isNotNull prepend="," property="orderStatus" >
+        order_status
+      </isNotNull>
+      <isNotNull prepend="," property="auditStatus" >
+        audit_status
+      </isNotNull>
+      <isNotNull prepend="," property="orderAmount" >
+        order_amount
+      </isNotNull>
+      <isNotNull prepend="," property="promotionalDiscount" >
+        promotional_discount
+      </isNotNull>
+      <isNotNull prepend="," property="couponDiscount" >
+        coupon_discount
+      </isNotNull>
+      <isNotNull prepend="," property="integrationDiscount" >
+        integration_discount
+      </isNotNull>
+      <isNotNull prepend="," property="useIntegration" >
+        use_integration
+      </isNotNull>
+      <isNotNull prepend="," property="adjustAmount" >
+        adjust_amount
+      </isNotNull>
+      <isNotNull prepend="," property="rxImgUrl" >
+        rx_img_url
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt
+      </isNotNull>
+      <isNotNull prepend="," property="source" >
+        source
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        remark
+      </isNotNull>
+      <isNotNull prepend="," property="cancelRemark" >
+        cancel_remark
+      </isNotNull>
+      <isNotNull prepend="," property="updateUser" >
+        update_user
+      </isNotNull>
+      <isNotNull prepend="," property="updateDt" >
+        update_dt
+      </isNotNull>
+      <isNotNull prepend="," property="orderId" >
+        order_id
+      </isNotNull>
+      <isNotNull prepend="," property="freight" >
+        freight
+      </isNotNull>
+      <isNotNull prepend="," property="cancelDt" >
+        cancel_dt
+      </isNotNull>
+      <isNotNull prepend="," property="isEnd" >
+        is_end
+      </isNotNull>
+      )
+    </dynamic>
+    values
+    <dynamic prepend="(" >
+      <isNotNull prepend="," property="id" >
+        #id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="orderSn" >
+        #orderSn:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="goodid" >
+        #goodid:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="goodPrice" >
+        #goodPrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="num" >
+        #num:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="receiver" >
+        #receiver:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        #areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="areaName" >
+        #areaName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="detailedAddress" >
+        #detailedAddress:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="longitude" >
+        #longitude:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="latitude" >
+        #latitude:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="storeId" >
+        #storeId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mobile" >
+        #mobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="replyMobile" >
+        #replyMobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="orderStatus" >
+        #orderStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="auditStatus" >
+        #auditStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="orderAmount" >
+        #orderAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="promotionalDiscount" >
+        #promotionalDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="couponDiscount" >
+        #couponDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="integrationDiscount" >
+        #integrationDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="useIntegration" >
+        #useIntegration:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="adjustAmount" >
+        #adjustAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="rxImgUrl" >
+        #rxImgUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="source" >
+        #source:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        #remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cancelRemark" >
+        #cancelRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updateUser" >
+        #updateUser:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updateDt" >
+        #updateDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="orderId" >
+        #orderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="freight" >
+        #freight:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="cancelDt" >
+        #cancelDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="isEnd" >
+        #isEnd:INTEGER#
+      </isNotNull>
+      )
+    </dynamic>
+	<selectKey resultClass="long" keyProperty="id"> 
+		select LAST_INSERT_ID()
+	</selectKey>
+  </insert>
+
+  <select id="ibatorgenerated_countByExample" parameterClass="com.rc.portal.vo.RxTReserveOrderExample" resultClass="java.lang.Integer" >
+    select count(*) from rx_t_reserve_order
+    <include refid="rx_t_reserve_order.ibatorgenerated_Example_Where_Clause" />
+  </select>
+  <update id="ibatorgenerated_updateByExampleSelective" >
+    update rx_t_reserve_order
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="record.id" >
+        id = #record.id:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.orderSn" >
+        order_sn = #record.orderSn:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.goodid" >
+        goodid = #record.goodid:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.goodPrice" >
+        good_price = #record.goodPrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.num" >
+        num = #record.num:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.memberId" >
+        member_id = #record.memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.receiver" >
+        receiver = #record.receiver:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.areaId" >
+        area_id = #record.areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.areaName" >
+        area_name = #record.areaName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.detailedAddress" >
+        detailed_address = #record.detailedAddress:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.longitude" >
+        longitude = #record.longitude:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.latitude" >
+        latitude = #record.latitude:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.storeId" >
+        store_id = #record.storeId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.mobile" >
+        mobile = #record.mobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.replyMobile" >
+        reply_mobile = #record.replyMobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.orderStatus" >
+        order_status = #record.orderStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.auditStatus" >
+        audit_status = #record.auditStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.orderAmount" >
+        order_amount = #record.orderAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.promotionalDiscount" >
+        promotional_discount = #record.promotionalDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.couponDiscount" >
+        coupon_discount = #record.couponDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.integrationDiscount" >
+        integration_discount = #record.integrationDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.useIntegration" >
+        use_integration = #record.useIntegration:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.adjustAmount" >
+        adjust_amount = #record.adjustAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.rxImgUrl" >
+        rx_img_url = #record.rxImgUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.createDt" >
+        create_dt = #record.createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.source" >
+        source = #record.source:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="record.remark" >
+        remark = #record.remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cancelRemark" >
+        cancel_remark = #record.cancelRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updateUser" >
+        update_user = #record.updateUser:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="record.updateDt" >
+        update_dt = #record.updateDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.orderId" >
+        order_id = #record.orderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="record.freight" >
+        freight = #record.freight:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="record.cancelDt" >
+        cancel_dt = #record.cancelDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="record.isEnd" >
+        is_end = #record.isEnd:INTEGER#
+      </isNotNull>
+    </dynamic>
+    <isParameterPresent >
+      <include refid="rx_t_reserve_order.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByExample" >
+    update rx_t_reserve_order
+    set id = #record.id:BIGINT#,
+      order_sn = #record.orderSn:VARCHAR#,
+      goodid = #record.goodid:BIGINT#,
+      good_price = #record.goodPrice:DECIMAL#,
+      num = #record.num:INTEGER#,
+      member_id = #record.memberId:BIGINT#,
+      receiver = #record.receiver:VARCHAR#,
+      area_id = #record.areaId:BIGINT#,
+      area_name = #record.areaName:VARCHAR#,
+      detailed_address = #record.detailedAddress:VARCHAR#,
+      longitude = #record.longitude:VARCHAR#,
+      latitude = #record.latitude:VARCHAR#,
+      store_id = #record.storeId:VARCHAR#,
+      mobile = #record.mobile:VARCHAR#,
+      reply_mobile = #record.replyMobile:VARCHAR#,
+      order_status = #record.orderStatus:INTEGER#,
+      audit_status = #record.auditStatus:INTEGER#,
+      order_amount = #record.orderAmount:DECIMAL#,
+      promotional_discount = #record.promotionalDiscount:DECIMAL#,
+      coupon_discount = #record.couponDiscount:DECIMAL#,
+      integration_discount = #record.integrationDiscount:DECIMAL#,
+      use_integration = #record.useIntegration:INTEGER#,
+      adjust_amount = #record.adjustAmount:DECIMAL#,
+      rx_img_url = #record.rxImgUrl:VARCHAR#,
+      create_dt = #record.createDt:TIMESTAMP#,
+      source = #record.source:INTEGER#,
+      remark = #record.remark:VARCHAR#,
+      cancel_remark = #record.cancelRemark:VARCHAR#,
+      update_user = #record.updateUser:VARCHAR#,
+      update_dt = #record.updateDt:TIMESTAMP#,
+      order_id = #record.orderId:BIGINT#,
+      freight = #record.freight:DECIMAL#,
+      cancel_dt = #record.cancelDt:TIMESTAMP#,
+      is_end = #record.isEnd:INTEGER#
+    <isParameterPresent >
+      <include refid="rx_t_reserve_order.ibatorgenerated_Example_Where_Clause" />
+    </isParameterPresent>
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKeySelective" parameterClass="com.rc.portal.vo.RxTReserveOrder" >
+    update rx_t_reserve_order
+    <dynamic prepend="set" >
+      <isNotNull prepend="," property="orderSn" >
+        order_sn = #orderSn:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="goodid" >
+        goodid = #goodid:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="goodPrice" >
+        good_price = #goodPrice:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="num" >
+        num = #num:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="memberId" >
+        member_id = #memberId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="receiver" >
+        receiver = #receiver:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="areaId" >
+        area_id = #areaId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="areaName" >
+        area_name = #areaName:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="detailedAddress" >
+        detailed_address = #detailedAddress:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="longitude" >
+        longitude = #longitude:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="latitude" >
+        latitude = #latitude:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="storeId" >
+        store_id = #storeId:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="mobile" >
+        mobile = #mobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="replyMobile" >
+        reply_mobile = #replyMobile:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="orderStatus" >
+        order_status = #orderStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="auditStatus" >
+        audit_status = #auditStatus:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="orderAmount" >
+        order_amount = #orderAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="promotionalDiscount" >
+        promotional_discount = #promotionalDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="couponDiscount" >
+        coupon_discount = #couponDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="integrationDiscount" >
+        integration_discount = #integrationDiscount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="useIntegration" >
+        use_integration = #useIntegration:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="adjustAmount" >
+        adjust_amount = #adjustAmount:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="rxImgUrl" >
+        rx_img_url = #rxImgUrl:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="createDt" >
+        create_dt = #createDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="source" >
+        source = #source:INTEGER#
+      </isNotNull>
+      <isNotNull prepend="," property="remark" >
+        remark = #remark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="cancelRemark" >
+        cancel_remark = #cancelRemark:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updateUser" >
+        update_user = #updateUser:VARCHAR#
+      </isNotNull>
+      <isNotNull prepend="," property="updateDt" >
+        update_dt = #updateDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="orderId" >
+        order_id = #orderId:BIGINT#
+      </isNotNull>
+      <isNotNull prepend="," property="freight" >
+        freight = #freight:DECIMAL#
+      </isNotNull>
+      <isNotNull prepend="," property="cancelDt" >
+        cancel_dt = #cancelDt:TIMESTAMP#
+      </isNotNull>
+      <isNotNull prepend="," property="isEnd" >
+        is_end = #isEnd:INTEGER#
+      </isNotNull>
+    </dynamic>
+    where id = #id:BIGINT#
+  </update>
+  <update id="ibatorgenerated_updateByPrimaryKey" parameterClass="com.rc.portal.vo.RxTReserveOrder" >
+    update rx_t_reserve_order
+    set order_sn = #orderSn:VARCHAR#,
+      goodid = #goodid:BIGINT#,
+      good_price = #goodPrice:DECIMAL#,
+      num = #num:INTEGER#,
+      member_id = #memberId:BIGINT#,
+      receiver = #receiver:VARCHAR#,
+      area_id = #areaId:BIGINT#,
+      area_name = #areaName:VARCHAR#,
+      detailed_address = #detailedAddress:VARCHAR#,
+      longitude = #longitude:VARCHAR#,
+      latitude = #latitude:VARCHAR#,
+      store_id = #storeId:VARCHAR#,
+      mobile = #mobile:VARCHAR#,
+      reply_mobile = #replyMobile:VARCHAR#,
+      order_status = #orderStatus:INTEGER#,
+      audit_status = #auditStatus:INTEGER#,
+      order_amount = #orderAmount:DECIMAL#,
+      promotional_discount = #promotionalDiscount:DECIMAL#,
+      coupon_discount = #couponDiscount:DECIMAL#,
+      integration_discount = #integrationDiscount:DECIMAL#,
+      use_integration = #useIntegration:INTEGER#,
+      adjust_amount = #adjustAmount:DECIMAL#,
+      rx_img_url = #rxImgUrl:VARCHAR#,
+      create_dt = #createDt:TIMESTAMP#,
+      source = #source:INTEGER#,
+      remark = #remark:VARCHAR#,
+      cancel_remark = #cancelRemark:VARCHAR#,
+      update_user = #updateUser:VARCHAR#,
+      update_dt = #updateDt:TIMESTAMP#,
+      order_id = #orderId:BIGINT#,
+      freight = #freight:DECIMAL#,
+      cancel_dt = #cancelDt:TIMESTAMP#,
+      is_end = #isEnd:INTEGER#
+    where id = #id:BIGINT#
+  </update>
+  <select id="selectByExampleByPage" resultMap="ibatorgenerated_BaseResultMap" parameterClass="com.rc.portal.vo.RxTReserveOrderExample" >
+                    select id, order_sn, goodid, good_price, num, member_id, receiver, area_id, area_name,
+                      detailed_address, longitude, latitude, store_id, mobile, reply_mobile, order_status,
+                      audit_status, order_amount, promotional_discount, coupon_discount, integration_discount,
+                      use_integration, adjust_amount, rx_img_url, create_dt, source, remark, cancel_remark,
+                      update_user, update_dt, order_id, freight, cancel_dt, is_end
+                    from rx_t_reserve_order
+                    <isParameterPresent >
+                      <include refid="rx_t_reserve_order.ibatorgenerated_Example_Where_Clause" />
+                      <isNotNull property="orderByClause" >
+                        order by $orderByClause$
+                      </isNotNull>
+                    </isParameterPresent>
+					limit $pageInfo.start$ ,$pageInfo.pageSize$
+  </select>
+</sqlMap>

@@ -1,0 +1,113 @@
+@charset"utf-8";
+/*login*/
+.login-bg{background: #f8f8f8;}
+.login-header{border-bottom:3px solid #00aaa0; height:83px;}
+.login-header-main{width:1090px; margin:0 auto;}
+.login-logo{margin-top:19px;}
+.header-list{padding:0 50px 0 10px; margin-top:22px; position: relative;}
+.header-list li{float:left; font-size: 14px;margin-left:56px; vertical-align: middle;}
+.header-list li b{height:40px; width:40px; margin-right:7px; display: inline-block;background: url("../images/login/login_header_icon.png") no-repeat;}
+.header-list li:nth-of-type(1) b{background-position: 0 0;}
+.header-list li:nth-of-type(2) b{background-position: 0 -40px;}
+.header-list li:nth-of-type(3) b{background-position: 0 -80px;}
+.header-list li:nth-of-type(4) b{background-position: 0 -120px;}
+.header-list li:nth-of-type(5) b{background-position: 0 -160px;}
+.header-list li span{height:40px; line-height:40px; display:block; float:right;}
+.line-left{position: absolute; top:10px; left:0;  border-left:1px solid #d7d7d7; width:0; height:20px;}
+/*login-wrap*/
+.login-wrap{width:1088px; overflow: hidden; margin:55px auto 0; border:1px solid #d7d7d7; background: #FFF;}
+.login-title{height:68px;line-height:67px; border-bottom:1px solid #d7d7d7; padding:0 48px;}
+.login-title h2{ font-size:18px;}
+.login-title h2 b{font-size:12px; color:#999;}
+.login-title span{font-size:18px; color:#999;}
+.login-title span a{color:#00aaa0;}
+.login-title span a:hover{text-decoration: underline;}
+/*login-content*/
+.login-content{padding:45px 0 85px; position: relative;}
+.login-list-left{padding-left:50px;}
+.login-list-center{padding-left:368px}
+.import-message{height:34px; padding-bottom:32px;}
+.import-message dt{float:left; line-height:34px; width:60px;}
+.import-message dd{float:left; position: relative; border:1px solid #dcdcdc; width:244px; height:20px; padding:6px 20px; }
+.impart-text{height:20px; line-height:20px; width:244px;overflow: hidden; color:#999;}
+.import-correct{position: absolute; top:50%; margin-top:-11px; right:-30px; display: block; height:22px; width:22px; background: url("../images/login/login_ts_icon01.png") no-repeat;}
+.import-wrong{position: absolute; bottom:-25px; left:0px; display: block; height:22px; line-height:22px; padding-left:30px; background: url("../images/login/login_ts_icon02.png") no-repeat; color:#e94715; width:254px;}
+.import-message dd.border-red{border:1px solid #e94715;}
+.import-message dd.impart-dd{width:72px; position: relative;}
+.impart-code{width:72px; float:left;  line-height: 20px;}
+.see-no{position: absolute; top:7px; right:-178px; display: block;}
+.code-img{float:left; width:91px; height:35px; position: absolute; top:-1px; left:120px;}
+.login-button{margin-bottom:16px;}
+.login-button input{height:36px; line-height:36px; width:347px; color:#FFF; font-size:18px; border-radius:5px; text-align: center; background: #00aaa0;}
+.forget-password{width:347px;}
+.forget-password input{vertical-align: middle;}
+.forget-password a{float:right; color:#00aaa0;}
+.forget-password a:hover{text-decoration: underline;}
+.other-id{width:347px; border-top:1px solid #e7e7e7;height:0; position: relative; margin-top:80px;}
+.other-id span{position: absolute; left:50%; top:-10px; margin-left:-77px; width:134px; display: block; background: #FFF; padding:0 10px; color:#222;}
+.other-list{margin-top:30px; overflow: hidden;}
+.other-list ul li{width:115px; float:left; text-align: center;}
+.other-list ul li b{display: block; height:36px; width:36px; background: url("../images/login/login_list_iocn.png") no-repeat; margin:0 0 10px 39px;}
+.other-list ul li b.login-qq{background-position: 0 0;}
+.other-list ul li b.login-wx{background-position: 0 -36px;}
+.other-list ul li b.login-ykt{background-position: 0 -72px;}
+.login-banner{width:500px; height:300px; position: absolute; top:130px; right:50px;}
+.other-list ul li a:hover{color:#00aaa0;}
+/*login-footer*/
+.login-footer{width:1090px; margin:30px auto 50px;}
+.login-footer p{text-align: center; line-height:20px;}
+
+/*register*/
+.iphone-code{position: absolute;  right:0; top:0; display: block; width:74px; height:32px; line-height:32px;  text-align: center; background: #f3f5f7; border-left:1px solid #dcdcdc; cursor: pointer;}
+.padding16{padding-bottom:16px;}
+.read-clause{margin-bottom:16px;}
+.read-clause a{float:none;}
+.register-button input{background: #fe3410;}
+
+/*forget-password*/
+.forget-logo{margin-top:10px; display: inline-block; float:left;}
+.forget-tit{font-size:18px; margin-left:20px; float:left;}
+.process-bra{margin:65px 0 70px 250px;}
+.process-bra ul li{float:left; position: relative;  }
+.state-tip b{height:28px; width:28px; display: block; text-align: center; line-height:28px; color:#FFF; background: #d7d7d7; border-radius:50%; margin-top:3px; position: relative;}
+.bra-line{width:117px; height:0; border-top:1px solid #d7d7d7; margin-top:17px;}
+.finish-tip b{background: #00aaa0;border:3px solid #82d5d1;margin-top:0;}
+.finish-line{border-top:1px solid #00aaa0;}
+.state-tip span{display: block; position:absolute; top:40px; left:50%; margin-left:-40px; text-align: center; color:#222; width:80px;}
+.state-tip span.doing-tit{color:#00aaa0;}
+.selector-mode li{margin-bottom:30px; position: relative;}
+.selector-mode li span{color:#fe4310;}
+.selector-mode li p{line-height:20px;}
+.selector-mode li p:nth-child(2){color:#d7d7d7;}
+.selector-mode li input{position: absolute; top:4px; left:250px; display: block; height:36px; width:76px; text-align: center; line-height:36px; background: #00aaa0; color:#FFF; border-radius:5px; cursor: pointer; font-size:14px;}
+.for-btn{margin-top:20px;}
+.for-btn input{width:155px; cursor: pointer;}
+.for-btn a,.for-btn b{margin-left:80px; font-size:14px;}
+.for-btn b{font-size:12px; color:#999;}
+.for-btn a:hover{color:#00aaa0;}
+.iphone-num{color:#d7d7d7; position: absolute; top:-23px; left:0;}
+.ts-p{margin-bottom:30px;}
+.back-num{margin-left:55px;}
+.back-index{margin-left:105px;}
+.succeed-tit{text-align: center; font-size:24px; color:#00aaa0;}
+.ts-jf{text-align: center; margin-top:40px; font-size:14px; color:#999;}
+.back-5{text-align: center; margin-top:20px; color:#999;}
+.succeed-btn{margin-left:90px;}
+
+.login-button .back-index-a{display:block; height:36px; line-height:36px; width:155px; color:#FFF; font-size:18px; border-radius:5px; text-align: center; background: #00aaa0; margin-left:0;}
+.login-button .back-index-a:hover{color:#FFF;}
+
+/*binding*/
+.process-bra.binding-bra{margin-left:390px;}
+.binding-box{padding-left:410px;}
+.binding-button input{width:286px;}
+.import-message dd.binding-icon01,.import-message dd.binding-icon02,.import-message dd.binding-icon03{background: url("../images/login/binding_icon01.png") no-repeat 5px center; padding-left:30px; width:234px;}
+.import-message dd.binding-icon02{background: url("../images/login/binding_icon02.png") no-repeat 5px center;}
+.import-message dd.binding-icon03{background: url("../images/login/binding_icon03.png") no-repeat 5px center;}
+.import-message dd.binding-icon04{background: url("../images/member/member_icon01.png") no-repeat; background-position: 0 -91px; padding-left:30px; width:234px;}
+
+.ts-email{margin-bottom:10px; margin-left:68px;}
+.ts-email a{color:#00aaa0;}
+.reset-password{margin-bottom:20px; color:#999;}
+.reset-btn b{margin-left:20px;}
+.reset-email{margin-bottom:20px; color:#666; font-size:14px; font-weight: bold;}
